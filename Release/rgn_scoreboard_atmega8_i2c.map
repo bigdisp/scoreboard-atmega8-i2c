@@ -1,0 +1,501 @@
+Archive member included because of file (symbol)
+
+d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+                              ./src/anzeigeboard.o (__udivmodqi4)
+d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                              d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
+d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                              ./src/anzeigeboard.o (__do_copy_data)
+d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                              ./src/i2c.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+i2c_buf             0x4               ./src/i2c.o
+
+Discarded input sections
+
+ .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .text          0x00000000        0x0 ./src/anzeigeboard.o
+ .data          0x00000000        0x0 ./src/anzeigeboard.o
+ .bss           0x00000000        0x0 ./src/anzeigeboard.o
+ .text.anzeige_write
+                0x00000000        0x0 ./src/anzeigeboard.o
+ .text.anzeige_write_direct
+                0x00000000        0x0 ./src/anzeigeboard.o
+ .text          0x00000000        0x0 ./src/i2c.o
+ .data          0x00000000        0x0 ./src/i2c.o
+ .bss           0x00000000        0x0 ./src/i2c.o
+ .text.i2c_get_status
+                0x00000000        0x0 ./src/i2c.o
+ .text.i2c_busy
+                0x00000000        0x0 ./src/i2c.o
+ .text.i2c_slave_start_rx
+                0x00000000        0x0 ./src/i2c.o
+ .text          0x00000000        0x0 ./src/interrupt.o
+ .data          0x00000000        0x0 ./src/interrupt.o
+ .bss           0x00000000        0x0 ./src/interrupt.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+ .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+ .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+ .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+ .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD ./src/anzeigeboard.o
+LOAD ./src/i2c.o
+LOAD ./src/interrupt.o
+LOAD ./src/main.o
+LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libm.a
+LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
+LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000      0x4f0
+ *(.vectors)
+ .vectors       0x00000000       0x26 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table
+                0x00000026      0x1f6 ./src/anzeigeboard.o
+ *(.progmem*)
+                0x0000021c                . = ALIGN (0x2)
+                0x0000021c                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000021c        0x0 linker stubs
+ *(.trampolines*)
+                0x0000021c                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000021c                __ctors_start = .
+ *(.ctors)
+                0x0000021c                __ctors_end = .
+                0x0000021c                __dtors_start = .
+ *(.dtors)
+                0x0000021c                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000021c        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x0000021c                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000021c        0xc d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x00000228       0x16 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                0x00000228                __do_copy_data
+ .init4         0x0000023e       0x10 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x0000023e                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x0000024e        0x4 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x00000252        0x2 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000252                __vector_1
+                0x00000252                __vector_12
+                0x00000252                __bad_interrupt
+                0x00000252                __vector_6
+                0x00000252                __vector_3
+                0x00000252                __vector_11
+                0x00000252                __vector_13
+                0x00000252                __vector_7
+                0x00000252                __vector_5
+                0x00000252                __vector_4
+                0x00000252                __vector_9
+                0x00000252                __vector_2
+                0x00000252                __vector_15
+                0x00000252                __vector_8
+                0x00000252                __vector_14
+                0x00000252                __vector_10
+                0x00000252                __vector_16
+                0x00000252                __vector_18
+                0x00000254                . = ALIGN (0x2)
+ *(.text.*)
+ .text.anzeige_init
+                0x00000254        0x6 ./src/anzeigeboard.o
+                0x00000254                anzeige_init
+ .text.anzeige_convert
+                0x0000025a       0xb6 ./src/anzeigeboard.o
+                0x0000025a                anzeige_convert
+ .text.anzeige_write_convert
+                0x00000310        0x8 ./src/anzeigeboard.o
+                0x00000310                anzeige_write_convert
+ .text.i2c_init
+                0x00000318       0x22 ./src/i2c.o
+                0x00000318                i2c_init
+ .text.i2c_get_status_register
+                0x0000033a        0x6 ./src/i2c.o
+                0x0000033a                i2c_get_status_register
+ .text.i2c_wait_busy
+                0x00000340        0xc ./src/i2c.o
+                0x00000340                i2c_wait_busy
+ .text.i2c_slave_start_tx_data
+                0x0000034c       0x38 ./src/i2c.o
+                0x0000034c                i2c_slave_start_tx_data
+ .text.i2c_get_data
+                0x00000384       0x40 ./src/i2c.o
+                0x00000384                i2c_get_data
+ .text.__vector_17
+                0x000003c4       0xd4 ./src/interrupt.o
+                0x000003c4                __vector_17
+ .text.main     0x00000498       0x54 ./src/main.o
+                0x00000498                main
+                0x000004ec                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000004ec        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x000004ec                exit
+                0x000004ec                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000004ec        0x4 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000004f0                _etext = .
+
+.data           0x00800060        0x2 load address 0x000004f0
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ *(.data*)
+ .data.i2c_status
+                0x00800060        0x1 ./src/i2c.o
+                0x00800060                i2c_status
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x00800062                . = ALIGN (0x2)
+ *fill*         0x00800061        0x1 00
+                0x00800062                _edata = .
+                0x00800062                PROVIDE (__data_end, .)
+
+.bss            0x00800062        0x7
+                0x00800062                PROVIDE (__bss_start, .)
+ *(.bss)
+ *(.bss*)
+ .bss.i2c_msg_size
+                0x00800062        0x1 ./src/i2c.o
+                0x00800062                i2c_msg_size
+ .bss.i2c_status_register
+                0x00800063        0x1 ./src/i2c.o
+                0x00800063                i2c_status_register
+ .bss.i2c_buf_ptr.1252
+                0x00800064        0x1 ./src/interrupt.o
+ *(COMMON)
+ COMMON         0x00800065        0x4 ./src/i2c.o
+                0x00800065                i2c_buf
+                0x00800069                PROVIDE (__bss_end, .)
+                0x000004f0                __data_load_start = LOADADDR (.data)
+                0x000004f2                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x00800069        0x0
+                0x00800069                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x00800069                PROVIDE (__noinit_end, .)
+                0x00800069                _end = .
+                0x00800069                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info
+ *(.debug_info)
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.debug_frame
+ *(.debug_frame)
+
+.debug_str
+ *(.debug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(rgn_scoreboard_atmega8_i2c.elf elf32-avr)
+LOAD linker stubs
+
+Cross Reference Table
+
+Symbol                                            File
+__bad_interrupt                                   d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__bss_end                                         d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bss_start                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__data_end                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_load_start                                 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__data_start                                      d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_clear_bss                                    d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                                                  ./src/interrupt.o
+                                                  ./src/i2c.o
+__do_copy_data                                    d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                                                  ./src/i2c.o
+                                                  ./src/anzeigeboard.o
+__heap_end                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__init                                            d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__stack                                           d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__udivmodqi4                                      d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+                                                  ./src/anzeigeboard.o
+__vector_1                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_10                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_11                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_12                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_13                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_14                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_15                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_16                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_17                                       ./src/interrupt.o
+                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_18                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_2                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_3                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_4                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_5                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_6                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_7                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_8                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_9                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_default                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vectors                                         d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+_exit                                             d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+anzeige_convert                                   ./src/anzeigeboard.o
+anzeige_init                                      ./src/anzeigeboard.o
+                                                  ./src/main.o
+anzeige_write                                     ./src/anzeigeboard.o
+anzeige_write_convert                             ./src/anzeigeboard.o
+                                                  ./src/main.o
+anzeige_write_direct                              ./src/anzeigeboard.o
+exit                                              d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+i2c_buf                                           ./src/interrupt.o
+                                                  ./src/i2c.o
+i2c_busy                                          ./src/i2c.o
+i2c_get_data                                      ./src/i2c.o
+                                                  ./src/main.o
+i2c_get_status                                    ./src/i2c.o
+i2c_get_status_register                           ./src/i2c.o
+                                                  ./src/main.o
+i2c_init                                          ./src/i2c.o
+                                                  ./src/main.o
+i2c_msg_size                                      ./src/i2c.o
+                                                  ./src/interrupt.o
+i2c_slave_start_rx                                ./src/i2c.o
+i2c_slave_start_tx_data                           ./src/i2c.o
+                                                  ./src/main.o
+i2c_status                                        ./src/i2c.o
+                                                  ./src/interrupt.o
+i2c_status_register                               ./src/i2c.o
+                                                  ./src/interrupt.o
+i2c_wait_busy                                     ./src/i2c.o
+                                                  ./src/main.o
+main                                              ./src/main.o
+                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
