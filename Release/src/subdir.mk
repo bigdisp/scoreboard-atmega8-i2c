@@ -7,19 +7,22 @@ C_SRCS += \
 ../src/anzeigeboard.c \
 ../src/i2c.c \
 ../src/interrupt.c \
-../src/main.c 
+../src/main.c \
+../src/pwm.c 
 
 OBJS += \
 ./src/anzeigeboard.o \
 ./src/i2c.o \
 ./src/interrupt.o \
-./src/main.o 
+./src/main.o \
+./src/pwm.o 
 
 C_DEPS += \
 ./src/anzeigeboard.d \
 ./src/i2c.d \
 ./src/interrupt.d \
-./src/main.d 
+./src/main.d \
+./src/pwm.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

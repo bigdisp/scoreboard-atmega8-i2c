@@ -6,6 +6,7 @@
  */
 
 #include "anzeigeboard.h"
+#include "pwm.h"
 
 //Segment definititions
 //Depend on push-order in schieberegister.c
@@ -54,6 +55,7 @@ void anzeige_init()
 {
 	//Everything is an output, except for the nonexisting SEG_PT:
 	ANZ_DDR = (0xFF ^ (1 << SEG_PT));
+	//TODO: This must be changed for dual display
 }
 
 
@@ -291,6 +293,19 @@ uint8_t anzeige_convert(uint8_t ziffer)
 	return retval;
 }
 
+// A little bit of Define Magic for compiling/not compiling PWM
+#if PWM_ENABLED
+	#define anzeige_pwm_einer(symbol) pwm_update_port1((symbol))
+	#if PWM_PORT2_ACTIVE
+		#define anzeige_pwm_zehner(symbol) pwm_update_port2((symbol))
+	#else
+		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
+	#endif
+#else
+	#define anzeige_pwm_einer(symbol)  ANZ_PORT_EINER  = (symbol)
+	#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
+#endif
+
 
 uint8_t anzeige_write(uint8_t zahl)
 {
@@ -303,14 +318,14 @@ uint8_t anzeige_write(uint8_t zahl)
 		zehner = 9;
 
 	//Now simply turn on the GPIO Ports accordingly
-	ANZ_PORT_ZEHNER = anzeige_convert(zehner);
-	ANZ_PORT_EINER	= anzeige_convert(einer);
+	anzeige_pwm_zehner(anzeige_convert(zehner));
+	anzeige_pwm_einer(anzeige_convert(einer));
 	return 1;
 }
 
 uint8_t anzeige_write_convert(uint8_t symbol)
 {
-	ANZ_PORT_EINER = anzeige_convert(symbol);
+	anzeige_pwm_einer(anzeige_convert(symbol));
 	return 1;
 }
 
@@ -328,6 +343,6 @@ uint8_t anzeige_write_direct(uint8_t segments)
 	tmp |= (segments & (1 << 6)) ? SEG_G : 0;
 	tmp |= (segments & (1 << 7)) ? SEG_PT: 0;
 
-	ANZ_PORT_EINER = tmp;
+	anzeige_pwm_einer(tmp);
 	return 1;
 }

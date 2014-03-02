@@ -11,6 +11,9 @@
 #include "anzeigeboard.h"
 #include "i2c.h"
 
-
+typedef union conv_8_16{
+	uint8_t byte[2];
+	uint16_t word;
+} conv_8bit_16bit;
 
 #endif /* MAIN_H_ */
