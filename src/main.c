@@ -30,7 +30,9 @@ int main()
 	pwm_init(pwm_on,pwm_off); //Initialize PWM at 50% and CLK / 2000 Cycles (for 1 MHz -> 500 Hz PWM)
 	pwm_enable(1);
 
-	anzeige_write_convert('-');
+	//Second Row of lights enabled:
+	uint8_t second_row = 1;
+	anzeige_write_convert('-', second_row);
 
 	// Enable Interrupts
 	sei();
@@ -137,10 +139,14 @@ int main()
 					pwm_off = 3000;
 					pwm_set_timing(pwm_on, pwm_off);
 				}
+				else if(i2c_msg[0] == 0x08)
+				{
+					second_row = i2c_msg[1];
+				}
 				else
 				{
 					//Whatever is in the first slot, use as output:
-					anzeige_write_convert(i2c_msg[0]);
+					anzeige_write_convert(i2c_msg[0], second_row);
 				}
 			}
 

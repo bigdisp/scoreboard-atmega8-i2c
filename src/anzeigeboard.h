@@ -39,11 +39,12 @@ typedef enum _anzeigen
 } e_anzeigen;
 
 // This function assumes identical pinout on two ports and can only output numbers
-uint8_t anzeige_write(uint8_t zahl);
+uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point);
 
 // These functions can output anything.
 // anzeige_write_convert will take an ASCII Symbol and convert it to 7 Segment display (if possible)
-uint8_t anzeige_write_convert(uint8_t symbol);
+uint8_t anzeige_write_convert(uint8_t symbol, uint8_t enable_point);
+
 // anzeige_write_direct will take the binary representation of segments, numbered A-G in LSB -> MSB
 uint8_t anzeige_write_direct(uint8_t segments);
 void anzeige_init();

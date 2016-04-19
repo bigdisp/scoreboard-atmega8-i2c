@@ -54,7 +54,8 @@
 void anzeige_init()
 {
 	//Everything is an output, except for the nonexisting SEG_PT:
-	ANZ_DDR = (0xFF ^ (1 << SEG_PT));
+	//ANZ_DDR = (0xFF ^ (1 << SEG_PT));
+	ANZ_DDR = 0xFF;
 	//TODO: This must be changed for dual display
 }
 
@@ -307,7 +308,7 @@ uint8_t anzeige_convert(uint8_t ziffer)
 #endif
 
 
-uint8_t anzeige_write(uint8_t zahl)
+uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 {
 	//Split necessary:
 	uint8_t zehner, einer;
@@ -317,15 +318,29 @@ uint8_t anzeige_write(uint8_t zahl)
 	if(zehner > 9)
 		zehner = 9;
 
+	zehner = anzeige_convert(zehner);
+	einer  = anzeige_convert(einer);
+
+	if(enable_point)
+	{
+		einer |= SEG_PT;
+	}
+
 	//Now simply turn on the GPIO Ports accordingly
-	anzeige_pwm_zehner(anzeige_convert(zehner));
-	anzeige_pwm_einer(anzeige_convert(einer));
+	anzeige_pwm_zehner(zehner);
+	anzeige_pwm_einer(einer);
 	return 1;
 }
 
-uint8_t anzeige_write_convert(uint8_t symbol)
+uint8_t anzeige_write_convert(uint8_t symbol, uint8_t enable_point)
 {
-	anzeige_pwm_einer(anzeige_convert(symbol));
+	uint8_t einer;
+	einer = anzeige_convert(symbol);
+	if(enable_point)
+	{
+		einer |= SEG_PT;
+	}
+	anzeige_pwm_einer(einer);
 	return 1;
 }
 
