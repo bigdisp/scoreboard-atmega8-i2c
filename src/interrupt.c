@@ -46,7 +46,7 @@ ISR(TWI_vect)
 	}
 	else if(TWSR == TW_SR_DATA_ACK) //0x80
 	{
-		//Eigentlich sollte das gar nicht ausgeführt werden
+		//Eigentlich sollte das gar nicht ausgefï¿½hrt werden
 		//Own SLA+W was received before, Now data arrived and was ACK'ed
 		//Store the result for the display
 		//The display must signal that it is ready before next ACK
@@ -77,7 +77,7 @@ extern uint8_t i2c_msg_size;
 extern uint8_t i2c_status;
 extern u_i2c_status i2c_status_register;
 
-ISR(SIG_2WIRE_SERIAL)
+ISR(TWI_vect)
 {
 	static uint8_t i2c_buf_ptr;
 

@@ -1,12 +1,12 @@
 Archive member included because of file (symbol)
 
-d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
                               ./src/anzeigeboard.o (__udivmodqi4)
-d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                              d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
-d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o (exit)
+/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
                               ./src/anzeigeboard.o (__do_copy_data)
-d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
                               ./src/i2c.o (__do_clear_bss)
 
 Allocating common symbols
@@ -20,74 +20,117 @@ pwm_t_off           0x2               ./src/pwm.o
 
 Discarded input sections
 
- .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
- .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
- .text          0x00000000        0x0 ./src/anzeigeboard.o
- .data          0x00000000        0x0 ./src/anzeigeboard.o
- .bss           0x00000000        0x0 ./src/anzeigeboard.o
- .text.anzeige_write_direct
-                0x00000000        0x0 ./src/anzeigeboard.o
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .text          0x0000000000000000        0x0 ./src/anzeigeboard.o
+ .bss           0x0000000000000000        0x0 ./src/anzeigeboard.o
+ .text.anzeige_convert
+                0x0000000000000000       0x14 ./src/anzeigeboard.o
  .text.anzeige_write
-                0x00000000        0x0 ./src/anzeigeboard.o
- .text          0x00000000        0x0 ./src/i2c.o
- .data          0x00000000        0x0 ./src/i2c.o
- .bss           0x00000000        0x0 ./src/i2c.o
+                0x0000000000000000       0x3c ./src/anzeigeboard.o
+ .text.anzeige_write_direct
+                0x0000000000000000       0x5a ./src/anzeigeboard.o
+ .text          0x0000000000000000        0x0 ./src/i2c.o
+ .bss           0x0000000000000000        0x0 ./src/i2c.o
  .text.i2c_get_status
-                0x00000000        0x0 ./src/i2c.o
+                0x0000000000000000        0x6 ./src/i2c.o
  .text.i2c_busy
-                0x00000000        0x0 ./src/i2c.o
+                0x0000000000000000        0x6 ./src/i2c.o
  .text.i2c_slave_start_rx
-                0x00000000        0x0 ./src/i2c.o
- .text          0x00000000        0x0 ./src/interrupt.o
- .data          0x00000000        0x0 ./src/interrupt.o
- .bss           0x00000000        0x0 ./src/interrupt.o
- .text          0x00000000        0x0 ./src/main.o
- .data          0x00000000        0x0 ./src/main.o
- .bss           0x00000000        0x0 ./src/main.o
- .text          0x00000000        0x0 ./src/pwm.o
- .data          0x00000000        0x0 ./src/pwm.o
- .bss           0x00000000        0x0 ./src/pwm.o
- .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
- .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
- .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
- .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
- .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
- .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
- .text          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
- .data          0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
- .bss           0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00000000        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x0000000000000000       0x16 ./src/i2c.o
+ .text          0x0000000000000000        0x0 ./src/interrupt.o
+ .bss           0x0000000000000000        0x0 ./src/interrupt.o
+ .text          0x0000000000000000        0x0 ./src/main.o
+ .bss           0x0000000000000000        0x0 ./src/main.o
+ .text          0x0000000000000000        0x0 ./src/pwm.o
+ .bss           0x0000000000000000        0x0 ./src/pwm.o
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.div
+                0x0000000000000000       0x18 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.mul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.div
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.prologue
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.builtins
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.fmul
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc.fixed
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
 
 Memory Configuration
 
 Name             Origin             Length             Attributes
-text             0x00000000         0x00002000         xr
-data             0x00800060         0x0000ffa0         rw !x
-eeprom           0x00810000         0x00010000         rw !x
-fuse             0x00820000         0x00000400         rw !x
-lock             0x00830000         0x00000400         rw !x
-signature        0x00840000         0x00000400         rw !x
-*default*        0x00000000         0xffffffff
+text             0x0000000000000000 0x0000000000002000 xr
+data             0x0000000000800060 0x000000000000ffa0 rw !x
+eeprom           0x0000000000810000 0x0000000000010000 rw !x
+fuse             0x0000000000820000 0x0000000000000400 rw !x
+lock             0x0000000000830000 0x0000000000000400 rw !x
+signature        0x0000000000840000 0x0000000000000400 rw !x
+user_signatures  0x0000000000850000 0x0000000000000400 rw !x
+*default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
 
-LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 LOAD ./src/anzeigeboard.o
 LOAD ./src/i2c.o
 LOAD ./src/interrupt.o
 LOAD ./src/main.o
 LOAD ./src/pwm.o
-LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
-LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libm.a
-LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
-LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
-LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a
+LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libm.a
+START GROUP
+LOAD /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a
+LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libm.a
+LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a
+END GROUP
 
 .hash
  *(.hash)
@@ -179,50 +222,48 @@ LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x6b4
+.text           0x0000000000000000      0x3e4
  *(.vectors)
- .vectors       0x00000000       0x26 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-                0x00000000                __vectors
-                0x00000000                __vector_default
+ .vectors       0x0000000000000000       0x26 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+                0x0000000000000000                __vectors
+                0x0000000000000000                __vector_default
  *(.vectors)
  *(.progmem.gcc*)
- .progmem.gcc_sw_table
-                0x00000026      0x1f6 ./src/anzeigeboard.o
  *(.progmem*)
-                0x0000021c                . = ALIGN (0x2)
-                0x0000021c                __trampolines_start = .
+                0x0000000000000026                . = ALIGN (0x2)
+                0x0000000000000026                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x0000021c        0x0 linker stubs
+ .trampolines   0x0000000000000026        0x0 linker stubs
  *(.trampolines*)
-                0x0000021c                __trampolines_end = .
+                0x0000000000000026                __trampolines_end = .
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x0000021c                __ctors_start = .
+                0x0000000000000026                __ctors_start = .
  *(.ctors)
-                0x0000021c                __ctors_end = .
-                0x0000021c                __dtors_start = .
+                0x0000000000000026                __ctors_end = .
+                0x0000000000000026                __dtors_start = .
  *(.dtors)
-                0x0000021c                __dtors_end = .
+                0x0000000000000026                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x0000021c        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-                0x0000021c                __init
+ .init0         0x0000000000000026        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+                0x0000000000000026                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000021c        0xc d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init2         0x0000000000000026        0xc /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000228       0x16 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-                0x00000228                __do_copy_data
- .init4         0x0000023e       0x10 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-                0x0000023e                __do_clear_bss
+ .init4         0x0000000000000032       0x16 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000032                __do_copy_data
+ .init4         0x0000000000000048       0x10 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000048                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -233,78 +274,76 @@ LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x0000024e        0x4 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .init9         0x0000000000000058        0x4 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
  *(.init9)
  *(.text)
- .text          0x00000252        0x2 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-                0x00000252                __vector_1
-                0x00000252                __vector_12
-                0x00000252                __bad_interrupt
-                0x00000252                __vector_3
-                0x00000252                __vector_11
-                0x00000252                __vector_13
-                0x00000252                __vector_7
-                0x00000252                __vector_5
-                0x00000252                __vector_4
-                0x00000252                __vector_9
-                0x00000252                __vector_2
-                0x00000252                __vector_15
-                0x00000252                __vector_8
-                0x00000252                __vector_14
-                0x00000252                __vector_10
-                0x00000252                __vector_16
-                0x00000252                __vector_18
-                0x00000254                . = ALIGN (0x2)
+ .text          0x000000000000005c        0x2 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+                0x000000000000005c                __vector_1
+                0x000000000000005c                __vector_12
+                0x000000000000005c                __bad_interrupt
+                0x000000000000005c                __vector_3
+                0x000000000000005c                __vector_11
+                0x000000000000005c                __vector_13
+                0x000000000000005c                __vector_7
+                0x000000000000005c                __vector_5
+                0x000000000000005c                __vector_4
+                0x000000000000005c                __vector_9
+                0x000000000000005c                __vector_2
+                0x000000000000005c                __vector_15
+                0x000000000000005c                __vector_8
+                0x000000000000005c                __vector_14
+                0x000000000000005c                __vector_10
+                0x000000000000005c                __vector_16
+                0x000000000000005c                __vector_18
+                0x000000000000005e                . = ALIGN (0x2)
  *(.text.*)
  .text.anzeige_init
-                0x00000254        0x6 ./src/anzeigeboard.o
-                0x00000254                anzeige_init
- .text.anzeige_convert
-                0x0000025a       0xb6 ./src/anzeigeboard.o
-                0x0000025a                anzeige_convert
+                0x000000000000005e        0x6 ./src/anzeigeboard.o
+                0x000000000000005e                anzeige_init
  .text.anzeige_write_convert
-                0x00000310       0x12 ./src/anzeigeboard.o
-                0x00000310                anzeige_write_convert
+                0x0000000000000064       0x1c ./src/anzeigeboard.o
+                0x0000000000000064                anzeige_write_convert
  .text.i2c_init
-                0x00000322       0x22 ./src/i2c.o
-                0x00000322                i2c_init
+                0x0000000000000080       0x22 ./src/i2c.o
+                0x0000000000000080                i2c_init
  .text.i2c_get_status_register
-                0x00000344        0x6 ./src/i2c.o
-                0x00000344                i2c_get_status_register
+                0x00000000000000a2        0x6 ./src/i2c.o
+                0x00000000000000a2                i2c_get_status_register
  .text.i2c_wait_busy
-                0x0000034a        0xc ./src/i2c.o
-                0x0000034a                i2c_wait_busy
+                0x00000000000000a8        0xc ./src/i2c.o
+                0x00000000000000a8                i2c_wait_busy
  .text.i2c_slave_start_tx_data
-                0x00000356       0x38 ./src/i2c.o
-                0x00000356                i2c_slave_start_tx_data
+                0x00000000000000b4       0x30 ./src/i2c.o
+                0x00000000000000b4                i2c_slave_start_tx_data
  .text.i2c_get_data
-                0x0000038e       0x40 ./src/i2c.o
-                0x0000038e                i2c_get_data
+                0x00000000000000e4       0x36 ./src/i2c.o
+                0x00000000000000e4                i2c_get_data
  .text.__vector_17
-                0x000003ce       0xd4 ./src/interrupt.o
-                0x000003ce                __vector_17
+                0x000000000000011a       0xce ./src/interrupt.o
+                0x000000000000011a                __vector_17
  .text.__vector_6
-                0x000004a2       0x68 ./src/interrupt.o
-                0x000004a2                __vector_6
- .text.main     0x0000050a      0x13a ./src/main.o
-                0x0000050a                main
+                0x00000000000001e8       0x68 ./src/interrupt.o
+                0x00000000000001e8                __vector_6
+ .text.startup.main
+                0x0000000000000250      0x126 ./src/main.o
+                0x0000000000000250                main
  .text.pwm_init
-                0x00000644       0x1a ./src/pwm.o
-                0x00000644                pwm_init
+                0x0000000000000376       0x1a ./src/pwm.o
+                0x0000000000000376                pwm_init
  .text.pwm_enable
-                0x0000065e       0x28 ./src/pwm.o
-                0x0000065e                pwm_enable
+                0x0000000000000390       0x28 ./src/pwm.o
+                0x0000000000000390                pwm_enable
  .text.pwm_update_port1
-                0x00000686       0x12 ./src/pwm.o
-                0x00000686                pwm_update_port1
+                0x00000000000003b8       0x10 ./src/pwm.o
+                0x00000000000003b8                pwm_update_port1
  .text.pwm_set_timing
-                0x00000698       0x18 ./src/pwm.o
-                0x00000698                pwm_set_timing
-                0x000006b0                . = ALIGN (0x2)
+                0x00000000000003c8       0x18 ./src/pwm.o
+                0x00000000000003c8                pwm_set_timing
+                0x00000000000003e0                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000006b0        0x0 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                0x000006b0                exit
-                0x000006b0                _exit
+ .fini9         0x00000000000003e0        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x00000000000003e0                exit
+                0x00000000000003e0                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -323,61 +362,72 @@ LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000006b0        0x4 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .fini0         0x00000000000003e0        0x4 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x000006b4                _etext = .
+                0x00000000000003e4                _etext = .
 
-.data           0x00800060        0x2 load address 0x000006b4
-                0x00800060                PROVIDE (__data_start, .)
+.data           0x0000000000800060       0xfc load address 0x00000000000003e4
+                0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .data          0x0000000000800060        0x0 ./src/anzeigeboard.o
+ .data          0x0000000000800060        0x0 ./src/i2c.o
+ .data          0x0000000000800060        0x0 ./src/interrupt.o
+ .data          0x0000000000800060        0x0 ./src/main.o
+ .data          0x0000000000800060        0x0 ./src/pwm.o
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  *(.data*)
  .data.i2c_status
-                0x00800060        0x1 ./src/i2c.o
-                0x00800060                i2c_status
+                0x0000000000800060        0x1 ./src/i2c.o
+                0x0000000000800060                i2c_status
  *(.rodata)
  *(.rodata*)
+ .rodata.CSWTCH.10
+                0x0000000000800061       0xfb ./src/anzeigeboard.o
  *(.gnu.linkonce.d*)
-                0x00800062                . = ALIGN (0x2)
- *fill*         0x00800061        0x1 00
-                0x00800062                _edata = .
-                0x00800062                PROVIDE (__data_end, .)
+                0x000000000080015c                . = ALIGN (0x2)
+                0x000000000080015c                _edata = .
+                0x000000000080015c                PROVIDE (__data_end, .)
 
-.bss            0x00800062        0xe
-                0x00800062                PROVIDE (__bss_start, .)
+.bss            0x000000000080015c        0xe
+                0x000000000080015c                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.i2c_msg_size
-                0x00800062        0x1 ./src/i2c.o
-                0x00800062                i2c_msg_size
  .bss.i2c_status_register
-                0x00800063        0x1 ./src/i2c.o
-                0x00800063                i2c_status_register
- .bss.outputs_enabled.1298
-                0x00800064        0x1 ./src/interrupt.o
- .bss.i2c_buf_ptr.1262
-                0x00800065        0x1 ./src/interrupt.o
+                0x000000000080015c        0x1 ./src/i2c.o
+                0x000000000080015c                i2c_status_register
+ .bss.i2c_msg_size
+                0x000000000080015d        0x1 ./src/i2c.o
+                0x000000000080015d                i2c_msg_size
+ .bss.outputs_enabled.1568
+                0x000000000080015e        0x1 ./src/interrupt.o
+ .bss.i2c_buf_ptr.1545
+                0x000000000080015f        0x1 ./src/interrupt.o
  *(COMMON)
- COMMON         0x00800066        0x4 ./src/i2c.o
-                0x00800066                i2c_buf
- COMMON         0x0080006a        0x6 ./src/pwm.o
-                0x0080006a                enabled
-                0x0080006b                pwm_mask
-                0x0080006c                pwm_t_on
-                0x0080006e                pwm_t_off
-                0x00800070                PROVIDE (__bss_end, .)
-                0x000006b4                __data_load_start = LOADADDR (.data)
-                0x000006b6                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0000000000800160        0x4 ./src/i2c.o
+                0x0000000000800160                i2c_buf
+ COMMON         0x0000000000800164        0x6 ./src/pwm.o
+                0x0000000000800164                enabled
+                0x0000000000800165                pwm_mask
+                0x0000000000800166                pwm_t_on
+                0x0000000000800168                pwm_t_off
+                0x000000000080016a                PROVIDE (__bss_end, .)
+                0x00000000000003e4                __data_load_start = LOADADDR (.data)
+                0x00000000000004e0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800070        0x0
-                0x00800070                PROVIDE (__noinit_start, .)
+.noinit         0x000000000080016a        0x0
+                0x000000000080016a                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800070                PROVIDE (__noinit_end, .)
-                0x00800070                _end = .
-                0x00800070                PROVIDE (__heap_start, .)
+                0x000000000080016a                PROVIDE (__noinit_end, .)
+                0x000000000080016a                _end = .
+                0x000000000080016a                PROVIDE (__heap_start, .)
 
-.eeprom         0x00810000        0x0
+.eeprom         0x0000000000810000        0x0
  *(.eeprom*)
-                0x00810000                __eeprom_end = .
+                0x0000000000810000                __eeprom_end = .
 
 .fuse
  *(.fuse)
@@ -391,11 +441,16 @@ LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 .signature
  *(.signature*)
 
-.stab
- *(.stab)
+.user_signatures
+ *(.user_signatures*)
 
-.stabstr
+.stab           0x0000000000000000      0x6cc
+ *(.stab)
+ .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+
+.stabstr        0x0000000000000000       0x54
  *(.stabstr)
+ .stabstr       0x0000000000000000       0x54 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 
 .stab.excl
  *(.stab.excl)
@@ -409,8 +464,14 @@ LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 .stab.indexstr
  *(.stab.indexstr)
 
-.comment
+.comment        0x0000000000000000       0x11
  *(.comment)
+ .comment       0x0000000000000000       0x11 ./src/anzeigeboard.o
+                                         0x12 (size before relaxing)
+ .comment       0x0000000000000000       0x12 ./src/i2c.o
+ .comment       0x0000000000000000       0x12 ./src/interrupt.o
+ .comment       0x0000000000000000       0x12 ./src/main.o
+ .comment       0x0000000000000000       0x12 ./src/pwm.o
 
 .debug
  *(.debug)
@@ -451,53 +512,62 @@ LOAD d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
 
 .debug_macinfo
  *(.debug_macinfo)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_macro
+ *(.debug_macro)
 OUTPUT(rgn_scoreboard_atmega8_i2c.elf elf32-avr)
 LOAD linker stubs
 
 Cross Reference Table
 
 Symbol                                            File
-__bad_interrupt                                   d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__bss_end                                         d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-__bss_start                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
-__data_end                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-__data_load_start                                 d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-__data_start                                      d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
-__do_clear_bss                                    d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+__bad_interrupt                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__bss_end                                         /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+__data_end                                        /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+__do_clear_bss                                    /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
                                                   ./src/pwm.o
                                                   ./src/interrupt.o
                                                   ./src/i2c.o
-__do_copy_data                                    d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+__do_copy_data                                    /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
                                                   ./src/i2c.o
                                                   ./src/anzeigeboard.o
-__heap_end                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__init                                            d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__stack                                           d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__udivmodqi4                                      d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodqi4.o)
+__heap_end                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__init                                            /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__stack                                           /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__udivmodqi4                                      /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_udivmodqi4.o)
                                                   ./src/anzeigeboard.o
-__vector_1                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_10                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_11                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_12                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_13                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_14                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_15                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_16                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+__vector_1                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_10                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_11                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_12                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_13                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_14                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_15                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_16                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 __vector_17                                       ./src/interrupt.o
-                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_18                                       d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_2                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_3                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_4                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_5                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_18                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_2                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_3                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_4                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_5                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 __vector_6                                        ./src/interrupt.o
-                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_7                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_8                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_9                                        d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vector_default                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-__vectors                                         d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
-_exit                                             d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_7                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_8                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_9                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vector_default                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+__vectors                                         /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+_exit                                             /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
 anzeige_convert                                   ./src/anzeigeboard.o
 anzeige_init                                      ./src/anzeigeboard.o
                                                   ./src/main.o
@@ -506,8 +576,8 @@ anzeige_write_convert                             ./src/anzeigeboard.o
                                                   ./src/main.o
 anzeige_write_direct                              ./src/anzeigeboard.o
 enabled                                           ./src/pwm.o
-exit                                              d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
-                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+exit                                              /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 i2c_buf                                           ./src/interrupt.o
                                                   ./src/i2c.o
 i2c_busy                                          ./src/i2c.o
@@ -530,7 +600,7 @@ i2c_status_register                               ./src/i2c.o
 i2c_wait_busy                                     ./src/i2c.o
                                                   ./src/main.o
 main                                              ./src/main.o
-                                                  d:/software32bit/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 pwm_enable                                        ./src/pwm.o
                                                   ./src/main.o
 pwm_init                                          ./src/pwm.o
