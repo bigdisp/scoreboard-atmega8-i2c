@@ -59,7 +59,7 @@ all: rgn_scoreboard_atmega8_i2c.elf secondary-outputs
 rgn_scoreboard_atmega8_i2c.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-g++ -Wl,-Map,rgn_scoreboard_atmega8_i2c.map,--cref -mmcu=atmega8 -o "rgn_scoreboard_atmega8_i2c.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-g++ -Wl,-Map,rgn_scoreboard_atmega8_i2c.map,--cref -mrelax -Wl,--gc-sections -mmcu=atmega8 -o "rgn_scoreboard_atmega8_i2c.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

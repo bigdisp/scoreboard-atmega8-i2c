@@ -11,6 +11,13 @@
 //#include <inttypes.h>
 #include <avr/io.h>
 
+/**
+ * Scoreboard specific IDs.
+ *
+ * Each value corresponds to a specific seven segment element.
+ * This may need change when OUT/STRIKE/BALL are combined into dots, forming one virtual segment.
+ * TODO: Addressing the correct chip without specific firmware on each still is an open question.
+ */
 typedef enum _anzeigen
 {
 	E_ANZ_OUT = 6,
@@ -38,15 +45,91 @@ typedef enum _anzeigen
 
 } e_anzeigen;
 
-// This function assumes identical pinout on two ports and can only output numbers
+/**
+ * Helper for populating sevensegment screen manually.
+ *
+ * Format is:
+ *         AAAAAAA
+ *        F       B
+ *        F       B
+ *        F       B
+ *         GGGGGGG
+ *        E       C
+ *        E       C
+ *        E       C
+ *         DDDDDDD   PT
+ */
+typedef union _sevensegment_screen
+{
+	uint8_t bitmask; ///< Resulting bitmask
+	struct
+	{
+		uint8_t seg_a:1; ///< Top segment
+		uint8_t seg_b:1; ///< Top right segment
+		uint8_t seg_c:1; ///< Bottom right segment
+		uint8_t seg_d:1; ///< Bottom segment
+		uint8_t seg_e:1; ///< Bottom left segment
+		uint8_t seg_f:1; ///< Top left segment
+		uint8_t seg_g:1; ///< Middle segment
+		uint8_t seg_pt:1; ///< Additional Point
+	};
+} u_sevensegment_screen;
+
+//TODO: Anpassen fuer Prototyp
+/**
+ * Segment definitions for display. These must be adjusted if outputs are connected differently.
+ */
+
+
+/**
+ * Write letter or number to seven segment display.
+ *
+ * Can write two digit numbers to two ports.
+ * This function assumes identical pinout on two ports and can only output numbers.
+ * @param zahl The number to output
+ * @param enable_point True, if the point (LED_PT) should be enabled.
+ * @return 1
+ */
 uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point);
 
-// These functions can output anything.
-// anzeige_write_convert will take an ASCII Symbol and convert it to 7 Segment display (if possible)
+
+/**
+ * Take an ASCII Symbol, convert it to 7 Segment display and display it.
+ *
+ * Conversions that are unknown are output as dash. A space clears the display.
+ * @param symbol The symbol to display.
+ * @param enable_point True, if the point (LED_PT) should be enabled.
+ * @return 1
+ */
 uint8_t anzeige_write_convert(uint8_t symbol, uint8_t enable_point);
 
 // anzeige_write_direct will take the binary representation of segments, numbered A-G in LSB -> MSB
-uint8_t anzeige_write_direct(uint8_t segments);
+/**
+ * Write given seven segment binary input and write it to the display.
+ *
+ * Format is:
+ *         AAAAAAA
+ *        F       B
+ *        F       B
+ *        F       B
+ *         GGGGGGG
+ *        E       C
+ *        E       C
+ *        E       C
+ *         DDDDDDD   PT
+ *
+ * Segment shift of A is assumed 0, segment shift of G is 7, shift of PT is 8.
+ * Differing actual shifts due to different wiring are compensated within the function.
+ * Therefore, segments can, for example be populated
+ *
+ * @param segments The segments to enable.
+ * @return 1
+ */
+uint8_t anzeige_write_direct(u_sevensegment_screen segments);
+
+/**
+ * Initialize display.
+ */
 void anzeige_init();
 
 #endif /* ANZEIGEBOARD_H_ */

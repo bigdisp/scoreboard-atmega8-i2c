@@ -63,19 +63,6 @@ int main()
 				// Check for special opcodes to control PWM:
 				if(i2c_msg[0] == 0x00 || i2c_msg[0] == 0x01)
 				{
-					/*uint16_t tmp;
-					tmp = i2c_msg[1];
-					tmp = (tmp << 8);
-					tmp |= i2c_msg[2];
-					if(i2c_msg[0] == 0x00)
-					{
-						pwm_on = tmp;
-					}
-					else
-					{
-						pwm_off = tmp;
-					}
-					*/
 					conv_8bit_16bit tmp;
 					tmp.byte[0] = i2c_msg[1];
 					tmp.byte[1] = i2c_msg[2];

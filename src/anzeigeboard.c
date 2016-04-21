@@ -9,18 +9,15 @@
 #include "pwm.h"
 
 //Segment definititions
-//Depend on push-order in schieberegister.c
-//If the data is pushed the other way, this needs to be inverted
-//#define SEG_A  (1 << 7)
-//#define SEG_B  (1 << 6)
-//#define SEG_C  (1 << 5)
-//#define SEG_D  (1 << 4)
-//#define SEG_E  (1 << 3)
-//#define SEG_F  (1 << 2)
-//#define SEG_G  (1 << 1)
+// This definition was moved to anzeigeboard.h:
+//#define SEG_A  (1 << 4)
+//#define SEG_B  (1 << 3)
+//#define SEG_C  (1 << 1)
+//#define SEG_D  (1 << 7)
+//#define SEG_E  (1 << 6)
+//#define SEG_F  (1 << 5)
+//#define SEG_G  (1 << 2)
 //#define SEG_PT (1 << 0)
-
-//TODO: Anpassen fuer Prototyp
 #define SEG_A  (1 << 4)
 #define SEG_B  (1 << 3)
 #define SEG_C  (1 << 1)
@@ -29,8 +26,6 @@
 #define SEG_F  (1 << 5)
 #define SEG_G  (1 << 2)
 #define SEG_PT (1 << 0)
-
-
 /*
  *         AAAAAAA
  *        F       B
@@ -44,19 +39,33 @@
  *
  */
 
-#define ANZ_PORT_ZEHNER PORTC
-#define ANZ_DDR_ZEHNER  DDRC
-#define ANZ_PORT_EINER	PORTB
-#define ANZ_DDR_EINER 	DDRB
-
-#define ANZ_DDR 		DDRB
+/// Port definitions
+#if PWM_ENABLED
+	#define ANZ_PORT2_ACTIVE	PWM_PORT2_ACTIVE
+	#if ANZ_PORT2_ACTIVE
+		#define ANZ_PORT_ZEHNER 	PWM_PORT2
+		#define ANZ_DDR_ZEHNER  	PWM_DDR2
+	#endif
+	#define ANZ_PORT_EINER		PWM_PORT1
+	#define ANZ_DDR_EINER 		PWM_DDR1
+#else
+	// If PWM is active, these ports are overruled by the PWM ports
+	#define ANZ_PORT2_ACTIVE	0
+#if ANZ_PORT2_ACTIVE
+	#define ANZ_PORT_ZEHNER 	PORTC
+	#define ANZ_DDR_ZEHNER  	DDRC
+#endif
+	#define ANZ_PORT_EINER		PORTB
+	#define ANZ_DDR_EINER 		DDRB
+#endif
 
 void anzeige_init()
 {
-	//Everything is an output, except for the nonexisting SEG_PT:
-	//ANZ_DDR = (0xFF ^ (1 << SEG_PT));
-	ANZ_DDR = 0xFF;
-	//TODO: This must be changed for dual display
+	// Set all segments to output:
+	ANZ_DDR_EINER = 0xFF;
+#if ANZ_PORT2_ACTIVE
+	ANZ_DDR_ZEHNER = 0xFF;
+#endif
 }
 
 
@@ -270,7 +279,7 @@ uint8_t anzeige_convert(uint8_t ziffer)
 		retval = SEG_PT;
 		break;
 	case 42:
-		//*°
+		//*ï¿½
 		retval = SEG_A | SEG_B | SEG_G | SEG_F;
 		break;
 	case 61:
@@ -296,15 +305,27 @@ uint8_t anzeige_convert(uint8_t ziffer)
 
 // A little bit of Define Magic for compiling/not compiling PWM
 #if PWM_ENABLED
+	/**
+	 * @see pwm_update_port1
+	 */
 	#define anzeige_pwm_einer(symbol) pwm_update_port1((symbol))
 	#if PWM_PORT2_ACTIVE
+		/**
+		 * @see pwm_update_port1
+		 */
 		#define anzeige_pwm_zehner(symbol) pwm_update_port2((symbol))
-	#else
+	#elif ANZ_PORT2_ACTIVE
 		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
+	#else
+		#define anzeige_pwm_zehner(symbol)
 	#endif
 #else
 	#define anzeige_pwm_einer(symbol)  ANZ_PORT_EINER  = (symbol)
-	#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
+	#if ANZ_PORT2_ACTIVE
+		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
+	#else
+		#define anzeige_pwm_zehner(symbol)
+	#endif
 #endif
 
 
@@ -327,6 +348,7 @@ uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 	}
 
 	//Now simply turn on the GPIO Ports accordingly
+	// zehner will be ignored if the second output port is disabled.
 	anzeige_pwm_zehner(zehner);
 	anzeige_pwm_einer(einer);
 	return 1;
@@ -344,19 +366,19 @@ uint8_t anzeige_write_convert(uint8_t symbol, uint8_t enable_point)
 	return 1;
 }
 
-uint8_t anzeige_write_direct(uint8_t segments)
+uint8_t anzeige_write_direct(u_sevensegment_screen segments)
 {
 	uint8_t tmp = 0;
 	// Resort according to segments, assume numbering from A to G LSB - MSB
 	// So check for set bit, shift result to zero and shift to correct bit
-	tmp |= (segments & (1 << 0)) ? SEG_A : 0;
-	tmp |= (segments & (1 << 1)) ? SEG_B : 0;
-	tmp |= (segments & (1 << 2)) ? SEG_C : 0;
-	tmp |= (segments & (1 << 3)) ? SEG_D : 0;
-	tmp |= (segments & (1 << 4)) ? SEG_E : 0;
-	tmp |= (segments & (1 << 5)) ? SEG_F : 0;
-	tmp |= (segments & (1 << 6)) ? SEG_G : 0;
-	tmp |= (segments & (1 << 7)) ? SEG_PT: 0;
+	tmp |= (segments.bitmask & (1 << 0)) ? SEG_A : 0;
+	tmp |= (segments.bitmask & (1 << 1)) ? SEG_B : 0;
+	tmp |= (segments.bitmask & (1 << 2)) ? SEG_C : 0;
+	tmp |= (segments.bitmask & (1 << 3)) ? SEG_D : 0;
+	tmp |= (segments.bitmask & (1 << 4)) ? SEG_E : 0;
+	tmp |= (segments.bitmask & (1 << 5)) ? SEG_F : 0;
+	tmp |= (segments.bitmask & (1 << 6)) ? SEG_G : 0;
+	tmp |= (segments.bitmask & (1 << 7)) ? SEG_PT: 0;
 
 	anzeige_pwm_einer(tmp);
 	return 1;

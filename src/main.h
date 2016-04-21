@@ -2,7 +2,7 @@
  * main.h
  *
  *  Created on: 10.10.2013
- *      Author: martin
+ *  Author: Martin Beckmann
  */
 
 #ifndef MAIN_H_
@@ -11,6 +11,9 @@
 #include "anzeigeboard.h"
 #include "i2c.h"
 
+/**
+ * Conversion helper 8 bit <-> 16 bit.
+ */
 typedef union conv_8_16{
 	uint8_t byte[2];
 	uint16_t word;
