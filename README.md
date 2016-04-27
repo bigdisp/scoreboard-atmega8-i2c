@@ -33,6 +33,8 @@ Besides simple output commands, a few special commands are interpreted (all of t
  * Values written to the virtual register `0x08` are stored as second row data, which controls the point on the seven segment display, but currently is connected to the second row of LED. Therefore, values that evaluate to boolean true will enable the second row of LED on the current prototype.
  * anything else written is interpreted as a symbol to be displayed. If a second row was previously stored, that will be used to decide whether the point should be displayed or not. 
 
+Reading from the device with a generic read command will return the currently displayed digit.
+
 License
 -------
 See [License.md](License.md).

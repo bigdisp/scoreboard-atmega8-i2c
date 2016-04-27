@@ -4,67 +4,26 @@
  *  Created on: 01.07.2012
  *      Author: martin
  */
+#define __IN_ANZEIGEBOARD_C
 
 #include "anzeigeboard.h"
 #include "pwm.h"
 
-//Segment definititions
-// This definition was moved to anzeigeboard.h:
-//#define SEG_A  (1 << 4)
-//#define SEG_B  (1 << 3)
-//#define SEG_C  (1 << 1)
-//#define SEG_D  (1 << 7)
-//#define SEG_E  (1 << 6)
-//#define SEG_F  (1 << 5)
-//#define SEG_G  (1 << 2)
-//#define SEG_PT (1 << 0)
-#define SEG_A  (1 << 4)
-#define SEG_B  (1 << 3)
-#define SEG_C  (1 << 1)
-#define SEG_D  (1 << 7)
-#define SEG_E  (1 << 6)
-#define SEG_F  (1 << 5)
-#define SEG_G  (1 << 2)
-#define SEG_PT (1 << 0)
-/*
- *         AAAAAAA
- *        F       B
- *        F       B
- *        F       B
- *         GGGGGGG
- *        E       C
- *        E       C
- *        E       C
- *         DDDDDDD   PT
- *
- */
-
-/// Port definitions
-#if PWM_ENABLED
-	#define ANZ_PORT2_ACTIVE	PWM_PORT2_ACTIVE
-	#if ANZ_PORT2_ACTIVE
-		#define ANZ_PORT_ZEHNER 	PWM_PORT2
-		#define ANZ_DDR_ZEHNER  	PWM_DDR2
-	#endif
-	#define ANZ_PORT_EINER		PWM_PORT1
-	#define ANZ_DDR_EINER 		PWM_DDR1
+// Test abstraction
+#ifdef TEST
+	#include "x86/anzeigeboard.h"
 #else
-	// If PWM is active, these ports are overruled by the PWM ports
-	#define ANZ_PORT2_ACTIVE	0
-#if ANZ_PORT2_ACTIVE
-	#define ANZ_PORT_ZEHNER 	PORTC
-	#define ANZ_DDR_ZEHNER  	DDRC
+	#include "uc/anzeigeboard.h"
 #endif
-	#define ANZ_PORT_EINER		PORTB
-	#define ANZ_DDR_EINER 		DDRB
-#endif
+
+
 
 void anzeige_init()
 {
 	// Set all segments to output:
-	ANZ_DDR_EINER = 0xFF;
+	set_ddr_einer(0xFF);
 #if ANZ_PORT2_ACTIVE
-	ANZ_DDR_ZEHNER = 0xFF;
+	set_ddr_zehner(0xFF);
 #endif
 }
 
@@ -302,32 +261,6 @@ uint8_t anzeige_convert(uint8_t ziffer)
 	}
 	return retval;
 }
-
-// A little bit of Define Magic for compiling/not compiling PWM
-#if PWM_ENABLED
-	/**
-	 * @see pwm_update_port1
-	 */
-	#define anzeige_pwm_einer(symbol) pwm_update_port1((symbol))
-	#if PWM_PORT2_ACTIVE
-		/**
-		 * @see pwm_update_port1
-		 */
-		#define anzeige_pwm_zehner(symbol) pwm_update_port2((symbol))
-	#elif ANZ_PORT2_ACTIVE
-		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
-	#else
-		#define anzeige_pwm_zehner(symbol)
-	#endif
-#else
-	#define anzeige_pwm_einer(symbol)  ANZ_PORT_EINER  = (symbol)
-	#if ANZ_PORT2_ACTIVE
-		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
-	#else
-		#define anzeige_pwm_zehner(symbol)
-	#endif
-#endif
-
 
 uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 {
