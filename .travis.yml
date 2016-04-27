@@ -7,7 +7,7 @@ branches:
     - /^dev\/.*$/
 
 install:
-  - sudo apt-get install -y avr-gcc
+  - sudo apt-get install -y gcc-avr
   - cd Debug
 
 script:
