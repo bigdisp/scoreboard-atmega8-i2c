@@ -7,7 +7,31 @@ Archive member included because of file (symbol)
 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
                               ./src/anzeigeboard.o (__do_copy_data)
 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-                              ./src/i2c.o (__do_clear_bss)
+                              ./src/eeprom.o (__do_clear_bss)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+                              ./src/eeprom.o (__eerd_block_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+                              ./src/eeprom.o (__eerd_byte_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+                              ./src/eeprom.o (__eerd_dword_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+                              ./src/eeprom.o (__eerd_word_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+                              ./src/eeprom.o (__eeupd_block_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+                              ./src/eeprom.o (__eeupd_byte_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+                              ./src/eeprom.o (__eeupd_dword_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+                              ./src/eeprom.o (__eeupd_word_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+                              ./src/eeprom.o (__eewr_block_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+                              ./src/eeprom.o (__eewr_byte_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+                              ./src/eeprom.o (__eewr_dword_m8)
+/usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+                              ./src/eeprom.o (__eewr_word_m8)
 
 Allocating common symbols
 Common symbol       size              file
@@ -30,6 +54,44 @@ Discarded input sections
                 0x0000000000000000       0x2a ./src/anzeigeboard.o
  .text.anzeige_write_direct
                 0x0000000000000000       0x5a ./src/anzeigeboard.o
+ .text          0x0000000000000000        0x0 ./src/eeprom.o
+ .bss           0x0000000000000000        0x0 ./src/eeprom.o
+ .text.irq_ctrl.part.0
+                0x0000000000000000        0xa ./src/eeprom.o
+ .text.irq_ctrl
+                0x0000000000000000        0xe ./src/eeprom.o
+ .text.irqd_eeprom_read_byte
+                0x0000000000000000       0x26 ./src/eeprom.o
+ .text.irqd_eeprom_read_word
+                0x0000000000000000       0x26 ./src/eeprom.o
+ .text.irqd_eeprom_read_dword
+                0x0000000000000000       0x26 ./src/eeprom.o
+ .text.irqd_eeprom_read_float
+                0x0000000000000000       0x26 ./src/eeprom.o
+ .text.irqd_eeprom_read_block
+                0x0000000000000000       0x3e ./src/eeprom.o
+ .text.irqd_eeprom_write_byte
+                0x0000000000000000       0x2e ./src/eeprom.o
+ .text.irqd_eeprom_write_word
+                0x0000000000000000       0x34 ./src/eeprom.o
+ .text.irqd_eeprom_write_dword
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .text.irqd_eeprom_write_float
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .text.irqd_eeprom_write_block
+                0x0000000000000000       0x3e ./src/eeprom.o
+ .text.irqd_eeprom_update_byte
+                0x0000000000000000       0x2e ./src/eeprom.o
+ .text.irqd_eeprom_update_word
+                0x0000000000000000       0x34 ./src/eeprom.o
+ .text.irqd_eeprom_update_dword
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .text.irqd_eeprom_update_float
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .text.irqd_eeprom_update_block
+                0x0000000000000000       0x3e ./src/eeprom.o
+ .bss.tmp_sreg.1588
+                0x0000000000000000        0x1 ./src/eeprom.o
  .text          0x0000000000000000        0x0 ./src/i2c.o
  .bss           0x0000000000000000        0x0 ./src/i2c.o
  .text.i2c_get_status
@@ -104,6 +166,52 @@ Discarded input sections
                 0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000       0x20 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000        0xa /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000        0xa /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000       0x1e /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000       0x22 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000       0x10 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000        0x8 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000       0x12 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000       0x1a /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000        0xa /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+ .text.avr-libc
+                0x0000000000000000        0x6 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
 
 Memory Configuration
 
@@ -121,6 +229,7 @@ Linker script and memory map
 
 LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 LOAD ./src/anzeigeboard.o
+LOAD ./src/eeprom.o
 LOAD ./src/i2c.o
 LOAD ./src/interrupt.o
 LOAD ./src/main.o
@@ -223,7 +332,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x47c
+.text           0x0000000000000000      0x49a
  *(.vectors)
  .vectors       0x0000000000000000       0x26 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
                 0x0000000000000000                __vectors
@@ -326,25 +435,28 @@ END GROUP
                 0x0000000000000280       0x68 ./src/interrupt.o
                 0x0000000000000280                __vector_6
  .text.startup.main
-                0x00000000000002e8      0x126 ./src/main.o
+                0x00000000000002e8      0x134 ./src/main.o
                 0x00000000000002e8                main
  .text.pwm_init
-                0x000000000000040e       0x1a ./src/pwm.o
-                0x000000000000040e                pwm_init
+                0x000000000000041c       0x1a ./src/pwm.o
+                0x000000000000041c                pwm_init
  .text.pwm_enable
-                0x0000000000000428       0x28 ./src/pwm.o
-                0x0000000000000428                pwm_enable
+                0x0000000000000436       0x28 ./src/pwm.o
+                0x0000000000000436                pwm_enable
  .text.pwm_update_port1
-                0x0000000000000450       0x10 ./src/pwm.o
-                0x0000000000000450                pwm_update_port1
+                0x000000000000045e       0x10 ./src/pwm.o
+                0x000000000000045e                pwm_update_port1
  .text.pwm_set_timing
-                0x0000000000000460       0x18 ./src/pwm.o
-                0x0000000000000460                pwm_set_timing
-                0x0000000000000478                . = ALIGN (0x2)
+                0x000000000000046e       0x18 ./src/pwm.o
+                0x000000000000046e                pwm_set_timing
+ .text.avr-libc
+                0x0000000000000486       0x10 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+                0x0000000000000486                __eerd_byte_m8
+                0x0000000000000496                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000478        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
-                0x0000000000000478                exit
-                0x0000000000000478                _exit
+ .fini9         0x0000000000000496        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000496                exit
+                0x0000000000000496                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -363,15 +475,16 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000478        0x4 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x0000000000000496        0x4 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x000000000000047c                _etext = .
+                0x000000000000049a                _etext = .
 
-.data           0x0000000000800060       0xfc load address 0x000000000000047c
+.data           0x0000000000800060       0xfc load address 0x000000000000049a
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
  .data          0x0000000000800060        0x0 ./src/anzeigeboard.o
+ .data          0x0000000000800060        0x0 ./src/eeprom.o
  .data          0x0000000000800060        0x0 ./src/i2c.o
  .data          0x0000000000800060        0x0 ./src/interrupt.o
  .data          0x0000000000800060        0x0 ./src/main.o
@@ -380,6 +493,18 @@ END GROUP
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+ .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
  *(.data*)
  .data.i2c_status
                 0x0000000000800060        0x1 ./src/i2c.o
@@ -419,8 +544,8 @@ END GROUP
                 0x000000000080016b                pwm_t_on
                 0x000000000080016d                pwm_t_off
                 0x000000000080016f                PROVIDE (__bss_end, .)
-                0x000000000000047c                __data_load_start = LOADADDR (.data)
-                0x0000000000000578                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000000000049a                __data_load_start = LOADADDR (.data)
+                0x0000000000000596                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x000000000080016f        0x0
                 0x000000000080016f                PROVIDE (__noinit_start, .)
@@ -448,13 +573,37 @@ END GROUP
 .user_signatures
  *(.user_signatures*)
 
-.stab           0x0000000000000000      0x6cc
+.stab           0x0000000000000000      0xe70
  *(.stab)
  .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .stab          0x00000000000006cc      0x108 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+                                        0x114 (size before relaxing)
+ .stab          0x00000000000007d4       0x90 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+                                         0x9c (size before relaxing)
+ .stab          0x0000000000000864       0x78 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+                                         0x84 (size before relaxing)
+ .stab          0x00000000000008dc       0x6c /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+                                         0x78 (size before relaxing)
+ .stab          0x0000000000000948       0xe4 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+                                         0xf0 (size before relaxing)
+ .stab          0x0000000000000a2c      0x108 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+                                        0x114 (size before relaxing)
+ .stab          0x0000000000000b34       0x9c /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+                                         0xa8 (size before relaxing)
+ .stab          0x0000000000000bd0       0x60 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+                                         0x6c (size before relaxing)
+ .stab          0x0000000000000c30       0x9c /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+                                         0xa8 (size before relaxing)
+ .stab          0x0000000000000ccc       0xd8 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+                                         0xe4 (size before relaxing)
+ .stab          0x0000000000000da4       0x78 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+                                         0x84 (size before relaxing)
+ .stab          0x0000000000000e1c       0x54 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+                                         0x60 (size before relaxing)
 
-.stabstr        0x0000000000000000       0x54
+.stabstr        0x0000000000000000      0x292
  *(.stabstr)
- .stabstr       0x0000000000000000       0x54 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .stabstr       0x0000000000000000      0x292 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 
 .stab.excl
  *(.stab.excl)
@@ -472,6 +621,7 @@ END GROUP
  *(.comment)
  .comment       0x0000000000000000       0x11 ./src/anzeigeboard.o
                                          0x12 (size before relaxing)
+ .comment       0x0000000000000000       0x12 ./src/eeprom.o
  .comment       0x0000000000000000       0x12 ./src/i2c.o
  .comment       0x0000000000000000       0x12 ./src/interrupt.o
  .comment       0x0000000000000000       0x12 ./src/main.o
@@ -541,9 +691,56 @@ __do_clear_bss                                    /usr/lib/gcc/avr/4.8.2/avr4/li
                                                   ./src/pwm.o
                                                   ./src/interrupt.o
                                                   ./src/i2c.o
+                                                  ./src/eeprom.o
 __do_copy_data                                    /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
                                                   ./src/i2c.o
                                                   ./src/anzeigeboard.o
+__eerd_block_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+                                                  ./src/eeprom.o
+__eerd_blraw_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_block_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+__eerd_byte_m8                                    /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_byte_atmega8.o)
+                                                  ./src/main.o
+                                                  ./src/eeprom.o
+__eerd_dword_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eerd_float_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eerd_word_m8                                    /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eerd_word_atmega8.o)
+                                                  ./src/eeprom.o
+__eeupd_block_m8                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+                                                  ./src/eeprom.o
+__eeupd_byte_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eeupd_dword_m8                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eeupd_float_m8                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eeupd_r18_m8                                    /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_byte_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_dword_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_block_atmega8.o)
+__eeupd_word_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eeupd_word_atmega8.o)
+                                                  ./src/eeprom.o
+__eewr_block_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+                                                  ./src/eeprom.o
+__eewr_byte_m8                                    /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+                                                  ./src/eeprom.o
+__eewr_dword_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eewr_float_m8                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+                                                  ./src/eeprom.o
+__eewr_r18_m8                                     /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_byte_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_block_atmega8.o)
+__eewr_word_m8                                    /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_word_atmega8.o)
+                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a(eewr_dword_atmega8.o)
+                                                  ./src/eeprom.o
 __heap_end                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 __init                                            /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 __stack                                           /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
@@ -605,6 +802,22 @@ i2c_tx_buf                                        ./src/interrupt.o
                                                   ./src/i2c.o
 i2c_wait_busy                                     ./src/i2c.o
                                                   ./src/main.o
+irq_ctrl                                          ./src/eeprom.o
+irqd_eeprom_read_block                            ./src/eeprom.o
+irqd_eeprom_read_byte                             ./src/eeprom.o
+irqd_eeprom_read_dword                            ./src/eeprom.o
+irqd_eeprom_read_float                            ./src/eeprom.o
+irqd_eeprom_read_word                             ./src/eeprom.o
+irqd_eeprom_update_block                          ./src/eeprom.o
+irqd_eeprom_update_byte                           ./src/eeprom.o
+irqd_eeprom_update_dword                          ./src/eeprom.o
+irqd_eeprom_update_float                          ./src/eeprom.o
+irqd_eeprom_update_word                           ./src/eeprom.o
+irqd_eeprom_write_block                           ./src/eeprom.o
+irqd_eeprom_write_byte                            ./src/eeprom.o
+irqd_eeprom_write_dword                           ./src/eeprom.o
+irqd_eeprom_write_float                           ./src/eeprom.o
+irqd_eeprom_write_word                            ./src/eeprom.o
 main                                              ./src/main.o
                                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
 pwm_enable                                        ./src/pwm.o

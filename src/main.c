@@ -11,6 +11,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "pwm.h"
+#include "eeprom.h"
 
 #define I2C_DATA_SIZE 4
 
@@ -20,7 +21,17 @@ int main()
 	anzeige_init();
 
 	//i2c / TWI
-	i2c_init(0x10);
+	uint8_t slave_addr;
+	slave_addr = eeprom_read_byte(0);
+
+	// Check for illegal addresses:
+	if (slave_addr >= 0xF0 || slave_addr <= 0x0F)
+	{
+		// Set the default address in this case:
+		slave_addr = 0x10;
+	}
+
+	i2c_init(slave_addr);
 	uint8_t i2c_msg[I2C_DATA_SIZE] = {0xFA, 0xFA, 0xFA, 0xFA};
 	i2c_slave_start_tx_data(i2c_msg,3);
 
