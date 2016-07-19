@@ -8,8 +8,7 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-#include "anzeigeboard.h"
-#include "i2c.h"
+
 
 /**
  * Conversion helper 8 bit <-> 16 bit.

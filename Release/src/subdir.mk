@@ -4,25 +4,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../src/anzeigeboard.c \
-../src/eeprom.c \
-../src/i2c.c \
+../src/adc.c \
 ../src/interrupt.c \
 ../src/main.c \
 ../src/pwm.c 
 
 OBJS += \
-./src/anzeigeboard.o \
-./src/eeprom.o \
-./src/i2c.o \
+./src/adc.o \
 ./src/interrupt.o \
 ./src/main.o \
 ./src/pwm.o 
 
 C_DEPS += \
-./src/anzeigeboard.d \
-./src/eeprom.d \
-./src/i2c.d \
+./src/adc.d \
 ./src/interrupt.d \
 ./src/main.d \
 ./src/pwm.d 
@@ -32,7 +26,7 @@ C_DEPS += \
 src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: AVR Compiler'
-	avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o "$@" "$<"
+	avr-gcc -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega88pa -DF_CPU=1000000UL -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

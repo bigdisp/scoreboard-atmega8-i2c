@@ -10,79 +10,105 @@
 #include "pwm.h"
 #if PWM_ENABLED
 
-volatile uint8_t pwm_mask;
-#if PWM_PORT2_ACTIVE
-volatile uint8_t pwm_mask2;
-#endif
-uint8_t enabled;
-volatile uint16_t pwm_t_on;		// Fraction of 16 bit, the light should be on. Can be up to 65535
-volatile uint16_t pwm_t_off;		// Fraction of 16 bit, the light should be off. Can be up to 65535
 
-void pwm_init(uint16_t active, uint16_t disabled)
+uint8_t enabled;
+
+void pwm_init()
 {
-	pwm_t_on  = active;
-	pwm_t_off = disabled;
-	enabled   = 0;
-	pwm_mask  = 0;
-#if PWM_PORT2_ACTIVE
-	pwm_mask2 = 0;
-#endif
+	pwm_set_timing_16(250);
+	pwm_set_timing_8(125);
 }
 
 void pwm_enable(uint8_t enable)
 {
 	if(enable)
 	{
-		TCCR1B = 1;				// Run Timer at full system clock
+		//16 bit stuff
+		// Fast PWM Mode, 9 bit set on bottom, clear on match, full system clock speed
+		//TCCR1A = (1 << WGM11) | (1 << WGM10) | (1 << COM1A1) | (1 << COM1B1);
+		//TCCR1B = (1 << WGM13) | (1 << WGM12) | (1);
+		TCCR1A = (1 << WGM11) | (1 << COM1A1) | (1 << COM1B1);
+		TCCR1B = (1 << WGM12) | (1);
 								// Use 2,3,4,5 for 8,64,256,1024 (higher values are for external capture prescaling)
-		TIMSK |= (1 << OCIE1A);	// Output compare A Match interrupt enable
+		//TIMSK1 |= (1 << OCIE1A) | (1 << OCIE1B);		// Output compare A and B Match interrupt enable
 								// Use TOIE1 for overflow interrupt enable
+		//Port direction:
+		DDRB |= (1 << PORTB1) | (1 << PORTB2);
+
+
 		enabled = 1;
+
+		// 8 bit stuff
+		// Fast PWM Mode (3), full system clock speed
+		TCCR0A = (1 << WGM01) | (1 << WGM00) | (1 << COM0A1) | (1 << COM0B1);
+		//TCCR1B = (1 << WGM02) | (1);
+		TCCR1B = (1);
+		//TIMSK0 |= (1 << OCIE0A);
+		DDRD |= (1 << PORTD6);
 	}
 	else
 	{
+		// 16 bit
 		TCCR1B = 0;
-		TIMSK &= ~(1 << OCIE1A);
+		TCCR1A = 0;
+		DDRB &= ~(1 << PORTB1);
+		DDRB &= ~(1 << PORTB2);
+		//TIMSK1 &= ~(1 << OCIE1A);
+		//TIMSK1 &= ~(1 << OCIE1B);
+		
+		// 8 bit
+		//TIMSK0 &= ~(1 << OCIE0A);
+		TCCR0A = 0;
+		TCCR0B = 0;
 		enabled = 0;
-		PWM_PORT1 = pwm_mask;
-#if PWM_PORT2_ACTIVE
-		PWM_PORT2 = pwm_mask2;
-#endif
+		DDRD &= ~(1 << PORTD6);
 	}
 }
 
-void pwm_update_port1(uint8_t mask)
+
+void pwm_set_timing_16(uint16_t active)
 {
-	pwm_mask = mask;
-	if(enabled == 0)
-	{
-		PWM_PORT1 = mask;
-	}
-}
-
-#if PWM_PORT2_ACTIVE
-void pwm_update_port2(uint8_t mask)
-{
-	pwm_mask2 = mask;
-	if(enabled == 0)
-	{
-		PWM_PORT2 = mask;
-	}
-}
-
-#endif
-
-
-void pwm_set_timing(uint16_t active, uint16_t disabled)
-{
-	//TODO: 16 Bit Operationen: evtl. Interrupts off?
+	// Disable interrupts for 16 bit operation
 	uint8_t tmp_sreg;
 	tmp_sreg = SREG;
 	cli();
 
-	pwm_t_on  = active;
-	pwm_t_off = disabled;
+	OCR1A = active;
+	OCR1B = active;
 
 	SREG = tmp_sreg;
 }
+
+void pwm_set_timing_g(uint16_t active)
+{
+	uint8_t tmp_sreg;
+	tmp_sreg = SREG;
+	cli();
+	
+	OCR1A = active;
+
+	SREG = tmp_sreg;
+}
+
+void pwm_set_timing_b(uint16_t active)
+{
+	uint8_t tmp_sreg;
+	tmp_sreg = SREG;
+	cli();
+	
+	OCR1B = active;
+
+	SREG = tmp_sreg;
+}
+
+void pwm_set_timing_r(uint8_t active)
+{
+	OCR0A = active;
+}
+
+void pwm_set_timing_8(uint8_t active)
+{
+	OCR0A = active;
+}
+
 #endif

@@ -46,38 +46,38 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-rgn_scoreboard_atmega8_i2c.lss \
+rgn_scoreboard_atmega88_i2c.lss \
 
 SIZEDUMMY += \
 sizedummy \
 
 
 # All Target
-all: rgn_scoreboard_atmega8_i2c.elf secondary-outputs
+all: rgn_scoreboard_atmega88_i2c.elf secondary-outputs
 
 # Tool invocations
-rgn_scoreboard_atmega8_i2c.elf: $(OBJS) $(USER_OBJS)
+rgn_scoreboard_atmega88_i2c.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: AVR C++ Linker'
-	avr-g++ -Wl,-Map,rgn_scoreboard_atmega8_i2c.map,--cref -mrelax -Wl,--gc-sections -mmcu=atmega8 -o "rgn_scoreboard_atmega8_i2c.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	avr-g++ -Wl,-Map,rgn_scoreboard_atmega88_i2c.map,--cref -mrelax -Wl,--gc-sections -mmcu=atmega88 -o "rgn_scoreboard_atmega88_i2c.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-rgn_scoreboard_atmega8_i2c.lss: rgn_scoreboard_atmega8_i2c.elf
+rgn_scoreboard_atmega88_i2c.lss: rgn_scoreboard_atmega88_i2c.elf
 	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S rgn_scoreboard_atmega8_i2c.elf  >"rgn_scoreboard_atmega8_i2c.lss"
+	-avr-objdump -h -S rgn_scoreboard_atmega88_i2c.elf  >"rgn_scoreboard_atmega88_i2c.lss"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-sizedummy: rgn_scoreboard_atmega8_i2c.elf
+sizedummy: rgn_scoreboard_atmega88_i2c.elf
 	@echo 'Invoking: Print Size'
-	-avr-size --format=avr --mcu=atmega8 rgn_scoreboard_atmega8_i2c.elf
+	-avr-size --format=avr --mcu=atmega88 rgn_scoreboard_atmega88_i2c.elf
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(ELFS)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) rgn_scoreboard_atmega8_i2c.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(ELFS)$(LSS)$(S_DEPS)$(CXX_DEPS)$(S_UPPER_DEPS)$(C++_DEPS)$(ASM_DEPS)$(CC_DEPS)$(CPP_DEPS)$(C_UPPER_DEPS)$(SIZEDUMMY) rgn_scoreboard_atmega88_i2c.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(SIZEDUMMY)
