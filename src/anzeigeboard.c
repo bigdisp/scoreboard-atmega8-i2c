@@ -8,6 +8,7 @@
 
 #include "anzeigeboard.h"
 #include "pwm.h"
+#include <util/delay.h>
 
 // Test abstraction
 #ifdef TEST
@@ -17,16 +18,58 @@
 #endif
 
 
-
 void anzeige_init()
 {
-	// Set all segments to output:
-	set_ddr_einer(0xFF);
-#if ANZ_PORT2_ACTIVE
-	set_ddr_zehner(0xFF);
-#endif
-}
 
+	// Set all segments to output:
+
+	// All OFF
+	POR_0A &= ~SEG_0A;
+	POR_0B &= ~SEG_0B;
+	POR_0C &= ~SEG_0C;
+	POR_0D &= ~SEG_0D;
+	POR_0E &= ~SEG_0E;
+	POR_0F &= ~SEG_0F;
+	POR_0G &= ~SEG_0G;
+
+
+	// Digit 1
+	DDR_0A |= SEG_0A;
+	DDR_0B |= SEG_0B;
+	DDR_0C |= SEG_0C;
+	DDR_0D |= SEG_0D;
+	DDR_0E |= SEG_0E;
+	DDR_0F |= SEG_0F;
+	DDR_0G |= SEG_0G;
+
+	// Digit 2
+	DDR_1A |= SEG_1A;
+	DDR_1B |= SEG_1B;
+	DDR_1C |= SEG_1C;
+	DDR_1D |= SEG_1D;
+	DDR_1E |= SEG_1E;
+	DDR_1F |= SEG_1F;
+	DDR_1G |= SEG_1G;
+
+	// Enable
+	// Digit 1
+	POR_0A |= SEG_0A;
+	POR_0B |= SEG_0B;
+	POR_0C |= SEG_0C;
+	POR_0D |= SEG_0D;
+	POR_0E |= SEG_0E;
+	POR_0F |= SEG_0F;
+	POR_0G |= SEG_0G;
+
+	// Digit 2
+	POR_1A |= SEG_1A;
+	POR_1B |= SEG_1B;
+	POR_1C |= SEG_1C;
+	POR_1D |= SEG_1D;
+	POR_1E |= SEG_1E;
+	POR_1F |= SEG_1F;
+	POR_1G |= SEG_1G;//*/
+}
 
 /*
  * Converts the given number to a seven segment representation
@@ -262,6 +305,43 @@ uint8_t anzeige_convert(uint8_t ziffer)
 	return retval;
 }
 
+/**
+ * Output bitmask given in software bitorder to lower digit.
+ * This function converts the bitmask given to the bitmask needed for output.
+ */
+void anzeige_einer(uint8_t bitmask)
+{
+	uint8_t tmp = 0;
+		// Resort according to segments, assume numbering from A to G LSB - MSB
+		// So check for set bit, shift result to zero and shift to correct bit
+	POR_0A = (bitmask & SEG_A) ? (POR_0A | SEG_0A) : (POR_0A & ~SEG_0A);
+	POR_0B = (bitmask & SEG_B) ? (POR_0B | SEG_0B) : (POR_0B & ~SEG_0B);
+	POR_0C = (bitmask & SEG_C) ? (POR_0C | SEG_0C) : (POR_0C & ~SEG_0C);
+	POR_0D = (bitmask & SEG_D) ? (POR_0D | SEG_0D) : (POR_0D & ~SEG_0D);
+	POR_0E = (bitmask & SEG_E) ? (POR_0E | SEG_0E) : (POR_0E & ~SEG_0E);
+	POR_0F = (bitmask & SEG_F) ? (POR_0F | SEG_0F) : (POR_0F & ~SEG_0F);
+	POR_0G = (bitmask & SEG_G) ? (POR_0G | SEG_0G) : (POR_0G & ~SEG_0G);
+}
+
+/**
+ * Output bitmask given in software bitorder to higher digit.
+ * This function converts the bitmask given to the bitmask needed for output.
+ */
+void anzeige_zehner(uint8_t bitmask)
+{
+	uint8_t tmp = 0;
+		// Resort according to segments, assume numbering from A to G LSB - MSB
+		// So check for set bit, shift result to zero and shift to correct bit
+	POR_1A = (bitmask & SEG_A) ? (POR_1A | SEG_1A) : (POR_1A & ~SEG_1A);
+	POR_1B = (bitmask & SEG_B) ? (POR_1B | SEG_1B) : (POR_1B & ~SEG_1B);
+	POR_1C = (bitmask & SEG_C) ? (POR_1C | SEG_1C) : (POR_1C & ~SEG_1C);
+	POR_1D = (bitmask & SEG_D) ? (POR_1D | SEG_1D) : (POR_1D & ~SEG_1D);
+	POR_1E = (bitmask & SEG_E) ? (POR_1E | SEG_1E) : (POR_1E & ~SEG_1E);
+	POR_1F = (bitmask & SEG_F) ? (POR_1F | SEG_1F) : (POR_1F & ~SEG_1F);
+	POR_1G = (bitmask & SEG_G) ? (POR_1G | SEG_1G) : (POR_1G & ~SEG_1G);
+}
+
+
 uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 {
 	//Split necessary:
@@ -282,20 +362,18 @@ uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 
 	//Now simply turn on the GPIO Ports accordingly
 	// zehner will be ignored if the second output port is disabled.
-	anzeige_pwm_zehner(zehner);
-	anzeige_pwm_einer(einer);
+	anzeige_zehner(zehner);
+	anzeige_einer(einer);
 	return 1;
 }
 
-uint8_t anzeige_write_convert(uint8_t symbol, uint8_t enable_point)
+uint8_t anzeige_write_convert(uint8_t symbol, uint8_t symbol_upper)
 {
-	uint8_t einer;
-	einer = anzeige_convert(symbol);
-	if(enable_point)
-	{
-		einer |= SEG_PT;
-	}
-	anzeige_pwm_einer(einer);
+	uint8_t sym;
+	sym = anzeige_convert(symbol);
+	anzeige_einer(sym);
+	sym = anzeige_convert(symbol_upper);
+	anzeige_zehner(sym);
 	return 1;
 }
 
@@ -304,15 +382,49 @@ uint8_t anzeige_write_direct(u_sevensegment_screen segments)
 	uint8_t tmp = 0;
 	// Resort according to segments, assume numbering from A to G LSB - MSB
 	// So check for set bit, shift result to zero and shift to correct bit
-	tmp |= (segments.bitmask & (1 << 0)) ? SEG_A : 0;
-	tmp |= (segments.bitmask & (1 << 1)) ? SEG_B : 0;
-	tmp |= (segments.bitmask & (1 << 2)) ? SEG_C : 0;
-	tmp |= (segments.bitmask & (1 << 3)) ? SEG_D : 0;
-	tmp |= (segments.bitmask & (1 << 4)) ? SEG_E : 0;
-	tmp |= (segments.bitmask & (1 << 5)) ? SEG_F : 0;
-	tmp |= (segments.bitmask & (1 << 6)) ? SEG_G : 0;
-	tmp |= (segments.bitmask & (1 << 7)) ? SEG_PT: 0;
+	tmp |= (segments.bitmask & SEG_A) ? SEG_A : 0;
+	tmp |= (segments.bitmask & SEG_B) ? SEG_B : 0;
+	tmp |= (segments.bitmask & SEG_C) ? SEG_C : 0;
+	tmp |= (segments.bitmask & SEG_D) ? SEG_D : 0;
+	tmp |= (segments.bitmask & SEG_E) ? SEG_E : 0;
+	tmp |= (segments.bitmask & SEG_F) ? SEG_F : 0;
+	tmp |= (segments.bitmask & SEG_G) ? SEG_G : 0;
+	tmp |= (segments.bitmask & SEG_PT) ? SEG_PT: 0;
 
-	anzeige_pwm_einer(tmp);
+	anzeige_einer(tmp);
 	return 1;
+}
+
+/**
+ * Test output by running a sequence of 0-5 across the two digits.
+ */
+void anzeige_test()
+{
+	// Off:
+	anzeige_einer(0);
+	anzeige_zehner(0);
+	_delay_ms(1000);
+	anzeige_einer(anzeige_convert(0x30));
+	anzeige_zehner(anzeige_convert(0x30));
+	_delay_ms(800);
+	anzeige_einer(anzeige_convert(0x31));
+	anzeige_zehner(anzeige_convert(0x31));
+	_delay_ms(800);
+	anzeige_einer(anzeige_convert(0x32));
+	anzeige_zehner(anzeige_convert(0x32));
+	_delay_ms(800);
+	anzeige_einer(anzeige_convert(0x33));
+	anzeige_zehner(anzeige_convert(0x33));
+	_delay_ms(800);
+	anzeige_einer(anzeige_convert(0x34));
+	anzeige_zehner(anzeige_convert(0x34));
+	_delay_ms(800);
+	anzeige_einer(anzeige_convert(0x35));
+	anzeige_zehner(anzeige_convert(0x35));
+	_delay_ms(800);
+	anzeige_einer(anzeige_convert(0x38));
+	anzeige_zehner(anzeige_convert(0x38));
+	_delay_ms(1000);
+	anzeige_einer(0);
+	anzeige_zehner(0);
 }

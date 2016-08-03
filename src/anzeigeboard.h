@@ -97,11 +97,11 @@ uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point);
  * Take an ASCII Symbol, convert it to 7 Segment display and display it.
  *
  * Conversions that are unknown are output as dash. A space clears the display.
- * @param symbol The symbol to display.
- * @param enable_point True, if the point (LED_PT) should be enabled.
+ * @param symbol The symbol to display on the primary digit (einer)
+ * @param upper_symbol The symbol to display on the secondary digit (zehner)
  * @return 1
  */
-uint8_t anzeige_write_convert(uint8_t symbol, uint8_t enable_point);
+uint8_t anzeige_write_convert(uint8_t symbol, uint8_t upper_symbol);
 
 // anzeige_write_direct will take the binary representation of segments, numbered A-G in LSB -> MSB
 /**
@@ -131,5 +131,10 @@ uint8_t anzeige_write_direct(u_sevensegment_screen segments);
  * Initialize display.
  */
 void anzeige_init();
+
+/**
+ * Run a sequence of numbers (0-5) across both digits
+ */
+void anzeige_test();
 
 #endif /* ANZEIGEBOARD_H_ */

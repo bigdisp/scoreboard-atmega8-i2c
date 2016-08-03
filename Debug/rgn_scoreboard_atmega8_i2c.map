@@ -1,92 +1,329 @@
-Archive member included because of file (symbol)
+Archive member included to satisfy reference by file (symbol)
 
-/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
-                              /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o (exit)
-/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+/usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o (exit)
+/usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
                               ./src/i2c.o (__do_copy_data)
-/usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-                              ./src/i2c.o (__do_clear_bss)
+/usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+                              ./src/eeprom.o (__do_clear_bss)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+                              ./src/main.o (__ltsf2)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+                              ./src/main.o (__fixunssfsi)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_cmp.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o) (__fp_cmp)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o) (__fp_splitA)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o) (__fp_zero)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+                              ./src/main.o (__gtsf2)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+                              ./src/main.o (__mulsf3)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o) (__mulsf3x)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_inf.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o) (__fp_inf)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_nan.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o) (__fp_nan)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscA.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o) (__fp_pscA)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscB.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o) (__fp_pscB)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_round.o)
+                              /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o) (__fp_round)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+                              ./src/eeprom.o (eeprom_read_block)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                              ./src/eeprom.o (eeprom_read_byte)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+                              ./src/eeprom.o (eeprom_read_dword)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+                              ./src/eeprom.o (eeprom_read_word)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+                              ./src/eeprom.o (eeprom_update_block)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+                              ./src/eeprom.o (eeprom_update_byte)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+                              ./src/eeprom.o (eeprom_update_dword)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+                              ./src/eeprom.o (eeprom_update_word)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+                              ./src/eeprom.o (eeprom_write_block)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+                              ./src/eeprom.o (eeprom_write_byte)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+                              ./src/eeprom.o (eeprom_write_dword)
+/usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+                              ./src/eeprom.o (eeprom_write_word)
 
 Allocating common symbols
 Common symbol       size              file
 
 enabled             0x1               ./src/pwm.o
 i2c_rx_buf          0x4               ./src/i2c.o
-pwm_mask            0x1               ./src/pwm.o
 i2c_tx_buf          0x4               ./src/i2c.o
-pwm_t_on            0x2               ./src/pwm.o
-pwm_t_off           0x2               ./src/pwm.o
 
 Discarded input sections
 
- .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
  .text          0x0000000000000000        0x0 ./src/anzeigeboard.o
+ .data          0x0000000000000000        0x0 ./src/anzeigeboard.o
  .bss           0x0000000000000000        0x0 ./src/anzeigeboard.o
+ .text.anzeige_convert
+                0x0000000000000000      0x146 ./src/anzeigeboard.o
+ .progmem.gcc_sw_table.anzeige_convert
+                0x0000000000000000      0x1f6 ./src/anzeigeboard.o
+ .text.anzeige_einer
+                0x0000000000000000      0x14c ./src/anzeigeboard.o
+ .text.anzeige_zehner
+                0x0000000000000000      0x14c ./src/anzeigeboard.o
  .text.anzeige_write
-                0x0000000000000000       0x76 ./src/anzeigeboard.o
+                0x0000000000000000       0x70 ./src/anzeigeboard.o
+ .text.anzeige_write_convert
+                0x0000000000000000       0x34 ./src/anzeigeboard.o
  .text.anzeige_write_direct
-                0x0000000000000000       0xd6 ./src/anzeigeboard.o
+                0x0000000000000000       0x90 ./src/anzeigeboard.o
+ .text          0x0000000000000000        0x0 ./src/eeprom.o
+ .data          0x0000000000000000        0x0 ./src/eeprom.o
+ .bss           0x0000000000000000        0x0 ./src/eeprom.o
+ .stab          0x0000000000000000      0x9fc ./src/eeprom.o
+                                        0xbac (size before relaxing)
+ .text.irq_ctrl
+                0x0000000000000000       0x36 ./src/eeprom.o
+ .text.irqd_eeprom_read_byte
+                0x0000000000000000       0x2e ./src/eeprom.o
+ .text.irqd_eeprom_read_word
+                0x0000000000000000       0x34 ./src/eeprom.o
+ .text.irqd_eeprom_read_dword
+                0x0000000000000000       0x4a ./src/eeprom.o
+ .text.irqd_eeprom_read_float
+                0x0000000000000000       0x4a ./src/eeprom.o
+ .text.irqd_eeprom_read_block
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .text.irqd_eeprom_write_byte
+                0x0000000000000000       0x2e ./src/eeprom.o
+ .text.irqd_eeprom_write_word
+                0x0000000000000000       0x36 ./src/eeprom.o
+ .text.irqd_eeprom_write_dword
+                0x0000000000000000       0x48 ./src/eeprom.o
+ .text.irqd_eeprom_write_float
+                0x0000000000000000       0x48 ./src/eeprom.o
+ .text.irqd_eeprom_write_block
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .text.irqd_eeprom_update_byte
+                0x0000000000000000       0x2e ./src/eeprom.o
+ .text.irqd_eeprom_update_word
+                0x0000000000000000       0x36 ./src/eeprom.o
+ .text.irqd_eeprom_update_dword
+                0x0000000000000000       0x48 ./src/eeprom.o
+ .text.irqd_eeprom_update_float
+                0x0000000000000000       0x48 ./src/eeprom.o
+ .text.irqd_eeprom_update_block
+                0x0000000000000000       0x42 ./src/eeprom.o
+ .bss.tmp_sreg.1606
+                0x0000000000000000        0x1 ./src/eeprom.o
+ .comment       0x0000000000000000       0x12 ./src/eeprom.o
  .text          0x0000000000000000        0x0 ./src/i2c.o
+ .data          0x0000000000000000        0x0 ./src/i2c.o
  .bss           0x0000000000000000        0x0 ./src/i2c.o
+ .text.i2c_init
+                0x0000000000000000       0x66 ./src/i2c.o
  .text.i2c_get_status
                 0x0000000000000000       0x12 ./src/i2c.o
+ .text.i2c_get_status_register
+                0x0000000000000000       0x12 ./src/i2c.o
+ .text.i2c_busy
+                0x0000000000000000       0x18 ./src/i2c.o
+ .text.i2c_wait_busy
+                0x0000000000000000       0x1a ./src/i2c.o
+ .text.i2c_slave_start_tx_data
+                0x0000000000000000       0x7e ./src/i2c.o
  .text.i2c_slave_start_rx
                 0x0000000000000000       0x2a ./src/i2c.o
+ .text.i2c_get_data
+                0x0000000000000000       0xa4 ./src/i2c.o
  .text          0x0000000000000000        0x0 ./src/interrupt.o
+ .data          0x0000000000000000        0x0 ./src/interrupt.o
  .bss           0x0000000000000000        0x0 ./src/interrupt.o
  .text          0x0000000000000000        0x0 ./src/main.o
+ .data          0x0000000000000000        0x0 ./src/main.o
  .bss           0x0000000000000000        0x0 ./src/main.o
  .text          0x0000000000000000        0x0 ./src/pwm.o
+ .data          0x0000000000000000        0x0 ./src/pwm.o
  .bss           0x0000000000000000        0x0 ./src/pwm.o
- .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
- .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .stab          0x0000000000000000      0x63c ./src/pwm.o
+                                        0x804 (size before relaxing)
+ .text.pwm_init
+                0x0000000000000000       0x18 ./src/pwm.o
+ .text.pwm_enable
+                0x0000000000000000      0x122 ./src/pwm.o
+ .text.pwm_set_timing_16
+                0x0000000000000000       0x4e ./src/pwm.o
+ .text.pwm_set_timing_g
+                0x0000000000000000       0x4e ./src/pwm.o
+ .text.pwm_set_timing_b
+                0x0000000000000000       0x28 ./src/pwm.o
+ .text.pwm_set_timing_r
+                0x0000000000000000       0x28 ./src/pwm.o
+ .text.pwm_set_timing_8
+                0x0000000000000000       0x3c ./src/pwm.o
+ .comment       0x0000000000000000       0x12 ./src/pwm.o
+ COMMON         0x0000000000000000        0x1 ./src/pwm.o
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.mul
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.div
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
- .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.prologue
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.builtins
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.fmul
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  .text.libgcc.fixed
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
- .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
- .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.mul
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.div
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
- .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.prologue
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.builtins
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.fmul
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
  .text.libgcc.fixed
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
- .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
- .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.mul
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.div
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.prologue
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.builtins
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.fmul
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
-                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_cmp.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_cmp.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_cmp.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_inf.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_inf.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_inf.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_nan.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_nan.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_nan.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscA.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscA.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscA.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscB.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscB.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscB.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_round.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_round.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_round.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+ .text.avr-libc
+                0x0000000000000000       0x20 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .text.avr-libc
+                0x0000000000000000       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+ .text.avr-libc
+                0x0000000000000000        0xa /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+ .text.avr-libc
+                0x0000000000000000        0xa /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+ .text.avr-libc
+                0x0000000000000000       0x1e /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+ .text.avr-libc
+                0x0000000000000000       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+ .text.avr-libc
+                0x0000000000000000       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+ .text.avr-libc
+                0x0000000000000000        0x8 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+ .text.avr-libc
+                0x0000000000000000       0x12 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+ .text.avr-libc
+                0x0000000000000000       0x1c /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+ .text.avr-libc
+                0x0000000000000000        0xa /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+ .text          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+ .data          0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+ .bss           0x0000000000000000        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+ .text.avr-libc
+                0x0000000000000000        0x6 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
 
-Memory Configuration
+↵
+Speichereinrichtung
+↵
 
-Name             Origin             Length             Attributes
+Name             Ursprung           Länge             Eigenschaften
 text             0x0000000000000000 0x0000000000002000 xr
 data             0x0000000000800060 0x000000000000ffa0 rw !x
 eeprom           0x0000000000810000 0x0000000000010000 rw !x
@@ -98,18 +335,21 @@ user_signatures  0x0000000000850000 0x0000000000000400 rw !x
 
 Linker script and memory map
 
-LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+Address of section .data set to 0x800100
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
 LOAD ./src/anzeigeboard.o
+LOAD ./src/eeprom.o
 LOAD ./src/i2c.o
 LOAD ./src/interrupt.o
 LOAD ./src/main.o
 LOAD ./src/pwm.o
-LOAD /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a
-LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libm.a
+LOAD /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a
 START GROUP
-LOAD /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a
-LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libm.a
-LOAD /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/libc.a
+LOAD /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libc.a
+LOAD /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a
 END GROUP
 
 .hash
@@ -202,50 +442,51 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0xb1e
+.text           0x0000000000000000      0xa4c
  *(.vectors)
- .vectors       0x0000000000000000       0x26 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .vectors       0x0000000000000000       0x34 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
                 0x0000000000000000                __vectors
                 0x0000000000000000                __vector_default
  *(.vectors)
  *(.progmem.gcc*)
- .progmem.gcc_sw_table.anzeige_convert
-                0x0000000000000026      0x1f6 ./src/anzeigeboard.o
- *(.progmem*)
-                0x000000000000021c                . = ALIGN (0x2)
-                0x000000000000021c                __trampolines_start = .
+ .progmem.gcc_sw_table.__vector_24
+                0x0000000000000034       0xc2 ./src/interrupt.o
+                0x00000000000000f6                . = ALIGN (0x2)
+                0x00000000000000f6                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000000000021c        0x0 linker stubs
+ .trampolines   0x00000000000000f6        0x0 linker stubs
  *(.trampolines*)
-                0x000000000000021c                __trampolines_end = .
+                0x00000000000000f6                __trampolines_end = .
+ *(.progmem*)
+                0x00000000000000f6                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000000000021c                __ctors_start = .
+                0x00000000000000f6                __ctors_start = .
  *(.ctors)
-                0x000000000000021c                __ctors_end = .
-                0x000000000000021c                __dtors_start = .
+                0x00000000000000f6                __ctors_end = .
+                0x00000000000000f6                __dtors_start = .
  *(.dtors)
-                0x000000000000021c                __dtors_end = .
+                0x00000000000000f6                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000000000021c        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-                0x000000000000021c                __init
+ .init0         0x00000000000000f6        0x0 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+                0x00000000000000f6                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000000000021c        0xc /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .init2         0x00000000000000f6        0xc /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000000000000228       0x16 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
-                0x0000000000000228                __do_copy_data
- .init4         0x000000000000023e       0x10 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-                0x000000000000023e                __do_clear_bss
+ .init4         0x0000000000000102       0x16 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+                0x0000000000000102                __do_copy_data
+ .init4         0x0000000000000118       0x10 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+                0x0000000000000118                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -256,81 +497,97 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000000000024e        0x4 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .init9         0x0000000000000128        0x4 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
  *(.init9)
  *(.text)
- .text          0x0000000000000252        0x2 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-                0x0000000000000252                __vector_1
-                0x0000000000000252                __vector_12
-                0x0000000000000252                __bad_interrupt
-                0x0000000000000252                __vector_3
-                0x0000000000000252                __vector_11
-                0x0000000000000252                __vector_13
-                0x0000000000000252                __vector_7
-                0x0000000000000252                __vector_5
-                0x0000000000000252                __vector_4
-                0x0000000000000252                __vector_9
-                0x0000000000000252                __vector_2
-                0x0000000000000252                __vector_15
-                0x0000000000000252                __vector_8
-                0x0000000000000252                __vector_14
-                0x0000000000000252                __vector_10
-                0x0000000000000252                __vector_16
-                0x0000000000000252                __vector_18
-                0x0000000000000254                . = ALIGN (0x2)
+ .text          0x000000000000012c        0x2 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+                0x000000000000012c                __vector_22
+                0x000000000000012c                __vector_1
+                0x000000000000012c                __vector_12
+                0x000000000000012c                __bad_interrupt
+                0x000000000000012c                __vector_6
+                0x000000000000012c                __vector_3
+                0x000000000000012c                __vector_23
+                0x000000000000012c                __vector_25
+                0x000000000000012c                __vector_11
+                0x000000000000012c                __vector_13
+                0x000000000000012c                __vector_17
+                0x000000000000012c                __vector_19
+                0x000000000000012c                __vector_7
+                0x000000000000012c                __vector_5
+                0x000000000000012c                __vector_4
+                0x000000000000012c                __vector_9
+                0x000000000000012c                __vector_2
+                0x000000000000012c                __vector_21
+                0x000000000000012c                __vector_15
+                0x000000000000012c                __vector_8
+                0x000000000000012c                __vector_14
+                0x000000000000012c                __vector_10
+                0x000000000000012c                __vector_16
+                0x000000000000012c                __vector_18
+                0x000000000000012c                __vector_20
+                0x000000000000012e                . = ALIGN (0x2)
  *(.text.*)
  .text.anzeige_init
-                0x0000000000000254       0x18 ./src/anzeigeboard.o
-                0x0000000000000254                anzeige_init
- .text.anzeige_convert
-                0x000000000000026c      0x146 ./src/anzeigeboard.o
-                0x000000000000026c                anzeige_convert
- .text.anzeige_write_convert
-                0x00000000000003b2       0x34 ./src/anzeigeboard.o
-                0x00000000000003b2                anzeige_write_convert
- .text.i2c_init
-                0x00000000000003e6       0x66 ./src/i2c.o
-                0x00000000000003e6                i2c_init
- .text.i2c_get_status_register
-                0x000000000000044c       0x12 ./src/i2c.o
-                0x000000000000044c                i2c_get_status_register
- .text.i2c_busy
-                0x000000000000045e       0x18 ./src/i2c.o
-                0x000000000000045e                i2c_busy
- .text.i2c_wait_busy
-                0x0000000000000476       0x1a ./src/i2c.o
-                0x0000000000000476                i2c_wait_busy
- .text.i2c_slave_start_tx_data
-                0x0000000000000490       0x80 ./src/i2c.o
-                0x0000000000000490                i2c_slave_start_tx_data
- .text.i2c_get_data
-                0x0000000000000510       0xa6 ./src/i2c.o
-                0x0000000000000510                i2c_get_data
- .text.__vector_17
-                0x00000000000005b6      0x1cc ./src/interrupt.o
-                0x00000000000005b6                __vector_17
- .text.__vector_6
-                0x0000000000000782       0xac ./src/interrupt.o
-                0x0000000000000782                __vector_6
- .text.main     0x000000000000082e      0x1c2 ./src/main.o
-                0x000000000000082e                main
- .text.pwm_init
-                0x00000000000009f0       0x42 ./src/pwm.o
-                0x00000000000009f0                pwm_init
- .text.pwm_enable
-                0x0000000000000a32       0x68 ./src/pwm.o
-                0x0000000000000a32                pwm_enable
- .text.pwm_update_port1
-                0x0000000000000a9a       0x2c ./src/pwm.o
-                0x0000000000000a9a                pwm_update_port1
- .text.pwm_set_timing
-                0x0000000000000ac6       0x54 ./src/pwm.o
-                0x0000000000000ac6                pwm_set_timing
-                0x0000000000000b1a                . = ALIGN (0x2)
+                0x000000000000012e      0x206 ./src/anzeigeboard.o
+                0x000000000000012e                anzeige_init
+ .text.__vector_24
+                0x0000000000000334      0x1de ./src/interrupt.o
+                0x0000000000000334                __vector_24
+ .text.main     0x0000000000000512      0x31e ./src/main.o
+                0x0000000000000512                main
+ .text.avr-libc.fplib
+                0x0000000000000830        0x8 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+                0x0000000000000830                __lesf2
+                0x0000000000000830                __nesf2
+                0x0000000000000830                __eqsf2
+                0x0000000000000830                __cmpsf2
+                0x0000000000000830                __ltsf2
+ .text.avr-libc.fplib
+                0x0000000000000838       0x58 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+                0x0000000000000838                __fixunssfsi
+ .text.avr-libc.fplib
+                0x0000000000000890       0x48 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_cmp.o)
+                0x0000000000000890                __fp_cmp
+ .text.avr-libc.fplib
+                0x00000000000008d8       0x44 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+                0x00000000000008d8                __fp_split3
+                0x00000000000008e8                __fp_splitA
+ .text.avr-libc.fplib
+                0x000000000000091c        0xe /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+                0x000000000000091c                __fp_zero
+                0x000000000000091e                __fp_szero
+ .text.avr-libc.fplib
+                0x000000000000092a        0x8 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+                0x000000000000092a                __gtsf2
+                0x000000000000092a                __gesf2
+ .text.avr-libc.fplib
+                0x0000000000000932        0x4 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+                0x0000000000000932                __mulsf3
+ .text.avr-libc.fplib
+                0x0000000000000936       0xc2 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+                0x000000000000094a                __mulsf3x
+                0x000000000000094e                __mulsf3_pse
+ .text.avr-libc.fplib
+                0x00000000000009f8        0xc /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_inf.o)
+                0x00000000000009f8                __fp_inf
+ .text.avr-libc.fplib
+                0x0000000000000a04        0x6 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_nan.o)
+                0x0000000000000a04                __fp_nan
+ .text.avr-libc.fplib
+                0x0000000000000a0a        0xe /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscA.o)
+                0x0000000000000a0a                __fp_pscA
+ .text.avr-libc.fplib
+                0x0000000000000a18        0xe /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscB.o)
+                0x0000000000000a18                __fp_pscB
+ .text.avr-libc.fplib
+                0x0000000000000a26       0x22 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_round.o)
+                0x0000000000000a26                __fp_round
+                0x0000000000000a48                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000b1a        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
-                0x0000000000000b1a                exit
-                0x0000000000000b1a                _exit
+ .fini9         0x0000000000000a48        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000a48                exit
+                0x0000000000000a48                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -349,69 +606,53 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000b1a        0x4 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x0000000000000a48        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000b1e                _etext = .
+                0x0000000000000a4c                _etext = .
 
-.data           0x0000000000800060        0x2 load address 0x0000000000000b1e
-                0x0000000000800060                PROVIDE (__data_start, .)
+.data           0x0000000000800100        0x2 load address 0x0000000000000a4c
+                0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
- .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
- .data          0x0000000000800060        0x0 ./src/anzeigeboard.o
- .data          0x0000000000800060        0x0 ./src/i2c.o
- .data          0x0000000000800060        0x0 ./src/interrupt.o
- .data          0x0000000000800060        0x0 ./src/main.o
- .data          0x0000000000800060        0x0 ./src/pwm.o
- .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
- .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
- .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
  *(.data*)
  .data.i2c_status
-                0x0000000000800060        0x1 ./src/i2c.o
-                0x0000000000800060                i2c_status
+                0x0000000000800100        0x1 ./src/i2c.o
+                0x0000000000800100                i2c_status
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x0000000000800062                . = ALIGN (0x2)
- *fill*         0x0000000000800061        0x1 
-                0x0000000000800062                _edata = .
-                0x0000000000800062                PROVIDE (__data_end, .)
+                0x0000000000800102                . = ALIGN (0x2)
+ *fill*         0x0000000000800101        0x1 
+                0x0000000000800102                _edata = .
+                0x0000000000800102                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800062       0x13
-                0x0000000000800062                PROVIDE (__bss_start, .)
+.bss            0x0000000000800102        0xc
+                0x0000000000800102                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.i2c_msg_size
-                0x0000000000800062        0x1 ./src/i2c.o
-                0x0000000000800062                i2c_msg_size
+                0x0000000000800102        0x1 ./src/i2c.o
+                0x0000000000800102                i2c_msg_size
  .bss.i2c_status_register
-                0x0000000000800063        0x1 ./src/i2c.o
-                0x0000000000800063                i2c_status_register
- .bss.i2c_tx_buf_ptr.1546
-                0x0000000000800064        0x1 ./src/interrupt.o
- .bss.i2c_rx_buf_ptr.1547
-                0x0000000000800065        0x1 ./src/interrupt.o
- .bss.outputs_enabled.1570
-                0x0000000000800066        0x1 ./src/interrupt.o
+                0x0000000000800103        0x1 ./src/i2c.o
+                0x0000000000800103                i2c_status_register
+ .bss.i2c_tx_buf_ptr.1568
+                0x0000000000800104        0x1 ./src/interrupt.o
+ .bss.i2c_rx_buf_ptr.1569
+                0x0000000000800105        0x1 ./src/interrupt.o
  *(COMMON)
- COMMON         0x0000000000800067        0x8 ./src/i2c.o
-                0x0000000000800067                i2c_rx_buf
-                0x000000000080006b                i2c_tx_buf
- COMMON         0x000000000080006f        0x6 ./src/pwm.o
-                0x000000000080006f                enabled
-                0x0000000000800070                pwm_mask
-                0x0000000000800071                pwm_t_on
-                0x0000000000800073                pwm_t_off
-                0x0000000000800075                PROVIDE (__bss_end, .)
-                0x0000000000000b1e                __data_load_start = LOADADDR (.data)
-                0x0000000000000b20                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0000000000800106        0x8 ./src/i2c.o
+                0x0000000000800106                i2c_rx_buf
+                0x000000000080010a                i2c_tx_buf
+                0x000000000080010e                PROVIDE (__bss_end, .)
+                0x0000000000000a4c                __data_load_start = LOADADDR (.data)
+                0x0000000000000a4e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800075        0x0
-                0x0000000000800075                PROVIDE (__noinit_start, .)
+.noinit         0x000000000080010e        0x0
+                0x000000000080010e                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0000000000800075                PROVIDE (__noinit_end, .)
-                0x0000000000800075                _end = .
-                0x0000000000800075                PROVIDE (__heap_start, .)
+                0x000000000080010e                PROVIDE (__noinit_end, .)
+                0x000000000080010e                _end = .
+                0x000000000080010e                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)
@@ -432,23 +673,20 @@ END GROUP
 .user_signatures
  *(.user_signatures*)
 
-.stab           0x0000000000000000     0x279c
+.stab           0x0000000000000000     0x13e0
  *(.stab)
- .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
- .stab          0x00000000000006cc      0x9cc ./src/anzeigeboard.o
-                                        0xc84 (size before relaxing)
- .stab          0x0000000000001098      0x6a8 ./src/i2c.o
+ .stab          0x0000000000000000      0x618 ./src/anzeigeboard.o
+                                       0x1068 (size before relaxing)
+ .stab          0x0000000000000618      0x2f4 ./src/i2c.o
                                         0x900 (size before relaxing)
- .stab          0x0000000000001740      0x540 ./src/interrupt.o
-                                        0x744 (size before relaxing)
- .stab          0x0000000000001c80      0x660 ./src/main.o
-                                        0x888 (size before relaxing)
- .stab          0x00000000000022e0      0x4bc ./src/pwm.o
-                                        0x684 (size before relaxing)
+ .stab          0x000000000000090c      0x4bc ./src/interrupt.o
+                                        0x6c0 (size before relaxing)
+ .stab          0x0000000000000dc8      0x618 ./src/main.o
+                                        0x8a0 (size before relaxing)
 
-.stabstr        0x0000000000000000     0x1382
+.stabstr        0x0000000000000000     0x190c
  *(.stabstr)
- .stabstr       0x0000000000000000     0x1382 /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+ .stabstr       0x0000000000000000     0x190c ./src/anzeigeboard.o
 
 .stab.excl
  *(.stab.excl)
@@ -466,10 +704,17 @@ END GROUP
  *(.comment)
  .comment       0x0000000000000000       0x11 ./src/anzeigeboard.o
                                          0x12 (size before relaxing)
- .comment       0x0000000000000000       0x12 ./src/i2c.o
- .comment       0x0000000000000000       0x12 ./src/interrupt.o
- .comment       0x0000000000000000       0x12 ./src/main.o
- .comment       0x0000000000000000       0x12 ./src/pwm.o
+ .comment       0x0000000000000011       0x12 ./src/i2c.o
+ .comment       0x0000000000000011       0x12 ./src/interrupt.o
+ .comment       0x0000000000000011       0x12 ./src/main.o
+
+.note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c
+ .note.gnu.avr.deviceinfo
+                0x0000000000000000       0x3c /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
 
 .debug
  *(.debug)
@@ -490,14 +735,13 @@ END GROUP
  *(.debug_pubnames)
 
 .debug_info
- *(.debug_info)
- *(.gnu.linkonce.wi.*)
+ *(.debug_info .gnu.linkonce.wi.*)
 
 .debug_abbrev
  *(.debug_abbrev)
 
 .debug_line
- *(.debug_line)
+ *(.debug_line .debug_line.* .debug_line_end)
 
 .debug_frame
  *(.debug_frame)
@@ -511,6 +755,18 @@ END GROUP
 .debug_macinfo
  *(.debug_macinfo)
 
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
 .debug_pubtypes
  *(.debug_pubtypes)
 
@@ -522,93 +778,188 @@ END GROUP
 OUTPUT(rgn_scoreboard_atmega8_i2c.elf elf32-avr)
 LOAD linker stubs
 
-Cross Reference Table
+Kreuzreferenz-Tabelle
 
-Symbol                                            File
-__bad_interrupt                                   /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__bss_end                                         /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-__bss_start                                       /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
-__data_end                                        /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
-__data_load_start                                 /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
-__data_start                                      /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
-__do_clear_bss                                    /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_clear_bss.o)
+Symbol                                            Datei
+__bad_interrupt                                   /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__bss_end                                         /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+__bss_start                                       /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
+__cmpsf2                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+__data_end                                        /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+__data_load_start                                 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+__data_start                                      /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
+__do_clear_bss                                    /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_clear_bss.o)
                                                   ./src/pwm.o
                                                   ./src/interrupt.o
                                                   ./src/i2c.o
-__do_copy_data                                    /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_copy_data.o)
+                                                  ./src/eeprom.o
+__do_copy_data                                    /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_copy_data.o)
                                                   ./src/i2c.o
-__heap_end                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__init                                            /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__stack                                           /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_1                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_10                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_11                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_12                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_13                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_14                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_15                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_16                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_17                                       ./src/interrupt.o
-                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_18                                       /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_2                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_3                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_4                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_5                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_6                                        ./src/interrupt.o
-                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_7                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_8                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_9                                        /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vector_default                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-__vectors                                         /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
-_exit                                             /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
+__eqsf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+__fixunssfsi                                      /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+                                                  ./src/main.o
+__fp_cmp                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_cmp.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+__fp_inf                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_inf.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__fp_nan                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_nan.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__fp_pscA                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscA.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__fp_pscB                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_pscB.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__fp_round                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_round.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+__fp_split3                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__fp_splitA                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_split3.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+__fp_szero                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__fp_zero                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fp_zero.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(fixunssfsi.o)
+__gesf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+__gtsf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(gesf2.o)
+                                                  ./src/main.o
+__heap_end                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__init                                            /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__lesf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+__ltsf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+                                                  ./src/main.o
+__mulsf3                                          /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+                                                  ./src/main.o
+__mulsf3_pse                                      /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+__mulsf3x                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3x.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(mulsf3.o)
+__nesf2                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libm.a(cmpsf2.o)
+__stack                                           /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_1                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_10                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_11                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_12                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_13                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_14                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_15                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_16                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_17                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_18                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_19                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_2                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_20                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_21                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_22                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_23                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_24                                       ./src/interrupt.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_25                                       /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_3                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_4                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_5                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_6                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_7                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_8                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_9                                        /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vector_default                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+__vectors                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
+_exit                                             /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
 anzeige_convert                                   ./src/anzeigeboard.o
+anzeige_einer                                     ./src/anzeigeboard.o
 anzeige_init                                      ./src/anzeigeboard.o
                                                   ./src/main.o
+anzeige_pwm_einer                                 ./src/anzeigeboard.o
 anzeige_write                                     ./src/anzeigeboard.o
 anzeige_write_convert                             ./src/anzeigeboard.o
-                                                  ./src/main.o
 anzeige_write_direct                              ./src/anzeigeboard.o
+anzeige_zehner                                    ./src/anzeigeboard.o
+eeprom_read_block                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+                                                  ./src/eeprom.o
+eeprom_read_blraw                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_block.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+eeprom_read_byte                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                                                  ./src/eeprom.o
+eeprom_read_dword                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+                                                  ./src/eeprom.o
+eeprom_read_float                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_dword.o)
+                                                  ./src/eeprom.o
+eeprom_read_word                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_word.o)
+                                                  ./src/eeprom.o
+eeprom_update_block                               /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+                                                  ./src/eeprom.o
+eeprom_update_byte                                /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+                                                  ./src/eeprom.o
+eeprom_update_dword                               /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+                                                  ./src/eeprom.o
+eeprom_update_float                               /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+                                                  ./src/eeprom.o
+eeprom_update_r18                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_block.o)
+eeprom_update_word                                /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
+                                                  ./src/eeprom.o
+eeprom_write_block                                /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+                                                  ./src/eeprom.o
+eeprom_write_byte                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+                                                  ./src/eeprom.o
+eeprom_write_dword                                /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+                                                  ./src/eeprom.o
+eeprom_write_float                                /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+                                                  ./src/eeprom.o
+eeprom_write_r18                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_byte.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_block.o)
+eeprom_write_word                                 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_word.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eewr_dword.o)
+                                                  ./src/eeprom.o
 enabled                                           ./src/pwm.o
-exit                                              /usr/lib/gcc/avr/4.8.2/avr4/libgcc.a(_exit.o)
-                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+exit                                              /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
 i2c_busy                                          ./src/i2c.o
 i2c_get_data                                      ./src/i2c.o
-                                                  ./src/main.o
 i2c_get_status                                    ./src/i2c.o
 i2c_get_status_register                           ./src/i2c.o
-                                                  ./src/main.o
 i2c_init                                          ./src/i2c.o
-                                                  ./src/main.o
 i2c_msg_size                                      ./src/i2c.o
                                                   ./src/interrupt.o
-i2c_rx_buf                                        ./src/interrupt.o
-                                                  ./src/i2c.o
+i2c_rx_buf                                        ./src/i2c.o
+                                                  ./src/interrupt.o
 i2c_slave_start_rx                                ./src/i2c.o
 i2c_slave_start_tx_data                           ./src/i2c.o
-                                                  ./src/main.o
 i2c_status                                        ./src/i2c.o
                                                   ./src/interrupt.o
 i2c_status_register                               ./src/i2c.o
                                                   ./src/interrupt.o
-i2c_tx_buf                                        ./src/interrupt.o
-                                                  ./src/i2c.o
+i2c_tx_buf                                        ./src/i2c.o
+                                                  ./src/interrupt.o
 i2c_wait_busy                                     ./src/i2c.o
-                                                  ./src/main.o
+irq_ctrl                                          ./src/eeprom.o
+irqd_eeprom_read_block                            ./src/eeprom.o
+irqd_eeprom_read_byte                             ./src/eeprom.o
+irqd_eeprom_read_dword                            ./src/eeprom.o
+irqd_eeprom_read_float                            ./src/eeprom.o
+irqd_eeprom_read_word                             ./src/eeprom.o
+irqd_eeprom_update_block                          ./src/eeprom.o
+irqd_eeprom_update_byte                           ./src/eeprom.o
+irqd_eeprom_update_dword                          ./src/eeprom.o
+irqd_eeprom_update_float                          ./src/eeprom.o
+irqd_eeprom_update_word                           ./src/eeprom.o
+irqd_eeprom_write_block                           ./src/eeprom.o
+irqd_eeprom_write_byte                            ./src/eeprom.o
+irqd_eeprom_write_dword                           ./src/eeprom.o
+irqd_eeprom_write_float                           ./src/eeprom.o
+irqd_eeprom_write_word                            ./src/eeprom.o
 main                                              ./src/main.o
-                                                  /usr/lib/gcc/avr/4.8.2/../../../avr/lib/avr4/crtm8.o
+                                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
 pwm_enable                                        ./src/pwm.o
-                                                  ./src/main.o
 pwm_init                                          ./src/pwm.o
-                                                  ./src/main.o
-pwm_mask                                          ./src/pwm.o
-                                                  ./src/interrupt.o
-pwm_set_timing                                    ./src/pwm.o
-                                                  ./src/main.o
-pwm_t_off                                         ./src/pwm.o
-                                                  ./src/interrupt.o
-pwm_t_on                                          ./src/pwm.o
-                                                  ./src/interrupt.o
-pwm_update_port1                                  ./src/pwm.o
-                                                  ./src/anzeigeboard.o
+pwm_set_timing_16                                 ./src/pwm.o
+pwm_set_timing_8                                  ./src/pwm.o
+pwm_set_timing_b                                  ./src/pwm.o
+pwm_set_timing_g                                  ./src/pwm.o
+pwm_set_timing_r                                  ./src/pwm.o

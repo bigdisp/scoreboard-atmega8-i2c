@@ -14,23 +14,78 @@
 #endif
 
 //Segment definititions
-// This definition was moved to anzeigeboard.h:
-//#define SEG_A  (1 << 4)
-//#define SEG_B  (1 << 3)
-//#define SEG_C  (1 << 1)
-//#define SEG_D  (1 << 7)
-//#define SEG_E  (1 << 6)
-//#define SEG_F  (1 << 5)
-//#define SEG_G  (1 << 2)
-//#define SEG_PT (1 << 0)
-#define SEG_A  (1 << 4)
-#define SEG_B  (1 << 3)
-#define SEG_C  (1 << 1)
-#define SEG_D  (1 << 7)
-#define SEG_E  (1 << 6)
+// For Software Use only:
+#define SEG_A  (1 << 0)
+#define SEG_B  (1 << 1)
+#define SEG_C  (1 << 2)
+#define SEG_D  (1 << 3)
+#define SEG_E  (1 << 4)
 #define SEG_F  (1 << 5)
-#define SEG_G  (1 << 2)
-#define SEG_PT (1 << 0)
+#define SEG_G  (1 << 6)
+#define SEG_PT (1 << 7)
+
+// Pins & Ports Segment 0
+#define P_0A PB0
+#define P_0B PB4
+#define P_0C PB5
+#define P_0D PB6
+#define P_0E PB7
+#define P_0F PC0
+#define P_0G PC1
+
+#define SEG_0A  (1 << PB0)
+#define SEG_0B  (1 << PB4)
+#define SEG_0C  (1 << PB5)
+#define SEG_0D  (1 << PB6)
+#define SEG_0E  (1 << PB7)
+#define SEG_0F  (1 << PC0)
+#define SEG_0G  (1 << PC1)
+
+#define POR_0A PORTB
+#define POR_0B PORTB
+#define POR_0C PORTB
+#define POR_0D PORTB
+#define POR_0E PORTB
+#define POR_0F PORTC
+#define POR_0G PORTC
+
+#define DDR_0A DDRB
+#define DDR_0B DDRB
+#define DDR_0C DDRB
+#define DDR_0D DDRB
+#define DDR_0E DDRB
+#define DDR_0F DDRC
+#define DDR_0G DDRC
+
+// Pins & Ports Segment 1
+// In the layout, a few ports are swapped in order
+// So we swap them in the software as well to correct
+// Order of lines is according to the layout,
+// Segments are named according to correction
+#define SEG_1C  (1 << PC2)
+#define SEG_1B  (1 << PC3)
+#define SEG_1A  (1 << PD0)
+#define SEG_1E  (1 << PD1)
+#define SEG_1D  (1 << PD2)
+#define SEG_1G  (1 << PD4)
+#define SEG_1F  (1 << PD7)
+
+#define POR_1C PORTC
+#define POR_1B PORTC
+#define POR_1A PORTD
+#define POR_1E PORTD
+#define POR_1D PORTD
+#define POR_1G PORTD
+#define POR_1F PORTD
+
+#define DDR_1C DDRC
+#define DDR_1B DDRC
+#define DDR_1A DDRD
+#define DDR_1E DDRD
+#define DDR_1D DDRD
+#define DDR_1G DDRD
+#define DDR_1F DDRD
+
 /*
  *         AAAAAAA
  *        F       B
@@ -45,55 +100,6 @@
  */
 
 /// Port definitions
-#if PWM_ENABLED
-	#define ANZ_PORT2_ACTIVE	PWM_PORT2_ACTIVE
-	#if ANZ_PORT2_ACTIVE
-		#define ANZ_PORT_ZEHNER 	PWM_PORT2
-		#define ANZ_DDR_ZEHNER  	PWM_DDR2
-	#endif
-	#define ANZ_PORT_EINER		PWM_PORT1
-	#define ANZ_DDR_EINER 		PWM_DDR1
-#else
-	// If PWM is active, these ports are overruled by the PWM ports
-	#define ANZ_PORT2_ACTIVE	0
-	#if ANZ_PORT2_ACTIVE
-		#define ANZ_PORT_ZEHNER 	PORTC
-		#define ANZ_DDR_ZEHNER  	DDRC
-	#endif
-	#define ANZ_PORT_EINER		PORTB
-	#define ANZ_DDR_EINER 		DDRB
-#endif
-
-#define set_ddr_einer(symbol) ANZ_DDR_EINER = (symbol)
-#if PWM_PORT2_ACTIVE
-#define set_ddr_zehner(symbol) ANZ_DDR_ZEHNER = (symbol)
-#endif
-
-// A little bit of Define Magic for compiling/not compiling PWM
-#if PWM_ENABLED
-	/**
-	 * @see pwm_update_port1
-	 */
-	#define anzeige_pwm_einer(symbol) pwm_update_port1((symbol))
-	#if PWM_PORT2_ACTIVE
-		/**
-		 * @see pwm_update_port1
-		 */
-		#define anzeige_pwm_zehner(symbol) pwm_update_port2((symbol))
-	#elif ANZ_PORT2_ACTIVE
-		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
-	#else
-		#define anzeige_pwm_zehner(symbol)
-	#endif
-#else
-	#define anzeige_pwm_einer(symbol)  ANZ_PORT_EINER  = (symbol)
-	#if ANZ_PORT2_ACTIVE
-		#define anzeige_pwm_zehner(symbol) ANZ_PORT_ZEHNER = (symbol)
-	#else
-		#define anzeige_pwm_zehner(symbol)
-	#endif
-#endif
-
 
 
 #endif /* UC_ANZEIGEBOARD_H_ */

@@ -121,36 +121,3 @@ ISR(TWI_vect)
 	}
 }
 
-// PWM Interrupts
-#if PWM_ENABLED
-volatile extern uint16_t pwm_t_on;
-volatile extern uint16_t pwm_t_off;
-volatile extern uint8_t pwm_mask;
-#if PWM_PORT2_ACTIVE
-volatile extern uint8_t pwm_mask2;
-#endif
-ISR(TIMER1_COMPA_vect)
-{
-	static uint8_t outputs_enabled = 0;
-	if(outputs_enabled)
-	{
-		outputs_enabled = 0;
-		//TODO: Achtung: Das sind 16 bit Werte, also prinzipiell 2 Takte -> Interrupt disable?
-		OCR1A += pwm_t_off;
-		PWM_PORT1 = 0;
-#if PWM_PORT2_ACTIVE
-		PWM_PORT2 = 0;
-#endif
-	}
-	else
-	{
-		outputs_enabled = 1;
-		OCR1A += pwm_t_on;
-		PWM_PORT1 = pwm_mask;
-#if PWM_PORT2_ACTIVE
-		PWM_PORT2 = pwm_mask2;
-#endif
-	}
-}
-
-#endif
