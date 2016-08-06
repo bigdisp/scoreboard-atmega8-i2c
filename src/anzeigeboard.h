@@ -146,6 +146,25 @@ void anzeige_write_convert_1(uint8_t symbol);
 uint8_t anzeige_write_direct(u_sevensegment_screen segments);
 
 /**
+ * Set (=enable) the specified bits of digit 0 without changing the others.
+ */
+void anzeige_set_bits_0(uint8_t bit);
+
+/**
+ * Set (=enable) the specified bits of digit 1 without changing the others.
+ */
+void anzeige_set_bits_1(uint8_t bit);
+
+/**
+ * Clear (=disable) the specified bits of digit 0 without changing the others.
+ */
+void anzeige_clear_bits_0(uint8_t bit);
+/**
+ * Clear (=disable) the specified bits of digit 1 without changing the others.
+ */
+void anzeige_clear_bits_1(uint8_t bit);
+
+/**
  * Initialize display.
  */
 void anzeige_init();

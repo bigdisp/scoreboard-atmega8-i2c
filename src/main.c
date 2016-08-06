@@ -161,6 +161,23 @@ int main()
 					second_row = i2c_msg[1];
 					anzeige_write_convert_1(i2c_msg[1]);
 				}
+				// Set individual bits (for balls/strikes/outs)
+				else if(i2c_msg[0] == 0x09)
+				{
+					anzeige_set_bits_0(i2c_msg[1]);
+				}
+				else if(i2c_msg[0] == 0x0A)
+				{
+					anzeige_clear_bits_0(i2c_msg[1]);
+				}
+				else if(i2c_msg[0] == 0x0B)
+				{
+					anzeige_set_bits_1(i2c_msg[1]);
+				}
+				else if(i2c_msg[0] == 0x0C)
+				{
+					anzeige_clear_bits_1(i2c_msg[1]);
+				}
 				else
 				{
 					//Whatever is in the first slot, use as output:

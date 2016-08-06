@@ -398,6 +398,51 @@ uint8_t anzeige_write_direct(u_sevensegment_screen segments)
 	return 1;
 }
 
+void anzeige_set_bits_0(uint8_t bit)
+{
+	if (bit & SEG_A) POR_0A |= SEG_0A;
+	if (bit & SEG_B) POR_0B |= SEG_0B;
+	if (bit & SEG_C) POR_0C |= SEG_0C;
+	if (bit & SEG_D) POR_0D |= SEG_0D;
+	if (bit & SEG_E) POR_0E |= SEG_0E;
+	if (bit & SEG_F) POR_0F |= SEG_0F;
+	if (bit & SEG_G) POR_0G |= SEG_0G;
+}
+
+void anzeige_clear_bits_0(uint8_t bit)
+{
+	if (bit & SEG_A) POR_0A &= ~(SEG_0A);
+	if (bit & SEG_B) POR_0B &= ~(SEG_0B);
+	if (bit & SEG_C) POR_0C &= ~(SEG_0C);
+	if (bit & SEG_D) POR_0D &= ~(SEG_0D);
+	if (bit & SEG_E) POR_0E &= ~(SEG_0E);
+	if (bit & SEG_F) POR_0F &= ~(SEG_0F);
+	if (bit & SEG_G) POR_0G &= ~(SEG_0G);
+}
+void anzeige_set_bits_1(uint8_t bit)
+{
+	if (bit & SEG_A) POR_1A |= SEG_1A;
+	if (bit & SEG_B) POR_1B |= SEG_1B;
+	if (bit & SEG_C) POR_1C |= SEG_1C;
+	if (bit & SEG_D) POR_1D |= SEG_1D;
+	if (bit & SEG_E) POR_1E |= SEG_1E;
+	if (bit & SEG_F) POR_1F |= SEG_1F;
+	if (bit & SEG_G) POR_1G |= SEG_1G;
+}
+
+void anzeige_clear_bits_1(uint8_t bit)
+{
+	if (bit & SEG_A) POR_1A &= ~(SEG_1A);
+	if (bit & SEG_B) POR_1B &= ~(SEG_1B);
+	if (bit & SEG_C) POR_1C &= ~(SEG_1C);
+	if (bit & SEG_D) POR_1D &= ~(SEG_1D);
+	if (bit & SEG_E) POR_1E &= ~(SEG_1E);
+	if (bit & SEG_F) POR_1F &= ~(SEG_1F);
+	if (bit & SEG_G) POR_1G &= ~(SEG_1G);
+}
+
+
+
 /**
  * Test output by running a sequence of 0-5 across the two digits.
  */

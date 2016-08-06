@@ -353,7 +353,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x732
+.text           0x0000000000000000      0x7d2
  *(.vectors)
  .vectors       0x0000000000000000       0x34 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
                 0x0000000000000000                __vectors
@@ -458,62 +458,74 @@ END GROUP
  .text.anzeige_write_convert
                 0x00000000000001ec       0x1e ./src/anzeigeboard.o
                 0x00000000000001ec                anzeige_write_convert
+ .text.anzeige_set_bits_0
+                0x000000000000020a       0x1e ./src/anzeigeboard.o
+                0x000000000000020a                anzeige_set_bits_0
+ .text.anzeige_clear_bits_0
+                0x0000000000000228       0x1e ./src/anzeigeboard.o
+                0x0000000000000228                anzeige_clear_bits_0
+ .text.anzeige_set_bits_1
+                0x0000000000000246       0x1e ./src/anzeigeboard.o
+                0x0000000000000246                anzeige_set_bits_1
+ .text.anzeige_clear_bits_1
+                0x0000000000000264       0x1e ./src/anzeigeboard.o
+                0x0000000000000264                anzeige_clear_bits_1
  .text.anzeige_test
-                0x000000000000020a       0xd8 ./src/anzeigeboard.o
-                0x000000000000020a                anzeige_test
+                0x0000000000000282       0xd8 ./src/anzeigeboard.o
+                0x0000000000000282                anzeige_test
  .text.i2c_init
-                0x00000000000002e2       0x3a ./src/i2c.o
-                0x00000000000002e2                i2c_init
+                0x000000000000035a       0x3a ./src/i2c.o
+                0x000000000000035a                i2c_init
  .text.i2c_get_status_register
-                0x000000000000031c        0x6 ./src/i2c.o
-                0x000000000000031c                i2c_get_status_register
+                0x0000000000000394        0x6 ./src/i2c.o
+                0x0000000000000394                i2c_get_status_register
  .text.i2c_wait_busy
-                0x0000000000000322        0xe ./src/i2c.o
-                0x0000000000000322                i2c_wait_busy
+                0x000000000000039a        0xe ./src/i2c.o
+                0x000000000000039a                i2c_wait_busy
  .text.i2c_slave_start_tx_data
-                0x0000000000000330       0x3a ./src/i2c.o
-                0x0000000000000330                i2c_slave_start_tx_data
+                0x00000000000003a8       0x3a ./src/i2c.o
+                0x00000000000003a8                i2c_slave_start_tx_data
  .text.i2c_get_data
-                0x000000000000036a       0x4c ./src/i2c.o
-                0x000000000000036a                i2c_get_data
+                0x00000000000003e2       0x4c ./src/i2c.o
+                0x00000000000003e2                i2c_get_data
  .text.__vector_24
-                0x00000000000003b6      0x148 ./src/interrupt.o
-                0x00000000000003b6                __vector_24
+                0x000000000000042e      0x148 ./src/interrupt.o
+                0x000000000000042e                __vector_24
  .text.startup.main
-                0x00000000000004fe      0x146 ./src/main.o
-                0x00000000000004fe                main
+                0x0000000000000576      0x16e ./src/main.o
+                0x0000000000000576                main
  .text.pwm_enable
-                0x0000000000000644       0x58 ./src/pwm.o
-                0x0000000000000644                pwm_enable
+                0x00000000000006e4       0x58 ./src/pwm.o
+                0x00000000000006e4                pwm_enable
  .text.pwm_set_timing_16
-                0x000000000000069c       0x18 ./src/pwm.o
-                0x000000000000069c                pwm_set_timing_16
+                0x000000000000073c       0x18 ./src/pwm.o
+                0x000000000000073c                pwm_set_timing_16
  .text.pwm_set_timing_g
-                0x00000000000006b4       0x1e ./src/pwm.o
-                0x00000000000006b4                pwm_set_timing_g
+                0x0000000000000754       0x1e ./src/pwm.o
+                0x0000000000000754                pwm_set_timing_g
  .text.pwm_set_timing_b
-                0x00000000000006d2       0x10 ./src/pwm.o
-                0x00000000000006d2                pwm_set_timing_b
+                0x0000000000000772       0x10 ./src/pwm.o
+                0x0000000000000772                pwm_set_timing_b
  .text.pwm_set_timing_r
-                0x00000000000006e2        0xc ./src/pwm.o
-                0x00000000000006e2                pwm_set_timing_r
+                0x0000000000000782        0xc ./src/pwm.o
+                0x0000000000000782                pwm_set_timing_r
  .text.pwm_set_timing_8
-                0x00000000000006ee        0xe ./src/pwm.o
-                0x00000000000006ee                pwm_set_timing_8
+                0x000000000000078e        0xe ./src/pwm.o
+                0x000000000000078e                pwm_set_timing_8
  .text.pwm_init
-                0x00000000000006fc        0xa ./src/pwm.o
-                0x00000000000006fc                pwm_init
+                0x000000000000079c        0xa ./src/pwm.o
+                0x000000000000079c                pwm_init
  .text.libgcc.div
-                0x0000000000000706       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
-                0x0000000000000706                __udivmodqi4
+                0x00000000000007a6       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
+                0x00000000000007a6                __udivmodqi4
  .text.avr-libc
-                0x000000000000071e       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
-                0x000000000000071e                eeprom_read_byte
-                0x000000000000072e                . = ALIGN (0x2)
+                0x00000000000007be       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                0x00000000000007be                eeprom_read_byte
+                0x00000000000007ce                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000000000072e        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
-                0x000000000000072e                exit
-                0x000000000000072e                _exit
+ .fini9         0x00000000000007ce        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                0x00000000000007ce                exit
+                0x00000000000007ce                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -532,11 +544,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000000000072e        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x00000000000007ce        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000732                _etext = .
+                0x00000000000007d2                _etext = .
 
-.data           0x0000000000800100       0xfc load address 0x0000000000000732
+.data           0x0000000000800100       0xfc load address 0x00000000000007d2
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -573,8 +585,8 @@ END GROUP
  COMMON         0x0000000000800208        0x1 ./src/pwm.o
                 0x0000000000800208                enabled
                 0x0000000000800209                PROVIDE (__bss_end, .)
-                0x0000000000000732                __data_load_start = LOADADDR (.data)
-                0x000000000000082e                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000000000007d2                __data_load_start = LOADADDR (.data)
+                0x00000000000008ce                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800209        0x0
                 0x0000000000800209                PROVIDE (__noinit_start, .)
@@ -750,9 +762,17 @@ __vector_9                                        /usr/lib/gcc/avr/4.9.2/../../.
 __vector_default                                  /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
 __vectors                                         /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
 _exit                                             /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+anzeige_clear_bits_0                              ./src/anzeigeboard.o
+                                                  ./src/main.o
+anzeige_clear_bits_1                              ./src/anzeigeboard.o
+                                                  ./src/main.o
 anzeige_convert                                   ./src/anzeigeboard.o
 anzeige_einer                                     ./src/anzeigeboard.o
 anzeige_init                                      ./src/anzeigeboard.o
+                                                  ./src/main.o
+anzeige_set_bits_0                                ./src/anzeigeboard.o
+                                                  ./src/main.o
+anzeige_set_bits_1                                ./src/anzeigeboard.o
                                                   ./src/main.o
 anzeige_test                                      ./src/anzeigeboard.o
                                                   ./src/main.o
