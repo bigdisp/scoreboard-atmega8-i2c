@@ -152,9 +152,14 @@ int main()
 				{
 					anzeige_write(i2c_msg[1], second_row);
 				}
+				else if(i2c_msg[0] == 0x07)
+				{
+					anzeige_write_convert_0(i2c_msg[1]);
+				}
 				else if(i2c_msg[0] == 0x08)
 				{
 					second_row = i2c_msg[1];
+					anzeige_write_convert_1(i2c_msg[1]);
 				}
 				else
 				{

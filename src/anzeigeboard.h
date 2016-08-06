@@ -103,6 +103,24 @@ uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point);
  */
 uint8_t anzeige_write_convert(uint8_t symbol, uint8_t upper_symbol);
 
+/**
+ * Take an ASCII Symbol, convert it to 7 Segment display and display it.
+ *
+ * This function outputs on the lower digit.
+ *
+ * @see anzeige_write_convert
+ */
+void anzeige_write_convert_0(uint8_t symbol);
+
+/**
+ * Take an ASCII Symbol, convert it to 7 Segment display and display it.
+ *
+ * This function outputs on the upper digit.
+ *
+ * @see anzeige_write_convert
+ */
+void anzeige_write_convert_1(uint8_t symbol);
+
 // anzeige_write_direct will take the binary representation of segments, numbered A-G in LSB -> MSB
 /**
  * Write given seven segment binary input and write it to the display.

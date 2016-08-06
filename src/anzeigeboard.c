@@ -311,9 +311,8 @@ uint8_t anzeige_convert(uint8_t ziffer)
  */
 void anzeige_einer(uint8_t bitmask)
 {
-	uint8_t tmp = 0;
-		// Resort according to segments, assume numbering from A to G LSB - MSB
-		// So check for set bit, shift result to zero and shift to correct bit
+	// Resort according to segments, assume numbering from A to G LSB - MSB
+	// So check for set bit, shift result to zero and shift to correct bit
 	POR_0A = (bitmask & SEG_A) ? (POR_0A | SEG_0A) : (POR_0A & ~SEG_0A);
 	POR_0B = (bitmask & SEG_B) ? (POR_0B | SEG_0B) : (POR_0B & ~SEG_0B);
 	POR_0C = (bitmask & SEG_C) ? (POR_0C | SEG_0C) : (POR_0C & ~SEG_0C);
@@ -329,9 +328,8 @@ void anzeige_einer(uint8_t bitmask)
  */
 void anzeige_zehner(uint8_t bitmask)
 {
-	uint8_t tmp = 0;
-		// Resort according to segments, assume numbering from A to G LSB - MSB
-		// So check for set bit, shift result to zero and shift to correct bit
+	// Resort according to segments, assume numbering from A to G LSB - MSB
+	// So check for set bit, shift result to zero and shift to correct bit
 	POR_1A = (bitmask & SEG_A) ? (POR_1A | SEG_1A) : (POR_1A & ~SEG_1A);
 	POR_1B = (bitmask & SEG_B) ? (POR_1B | SEG_1B) : (POR_1B & ~SEG_1B);
 	POR_1C = (bitmask & SEG_C) ? (POR_1C | SEG_1C) : (POR_1C & ~SEG_1C);
@@ -367,13 +365,18 @@ uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 	return 1;
 }
 
+void anzeige_write_convert_0(uint8_t symbol)
+{
+	anzeige_einer(anzeige_convert(symbol));
+}
+void anzeige_write_convert_1(uint8_t symbol)
+{
+	anzeige_zehner(anzeige_convert(symbol));
+}
 uint8_t anzeige_write_convert(uint8_t symbol, uint8_t symbol_upper)
 {
-	uint8_t sym;
-	sym = anzeige_convert(symbol);
-	anzeige_einer(sym);
-	sym = anzeige_convert(symbol_upper);
-	anzeige_zehner(sym);
+	anzeige_write_convert_0(symbol);
+	anzeige_write_convert_1(symbol_upper);
 	return 1;
 }
 
