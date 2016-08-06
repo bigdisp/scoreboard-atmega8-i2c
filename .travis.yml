@@ -11,7 +11,7 @@ before_install:
 
 install:
   - sudo apt-get install -qq -y gcc-avr avr-libc binutils-avr
-  - cd Debug
+  - cd Release
 
 script:
   - make 
