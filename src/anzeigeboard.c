@@ -340,7 +340,7 @@ void anzeige_zehner(uint8_t bitmask)
 }
 
 
-uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
+uint8_t anzeige_write(uint8_t zahl)
 {
 	//Split necessary:
 	uint8_t zehner, einer;
@@ -350,13 +350,9 @@ uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point)
 	if(zehner > 9)
 		zehner = 9;
 
-	zehner = anzeige_convert(zehner);
+	zehner = anzeige_convert(zehner == 0 ? ' ' : zehner);
 	einer  = anzeige_convert(einer);
 
-	if(enable_point)
-	{
-		einer |= SEG_PT;
-	}
 
 	//Now simply turn on the GPIO Ports accordingly
 	// zehner will be ignored if the second output port is disabled.

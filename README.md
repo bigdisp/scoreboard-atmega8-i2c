@@ -5,7 +5,7 @@ This project provides a simple i2c interface for controlling one connected seven
  
 Requirements:
 -------------
- * Atmega8 (other microcontrollers may be suitable if the code is adjusted accordingly (ports, clock, etc.),
+ * Atmega88p(a) (other microcontrollers may be suitable if the code is adjusted accordingly (ports, clock, etc.),
  * A suitable flashing device,
  * A suitable i2c controller, such as the raspberry pi with `i2c-tools` installed or similar.
 
@@ -19,19 +19,21 @@ Navigate to the debug or release folders and run `make`.
 
 Usage:
 ------
-The LED Output is assumed to be on port B. Port C is required for the i2c interface and contains the reset pin, leaving port D for an optional second output. Due to the choice of port B for the output, it is not possible to connect an external oscillator. The default i2c address of the atmega8 is `0x10`. 
+The default i2c address of the atmega88p is `0x10`. The device takes either no parameters with the command, 8 bits of data or 16 bits of data. The software can control two digits individually or use them combined to display numbers between 0 and 99.
 
-Besides simple output commands, a few special commands are interpreted (all of these are subject to change and mainly present for debugging purposes, so be sure to recheck these before updating!):
+Anything that cannot be interpreted as a command is interpreted as an ascii symbol to be output on the primary port. For example, sending `0x32` will print a 2 on digit 0. A non-printable symbol will be replaced by a dash (-).
 
- * The virtual 16 bit registers `0x00` and `0x01` control the on and off times of PWM. They default to 1000 and 3000, respectively. Units are clock cycles. Answers with the new pwm on and off values.
- * Writing anything to the virtual register `0x02` disables PWM.
- * Writing anything to the virtual register `0x03` reenables PWM. If the message written is `0x01` the pwm timings are set to 1000 on and 1000 off.
- * Writing `0x01` to the virtual register `0x04` will reset the pwm timings to 1000/1000. Otherwise, the old values stored are set as pwm timings again.
- * Writing anything to the virtual register `0x05` will set the pwm timings to 1000/1000. 
- * Writing anything to the virtual register `0x06` will set the pwm timings to 1000/2000.
- * Writing anything to the virtual register `0x07` will set the pwm timings to 1000/3000 (system default on start).
- * Values written to the virtual register `0x08` are stored as second row data, which controls the point on the seven segment display, but currently is connected to the second row of LED. Therefore, values that evaluate to boolean true will enable the second row of LED on the current prototype.
- * anything else written is interpreted as a symbol to be displayed. If a second row was previously stored, that will be used to decide whether the point should be displayed or not. 
+
+ * The virtual 16 bit registers `0x00` and `0x01` control the first PWM port. They take one 16 bit parameter. The upper byte of the parameter for `0x00` controls the pwm timing for the red component, the lower byte controls the blue component. `0x01` controls the green component. Values up to `0x01FF` are acceptable, thus the green component has twice the pwm precision as the other two colors. 
+ * The second PWM port is likewise controlled by `0x02` (rb) and `0x03` (g).
+ * Writing to the virtual register `0x04` disables PWM. The parameter given controls what colors on what port are enabled. Bit order is xxRrGgBb, where capital letters control the first, small letters control the second pwm port. Thus to enable port 0 with white light and disable port two completely, xx101010 could be used.
+ * Writing anything to the virtual register `0x05` reenables pwm.
+ * A byte written to the virtual register `0x06` is interpreted as a number and written to both digits.
+ * A byte written to the virtual register `0x07` is written as ascii to the first output (right).
+ * A byte written to the virtual register `0x08` is written as ascii to the second output (left).
+ * The registers `0x09` and `0x0B` can be used to set individual bits on the first and second port respectively. Default bitorder for the parameter is GFEDCBA for both ports.
+ * The registers `0x0A` and `0x0C` can be used to clear individual bits on the first and second port, respectively. Default bitorder for the parameter is GFEDCBA.
+ * anything else written is interpreted as a symbol to be displayed.
 
 Reading from the device with a generic read command will return the currently displayed digit.
 

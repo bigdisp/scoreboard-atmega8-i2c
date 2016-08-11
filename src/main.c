@@ -141,6 +141,10 @@ int main()
 				else if(i2c_msg[0] == 0x04)
 				{
 					pwm_enable(0);
+					if(i2c_msg[1])
+					{
+						pwm_set_output_disabled(i2c_msg[1]);
+					}
 				}
 				//Reenable PWM?
 				else if(i2c_msg[0] == 0x05)
@@ -150,7 +154,7 @@ int main()
 				//Output number on both digits
 				else if(i2c_msg[0] == 0x06)
 				{
-					anzeige_write(i2c_msg[1], second_row);
+					anzeige_write(i2c_msg[1]);
 				}
 				else if(i2c_msg[0] == 0x07)
 				{

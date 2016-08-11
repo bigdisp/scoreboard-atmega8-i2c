@@ -114,6 +114,62 @@ void pwm_enable(uint8_t enable)
 	}
 }
 
+void pwm_set_output_disabled(uint8_t rgb)
+{
+	if(rgb & (1 << 5))
+	{
+		POR_PWM_0R |= P_PWM_0R;
+	}
+	else
+	{
+		POR_PWM_0R &= ~P_PWM_0R;
+	}
+
+	if(rgb & (1 << 4))
+	{
+		POR_PWM_1R |= P_PWM_1R;
+	}
+	else
+	{
+		POR_PWM_1R &= ~P_PWM_1R;
+	}
+
+	if(rgb & (1 << 3))
+	{
+		POR_PWM_0G |= P_PWM_0G;
+	}
+	else
+	{
+		POR_PWM_0G &= ~P_PWM_0G;
+	}
+
+	if(rgb & (1 << 2))
+	{
+		POR_PWM_1G |= P_PWM_1G;
+	}
+	else
+	{
+		POR_PWM_1G &= ~P_PWM_1G;
+	}
+
+	if(rgb & (1 << 1))
+	{
+		POR_PWM_0B |= P_PWM_0B;
+	}
+	else
+	{
+		POR_PWM_0B &= ~P_PWM_0B;
+	}
+
+	if(rgb & (1 << 0))
+	{
+		POR_PWM_1B |= P_PWM_1B;
+	}
+	else
+	{
+		POR_PWM_1B &= ~P_PWM_1B;
+	}
+}
 
 void pwm_set_timing_16(uint16_t active)
 {

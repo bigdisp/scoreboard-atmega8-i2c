@@ -87,10 +87,9 @@ typedef union _sevensegment_screen
  * Can write two digit numbers to two ports.
  * This function assumes identical pinout on two ports and can only output numbers.
  * @param zahl The number to output
- * @param enable_point True, if the point (LED_PT) should be enabled.
  * @return 1
  */
-uint8_t anzeige_write(uint8_t zahl, uint8_t enable_point);
+uint8_t anzeige_write(uint8_t zahl);
 
 
 /**

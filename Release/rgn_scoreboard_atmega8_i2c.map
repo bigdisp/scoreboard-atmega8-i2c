@@ -353,7 +353,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x7d2
+.text           0x0000000000000000      0x81e
  *(.vectors)
  .vectors       0x0000000000000000       0x34 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
                 0x0000000000000000                __vectors
@@ -447,85 +447,88 @@ END GROUP
                 0x000000000000011a       0x66 ./src/anzeigeboard.o
                 0x000000000000011a                anzeige_zehner
  .text.anzeige_write
-                0x0000000000000180       0x44 ./src/anzeigeboard.o
+                0x0000000000000180       0x48 ./src/anzeigeboard.o
                 0x0000000000000180                anzeige_write
  .text.anzeige_write_convert_0
-                0x00000000000001c4       0x14 ./src/anzeigeboard.o
-                0x00000000000001c4                anzeige_write_convert_0
+                0x00000000000001c8       0x14 ./src/anzeigeboard.o
+                0x00000000000001c8                anzeige_write_convert_0
  .text.anzeige_write_convert_1
-                0x00000000000001d8       0x14 ./src/anzeigeboard.o
-                0x00000000000001d8                anzeige_write_convert_1
+                0x00000000000001dc       0x14 ./src/anzeigeboard.o
+                0x00000000000001dc                anzeige_write_convert_1
  .text.anzeige_write_convert
-                0x00000000000001ec       0x1e ./src/anzeigeboard.o
-                0x00000000000001ec                anzeige_write_convert
+                0x00000000000001f0       0x1e ./src/anzeigeboard.o
+                0x00000000000001f0                anzeige_write_convert
  .text.anzeige_set_bits_0
-                0x000000000000020a       0x1e ./src/anzeigeboard.o
-                0x000000000000020a                anzeige_set_bits_0
+                0x000000000000020e       0x1e ./src/anzeigeboard.o
+                0x000000000000020e                anzeige_set_bits_0
  .text.anzeige_clear_bits_0
-                0x0000000000000228       0x1e ./src/anzeigeboard.o
-                0x0000000000000228                anzeige_clear_bits_0
+                0x000000000000022c       0x1e ./src/anzeigeboard.o
+                0x000000000000022c                anzeige_clear_bits_0
  .text.anzeige_set_bits_1
-                0x0000000000000246       0x1e ./src/anzeigeboard.o
-                0x0000000000000246                anzeige_set_bits_1
+                0x000000000000024a       0x1e ./src/anzeigeboard.o
+                0x000000000000024a                anzeige_set_bits_1
  .text.anzeige_clear_bits_1
-                0x0000000000000264       0x1e ./src/anzeigeboard.o
-                0x0000000000000264                anzeige_clear_bits_1
+                0x0000000000000268       0x1e ./src/anzeigeboard.o
+                0x0000000000000268                anzeige_clear_bits_1
  .text.anzeige_test
-                0x0000000000000282       0xd8 ./src/anzeigeboard.o
-                0x0000000000000282                anzeige_test
+                0x0000000000000286       0xd8 ./src/anzeigeboard.o
+                0x0000000000000286                anzeige_test
  .text.i2c_init
-                0x000000000000035a       0x3a ./src/i2c.o
-                0x000000000000035a                i2c_init
+                0x000000000000035e       0x3a ./src/i2c.o
+                0x000000000000035e                i2c_init
  .text.i2c_get_status_register
-                0x0000000000000394        0x6 ./src/i2c.o
-                0x0000000000000394                i2c_get_status_register
+                0x0000000000000398        0x6 ./src/i2c.o
+                0x0000000000000398                i2c_get_status_register
  .text.i2c_wait_busy
-                0x000000000000039a        0xe ./src/i2c.o
-                0x000000000000039a                i2c_wait_busy
+                0x000000000000039e        0xe ./src/i2c.o
+                0x000000000000039e                i2c_wait_busy
  .text.i2c_slave_start_tx_data
-                0x00000000000003a8       0x3a ./src/i2c.o
-                0x00000000000003a8                i2c_slave_start_tx_data
+                0x00000000000003ac       0x3a ./src/i2c.o
+                0x00000000000003ac                i2c_slave_start_tx_data
  .text.i2c_get_data
-                0x00000000000003e2       0x4c ./src/i2c.o
-                0x00000000000003e2                i2c_get_data
+                0x00000000000003e6       0x4c ./src/i2c.o
+                0x00000000000003e6                i2c_get_data
  .text.__vector_24
-                0x000000000000042e      0x148 ./src/interrupt.o
-                0x000000000000042e                __vector_24
+                0x0000000000000432      0x148 ./src/interrupt.o
+                0x0000000000000432                __vector_24
  .text.startup.main
-                0x0000000000000576      0x16e ./src/main.o
-                0x0000000000000576                main
+                0x000000000000057a      0x176 ./src/main.o
+                0x000000000000057a                main
  .text.pwm_enable
-                0x00000000000006e4       0x58 ./src/pwm.o
-                0x00000000000006e4                pwm_enable
+                0x00000000000006f0       0x4c ./src/pwm.o
+                0x00000000000006f0                pwm_enable
+ .text.pwm_set_output_disabled
+                0x000000000000073c       0x3e ./src/pwm.o
+                0x000000000000073c                pwm_set_output_disabled
  .text.pwm_set_timing_16
-                0x000000000000073c       0x18 ./src/pwm.o
-                0x000000000000073c                pwm_set_timing_16
+                0x000000000000077a       0x18 ./src/pwm.o
+                0x000000000000077a                pwm_set_timing_16
  .text.pwm_set_timing_g
-                0x0000000000000754       0x1e ./src/pwm.o
-                0x0000000000000754                pwm_set_timing_g
+                0x0000000000000792       0x1e ./src/pwm.o
+                0x0000000000000792                pwm_set_timing_g
  .text.pwm_set_timing_b
-                0x0000000000000772       0x10 ./src/pwm.o
-                0x0000000000000772                pwm_set_timing_b
+                0x00000000000007b0       0x10 ./src/pwm.o
+                0x00000000000007b0                pwm_set_timing_b
  .text.pwm_set_timing_r
-                0x0000000000000782        0xc ./src/pwm.o
-                0x0000000000000782                pwm_set_timing_r
+                0x00000000000007c0        0xc ./src/pwm.o
+                0x00000000000007c0                pwm_set_timing_r
  .text.pwm_set_timing_8
-                0x000000000000078e        0xe ./src/pwm.o
-                0x000000000000078e                pwm_set_timing_8
+                0x00000000000007cc        0xe ./src/pwm.o
+                0x00000000000007cc                pwm_set_timing_8
  .text.pwm_init
-                0x000000000000079c        0xa ./src/pwm.o
-                0x000000000000079c                pwm_init
+                0x00000000000007da       0x18 ./src/pwm.o
+                0x00000000000007da                pwm_init
  .text.libgcc.div
-                0x00000000000007a6       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
-                0x00000000000007a6                __udivmodqi4
+                0x00000000000007f2       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
+                0x00000000000007f2                __udivmodqi4
  .text.avr-libc
-                0x00000000000007be       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
-                0x00000000000007be                eeprom_read_byte
-                0x00000000000007ce                . = ALIGN (0x2)
+                0x000000000000080a       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                0x000000000000080a                eeprom_read_byte
+                0x000000000000081a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000000000007ce        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
-                0x00000000000007ce                exit
-                0x00000000000007ce                _exit
+ .fini9         0x000000000000081a        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                0x000000000000081a                exit
+                0x000000000000081a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -544,11 +547,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000000000007ce        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x000000000000081a        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x00000000000007d2                _etext = .
+                0x000000000000081e                _etext = .
 
-.data           0x0000000000800100       0xfc load address 0x00000000000007d2
+.data           0x0000000000800100       0xfc load address 0x000000000000081e
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -557,7 +560,7 @@ END GROUP
                 0x0000000000800100                i2c_status
  *(.rodata)
  *(.rodata*)
- .rodata.CSWTCH.18
+ .rodata.CSWTCH.19
                 0x0000000000800101       0xfb ./src/anzeigeboard.o
  *(.gnu.linkonce.d*)
                 0x00000000008001fc                . = ALIGN (0x2)
@@ -574,9 +577,9 @@ END GROUP
  .bss.i2c_msg_size
                 0x00000000008001fd        0x1 ./src/i2c.o
                 0x00000000008001fd                i2c_msg_size
- .bss.i2c_rx_buf_ptr.1572
+ .bss.i2c_rx_buf_ptr.1574
                 0x00000000008001fe        0x1 ./src/interrupt.o
- .bss.i2c_tx_buf_ptr.1571
+ .bss.i2c_tx_buf_ptr.1573
                 0x00000000008001ff        0x1 ./src/interrupt.o
  *(COMMON)
  COMMON         0x0000000000800200        0x8 ./src/i2c.o
@@ -585,8 +588,8 @@ END GROUP
  COMMON         0x0000000000800208        0x1 ./src/pwm.o
                 0x0000000000800208                enabled
                 0x0000000000800209                PROVIDE (__bss_end, .)
-                0x00000000000007d2                __data_load_start = LOADADDR (.data)
-                0x00000000000008ce                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000000000081e                __data_load_start = LOADADDR (.data)
+                0x000000000000091a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800209        0x0
                 0x0000000000800209                PROVIDE (__noinit_start, .)
@@ -879,6 +882,8 @@ main                                              ./src/main.o
 pwm_enable                                        ./src/pwm.o
                                                   ./src/main.o
 pwm_init                                          ./src/pwm.o
+                                                  ./src/main.o
+pwm_set_output_disabled                           ./src/pwm.o
                                                   ./src/main.o
 pwm_set_timing_16                                 ./src/pwm.o
 pwm_set_timing_8                                  ./src/pwm.o

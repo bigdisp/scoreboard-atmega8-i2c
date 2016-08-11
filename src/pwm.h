@@ -22,9 +22,18 @@ void pwm_init();
 /**
  * Enables or disables PWM ports. Currently, sets PWM 16 bit ports to 9 bit operation and selects fast PWM mode.
  * Therefore use at most 512 for all 16 bit values, everything else will equal to always on.
+ * If disabled, sets all outputs to enabled permanently.
  * @param enable 1: enable 0: disable
  */
 void pwm_enable(uint8_t enable);
+
+/**
+ * Sets PWM Ports when pwm is disabled. bits are sorted XXRrGgBb.
+ * Capital letters belong to the 0 port group, small letters to 1.
+ * For example, to enable only port 0, use xx101010.
+ */
+void pwm_set_output_disabled(uint8_t rgb);
+
 
 /**
  * Set the timing for all 16 bit PWM ports. The active cycle is set, thus LED are brighter for higher values.
