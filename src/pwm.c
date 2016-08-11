@@ -10,6 +10,34 @@
 #include "pwm.h"
 #if PWM_ENABLED
 
+#define POR_PWM_0R PORTD
+#define POR_PWM_1R PORTD
+#define POR_PWM_0G PORTB
+#define POR_PWM_1G PORTB
+#define POR_PWM_0B PORTB
+#define POR_PWM_1B PORTD
+
+#define PIN_PWM_0R PIND
+#define PIN_PWM_1R PIND
+#define PIN_PWM_0G PINB
+#define PIN_PWM_1G PINB
+#define PIN_PWM_0B PINB
+#define PIN_PWM_1B PIND
+
+
+#define P_PWM_0R (1 << PD6)
+#define P_PWM_1R (1 << PD5)
+#define P_PWM_0G (1 << PB1)
+#define P_PWM_1G (1 << PB2)
+#define P_PWM_0B (1 << PB3)
+#define P_PWM_1B (1 << PD3)
+
+#define DDR_PWM_0R DDRD
+#define DDR_PWM_1R DDRD
+#define DDR_PWM_0G DDRB
+#define DDR_PWM_1G DDRB
+#define DDR_PWM_0B DDRB
+#define DDR_PWM_1B DDRD
 
 uint8_t enabled;
 
@@ -17,6 +45,16 @@ void pwm_init()
 {
 	pwm_set_timing_16(250);
 	pwm_set_timing_8(125);
+
+	// Port Direction (including Blue 1):
+	//DDRD |= (1 << PORTD6) | (1 << PORTD5) | (1 << PORTD3);
+	//DDRB |= (1 << PORTB1) | (1 << PORTB2) | (1 << PORTB3);
+	DDR_PWM_0R |= P_PWM_0R;
+	DDR_PWM_1R |= P_PWM_1R;
+	DDR_PWM_0G |= P_PWM_0G;
+	DDR_PWM_1G |= P_PWM_1G;
+	DDR_PWM_0B |= P_PWM_0B;
+	DDR_PWM_1B |= P_PWM_1B;
 }
 
 void pwm_enable(uint8_t enable)
@@ -32,9 +70,6 @@ void pwm_enable(uint8_t enable)
 								// Use 2,3,4,5 for 8,64,256,1024 (higher values are for external capture prescaling)
 		//TIMSK1 |= (1 << OCIE1A) | (1 << OCIE1B);		// Output compare A and B Match interrupt enable
 								// Use TOIE1 for overflow interrupt enable
-		//Port direction (including Blue 0):
-		DDRB |= (1 << PORTB1) | (1 << PORTB2) | (1 << PORTB3);
-
 
 		enabled = 1;
 
@@ -45,8 +80,7 @@ void pwm_enable(uint8_t enable)
 		//TCCR1B = (1 << WGM02) | (1);
 		TCCR0B = (1);
 		//TIMSK0 |= (1 << OCIE0A);
-		// Port Direction (including Blue 1):
-		DDRD |= (1 << PORTD6) | (1 << PORTD5) | (1 << PORTD3);
+
 
 		// Timer 2:
 		// Fast PWM Mode (3), full system clock speed
@@ -59,9 +93,6 @@ void pwm_enable(uint8_t enable)
 		// 16 bit
 		TCCR1B = 0;
 		TCCR1A = 0;
-		DDRB &= ~(1 << PORTB1);
-		DDRB &= ~(1 << PORTB2);
-		DDRB &= ~(1 << PORTB3);
 		//TIMSK1 &= ~(1 << OCIE1A);
 		//TIMSK1 &= ~(1 << OCIE1B);
 
@@ -72,9 +103,14 @@ void pwm_enable(uint8_t enable)
 		TCCR2A = 0;
 		TCCR2B = 0;
 		enabled = 0;
-		DDRD &= ~(1 << PORTD6);
-		DDRD &= ~(1 << PORTD5);
-		DDRD &= ~(1 << PORTD3);
+
+		// Enable all outputs:
+		POR_PWM_0R |= P_PWM_0R;
+		POR_PWM_1R |= P_PWM_1R;
+		POR_PWM_0G |= P_PWM_0G;
+		POR_PWM_1G |= P_PWM_1G;
+		POR_PWM_0B |= P_PWM_0B;
+		POR_PWM_1B |= P_PWM_1B;
 	}
 }
 
