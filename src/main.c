@@ -66,6 +66,25 @@ int main()
 
 //	anzeige_write(88, second_row);
 
+	// Wait for test depending on Board ID
+	// Order of Start should be Home, Away, Inning, BSO
+	switch(slave_addr)
+	{
+	case 0x13:
+		_delay_ms(24000);
+		break;
+	case 0x12:
+		_delay_ms(16000);
+		break;
+	case 0x11:
+		_delay_ms(8000);
+		break;
+	case 0x10:
+		break;
+	default:
+		break;
+	}
+
 	// Test output
 	anzeige_test();
 

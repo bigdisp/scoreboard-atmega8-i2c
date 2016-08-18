@@ -353,7 +353,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x81e
+.text           0x0000000000000000      0x86c
  *(.vectors)
  .vectors       0x0000000000000000       0x34 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
                 0x0000000000000000                __vectors
@@ -492,43 +492,43 @@ END GROUP
                 0x0000000000000432      0x148 ./src/interrupt.o
                 0x0000000000000432                __vector_24
  .text.startup.main
-                0x000000000000057a      0x176 ./src/main.o
+                0x000000000000057a      0x1c4 ./src/main.o
                 0x000000000000057a                main
  .text.pwm_enable
-                0x00000000000006f0       0x4c ./src/pwm.o
-                0x00000000000006f0                pwm_enable
+                0x000000000000073e       0x4c ./src/pwm.o
+                0x000000000000073e                pwm_enable
  .text.pwm_set_output_disabled
-                0x000000000000073c       0x3e ./src/pwm.o
-                0x000000000000073c                pwm_set_output_disabled
+                0x000000000000078a       0x3e ./src/pwm.o
+                0x000000000000078a                pwm_set_output_disabled
  .text.pwm_set_timing_16
-                0x000000000000077a       0x18 ./src/pwm.o
-                0x000000000000077a                pwm_set_timing_16
+                0x00000000000007c8       0x18 ./src/pwm.o
+                0x00000000000007c8                pwm_set_timing_16
  .text.pwm_set_timing_g
-                0x0000000000000792       0x1e ./src/pwm.o
-                0x0000000000000792                pwm_set_timing_g
+                0x00000000000007e0       0x1e ./src/pwm.o
+                0x00000000000007e0                pwm_set_timing_g
  .text.pwm_set_timing_b
-                0x00000000000007b0       0x10 ./src/pwm.o
-                0x00000000000007b0                pwm_set_timing_b
+                0x00000000000007fe       0x10 ./src/pwm.o
+                0x00000000000007fe                pwm_set_timing_b
  .text.pwm_set_timing_r
-                0x00000000000007c0        0xc ./src/pwm.o
-                0x00000000000007c0                pwm_set_timing_r
+                0x000000000000080e        0xc ./src/pwm.o
+                0x000000000000080e                pwm_set_timing_r
  .text.pwm_set_timing_8
-                0x00000000000007cc        0xe ./src/pwm.o
-                0x00000000000007cc                pwm_set_timing_8
+                0x000000000000081a        0xe ./src/pwm.o
+                0x000000000000081a                pwm_set_timing_8
  .text.pwm_init
-                0x00000000000007da       0x18 ./src/pwm.o
-                0x00000000000007da                pwm_init
+                0x0000000000000828       0x18 ./src/pwm.o
+                0x0000000000000828                pwm_init
  .text.libgcc.div
-                0x00000000000007f2       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
-                0x00000000000007f2                __udivmodqi4
+                0x0000000000000840       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
+                0x0000000000000840                __udivmodqi4
  .text.avr-libc
-                0x000000000000080a       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
-                0x000000000000080a                eeprom_read_byte
-                0x000000000000081a                . = ALIGN (0x2)
+                0x0000000000000858       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                0x0000000000000858                eeprom_read_byte
+                0x0000000000000868                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000000000081a        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
-                0x000000000000081a                exit
-                0x000000000000081a                _exit
+ .fini9         0x0000000000000868        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                0x0000000000000868                exit
+                0x0000000000000868                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -547,11 +547,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000000000081a        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x0000000000000868        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x000000000000081e                _etext = .
+                0x000000000000086c                _etext = .
 
-.data           0x0000000000800100       0xfc load address 0x000000000000081e
+.data           0x0000000000800100       0xfc load address 0x000000000000086c
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -588,8 +588,8 @@ END GROUP
  COMMON         0x0000000000800208        0x1 ./src/pwm.o
                 0x0000000000800208                enabled
                 0x0000000000800209                PROVIDE (__bss_end, .)
-                0x000000000000081e                __data_load_start = LOADADDR (.data)
-                0x000000000000091a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000000000086c                __data_load_start = LOADADDR (.data)
+                0x0000000000000968                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0000000000800209        0x0
                 0x0000000000800209                PROVIDE (__noinit_start, .)
