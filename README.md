@@ -33,6 +33,10 @@ Anything that cannot be interpreted as a command is interpreted as an ascii symb
  * A byte written to the virtual register `0x08` is written as ascii to the second output (left).
  * The registers `0x09` and `0x0B` can be used to set individual bits on the first and second port respectively. Default bitorder for the parameter is GFEDCBA for both ports.
  * The registers `0x0A` and `0x0C` can be used to clear individual bits on the first and second port, respectively. Default bitorder for the parameter is GFEDCBA.
+ * The Software supports a change of the i2c Address via i2c. Since this is dangerous to do in a live system, it requires a series of 2 commands for a temporary address change and a third command to write the new address to the eeprom. Please make sure that your address is valid (0x0F < address < 0xF0), otherwise your commands will be ignored. 
+    1. Write the new address two times simultaneously to `0x0D`. For example, if the new address should be `0x12`, write `0x1212` to `0x0D`.
+    2. Confirm the new address by writing it again two times to `0x0E`. This will cause an immediate change of the i2c address. The device will now respond to the new address, but fall back to the old address if it is reset.
+    3. Write the address to the eeprom by writing the new address and the old address to `0x0F`. The old address must be the one currently stored in the eeprom. This defaults to `0x10` if no address was programmed before. For the example above, if the default address is still present, write `0x1210` to `0x0F`.
  * anything else written is interpreted as a symbol to be displayed.
 
 Reading from the device with a generic read command will return the currently displayed digit.

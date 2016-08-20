@@ -21,10 +21,7 @@
 
 int main()
 {
-	//###############################################
-	//Konfigurationsregister etc. einstellen
-
-	//initConfig();
+	// Init Display
 	anzeige_init();
 
 	// PWM
@@ -200,6 +197,48 @@ int main()
 				else if(i2c_msg[0] == 0x0C)
 				{
 					anzeige_clear_bits_1(i2c_msg[1]);
+				}
+				// I2C Address change Part 1 (set Address)
+				else if(i2c_msg[0] == 0x0D)
+				{
+					// To make sure we don't change to a false address,
+					// Adress must be given twice
+					if(i2c_msg[1] == i2c_msg[2])
+					{
+						// Check for validity
+						if(i2c_msg[1] > 0x0F && i2c_msg[1] < 0xF0)
+						{
+							slave_addr = i2c_msg[1];
+						}
+					}
+				}
+				// I2C Address change Part 2 (Temporary change)
+				else if(i2c_msg[0] == 0x0E)
+				{
+					// Require command to contain current slave address
+					if(i2c_msg[1] == slave_addr && i2c_msg[2] == slave_addr)
+					{
+						irq_ctrl(0);
+						i2c_init(slave_addr);
+						irq_ctrl(1);
+					}
+				}
+				// I2C Address change Part 3 (Permanent change)
+				else if(i2c_msg[0] == 0x0F)
+				{
+					uint8_t eepr_data = eeprom_read_byte(0);
+					if (eepr_data >= 0xF0 || eepr_data <= 0x0F)
+					{
+						eepr_data = 0x10;
+					}
+					if(i2c_msg[1] == slave_addr && i2c_msg[2] == eepr_data)
+					{
+						// Check if Part 2 has been performed and we are actually using the new address
+						if (TWAR == (slave_addr << 1))
+						{
+							eeprom_update_byte(0, slave_addr);
+						}
+					}
 				}
 				else
 				{

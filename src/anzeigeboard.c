@@ -53,7 +53,7 @@ void anzeige_init()
 
 	// Enable
 	// Digit 1
-	POR_0A |= SEG_0A;
+	/*POR_0A |= SEG_0A;
 	POR_0B |= SEG_0B;
 	POR_0C |= SEG_0C;
 	POR_0D |= SEG_0D;
