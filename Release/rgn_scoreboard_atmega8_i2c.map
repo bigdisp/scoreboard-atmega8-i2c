@@ -54,8 +54,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./src/eeprom.o
  .data          0x0000000000000000        0x0 ./src/eeprom.o
  .bss           0x0000000000000000        0x0 ./src/eeprom.o
- .text.irqd_eeprom_read_byte
-                0x0000000000000000       0x26 ./src/eeprom.o
  .text.irqd_eeprom_read_word
                 0x0000000000000000       0x26 ./src/eeprom.o
  .text.irqd_eeprom_read_dword
@@ -74,8 +72,6 @@ Discarded input sections
                 0x0000000000000000       0x42 ./src/eeprom.o
  .text.irqd_eeprom_write_block
                 0x0000000000000000       0x3e ./src/eeprom.o
- .text.irqd_eeprom_update_byte
-                0x0000000000000000       0x2e ./src/eeprom.o
  .text.irqd_eeprom_update_word
                 0x0000000000000000       0x34 ./src/eeprom.o
  .text.irqd_eeprom_update_dword
@@ -344,7 +340,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x904
+.text           0x0000000000000000      0x96e
  *(.vectors)
  .vectors       0x0000000000000000       0x34 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/crtatmega88p.o
                 0x0000000000000000                __vectors
@@ -469,66 +465,72 @@ END GROUP
  .text.irq_ctrl
                 0x000000000000034c        0xe ./src/eeprom.o
                 0x000000000000034c                irq_ctrl
+ .text.irqd_eeprom_read_byte
+                0x000000000000035a       0x26 ./src/eeprom.o
+                0x000000000000035a                irqd_eeprom_read_byte
+ .text.irqd_eeprom_update_byte
+                0x0000000000000380       0x2e ./src/eeprom.o
+                0x0000000000000380                irqd_eeprom_update_byte
  .text.i2c_init
-                0x000000000000035a       0x3a ./src/i2c.o
-                0x000000000000035a                i2c_init
+                0x00000000000003ae       0x3a ./src/i2c.o
+                0x00000000000003ae                i2c_init
  .text.i2c_get_status_register
-                0x0000000000000394        0x6 ./src/i2c.o
-                0x0000000000000394                i2c_get_status_register
+                0x00000000000003e8        0x6 ./src/i2c.o
+                0x00000000000003e8                i2c_get_status_register
  .text.i2c_wait_busy
-                0x000000000000039a        0xe ./src/i2c.o
-                0x000000000000039a                i2c_wait_busy
+                0x00000000000003ee        0xe ./src/i2c.o
+                0x00000000000003ee                i2c_wait_busy
  .text.i2c_slave_start_tx_data
-                0x00000000000003a8       0x3a ./src/i2c.o
-                0x00000000000003a8                i2c_slave_start_tx_data
+                0x00000000000003fc       0x3a ./src/i2c.o
+                0x00000000000003fc                i2c_slave_start_tx_data
  .text.i2c_get_data
-                0x00000000000003e2       0x4c ./src/i2c.o
-                0x00000000000003e2                i2c_get_data
+                0x0000000000000436       0x4c ./src/i2c.o
+                0x0000000000000436                i2c_get_data
  .text.__vector_24
-                0x000000000000042e      0x148 ./src/interrupt.o
-                0x000000000000042e                __vector_24
+                0x0000000000000482      0x148 ./src/interrupt.o
+                0x0000000000000482                __vector_24
  .text.startup.main
-                0x0000000000000576      0x23c ./src/main.o
-                0x0000000000000576                main
+                0x00000000000005ca      0x252 ./src/main.o
+                0x00000000000005ca                main
  .text.pwm_enable
-                0x00000000000007b2       0x4c ./src/pwm.o
-                0x00000000000007b2                pwm_enable
+                0x000000000000081c       0x4c ./src/pwm.o
+                0x000000000000081c                pwm_enable
  .text.pwm_set_output_disabled
-                0x00000000000007fe       0x3e ./src/pwm.o
-                0x00000000000007fe                pwm_set_output_disabled
+                0x0000000000000868       0x3e ./src/pwm.o
+                0x0000000000000868                pwm_set_output_disabled
  .text.pwm_set_timing_16
-                0x000000000000083c       0x18 ./src/pwm.o
-                0x000000000000083c                pwm_set_timing_16
+                0x00000000000008a6       0x18 ./src/pwm.o
+                0x00000000000008a6                pwm_set_timing_16
  .text.pwm_set_timing_g
-                0x0000000000000854       0x1e ./src/pwm.o
-                0x0000000000000854                pwm_set_timing_g
+                0x00000000000008be       0x1e ./src/pwm.o
+                0x00000000000008be                pwm_set_timing_g
  .text.pwm_set_timing_b
-                0x0000000000000872       0x10 ./src/pwm.o
-                0x0000000000000872                pwm_set_timing_b
+                0x00000000000008dc       0x10 ./src/pwm.o
+                0x00000000000008dc                pwm_set_timing_b
  .text.pwm_set_timing_r
-                0x0000000000000882        0xc ./src/pwm.o
-                0x0000000000000882                pwm_set_timing_r
+                0x00000000000008ec        0xc ./src/pwm.o
+                0x00000000000008ec                pwm_set_timing_r
  .text.pwm_set_timing_8
-                0x000000000000088e        0xe ./src/pwm.o
-                0x000000000000088e                pwm_set_timing_8
+                0x00000000000008f8        0xe ./src/pwm.o
+                0x00000000000008f8                pwm_set_timing_8
  .text.pwm_init
-                0x000000000000089c       0x18 ./src/pwm.o
-                0x000000000000089c                pwm_init
+                0x0000000000000906       0x18 ./src/pwm.o
+                0x0000000000000906                pwm_init
  .text.libgcc.div
-                0x00000000000008b4       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
-                0x00000000000008b4                __udivmodqi4
+                0x000000000000091e       0x18 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_udivmodqi4.o)
+                0x000000000000091e                __udivmodqi4
  .text.avr-libc
-                0x00000000000008cc       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
-                0x00000000000008cc                eeprom_read_byte
+                0x0000000000000936       0x10 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eerd_byte.o)
+                0x0000000000000936                eeprom_read_byte
  .text.avr-libc
-                0x00000000000008dc       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
-                0x00000000000008dc                eeprom_update_byte
-                0x00000000000008de                eeprom_update_r18
-                0x0000000000000900                . = ALIGN (0x2)
+                0x0000000000000946       0x24 /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
+                0x0000000000000946                eeprom_update_byte
+                0x0000000000000948                eeprom_update_r18
+                0x000000000000096a                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000000000000900        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
-                0x0000000000000900                exit
-                0x0000000000000900                _exit
+ .fini9         0x000000000000096a        0x0 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+                0x000000000000096a                exit
+                0x000000000000096a                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -547,11 +549,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000000000000900        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
+ .fini0         0x000000000000096a        0x4 /usr/lib/gcc/avr/4.9.2/avr4/libgcc.a(_exit.o)
  *(.fini0)
-                0x0000000000000904                _etext = .
+                0x000000000000096e                _etext = .
 
-.data           0x0000000000800100       0xfc load address 0x0000000000000904
+.data           0x0000000000800100       0xfc load address 0x000000000000096e
                 0x0000000000800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -571,7 +573,7 @@ END GROUP
                 0x00000000008001fc                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.tmp_sreg.1607
+ .bss.tmp_sreg.1609
                 0x00000000008001fc        0x1 ./src/eeprom.o
  .bss.i2c_status_register
                 0x00000000008001fd        0x1 ./src/i2c.o
@@ -590,8 +592,8 @@ END GROUP
  COMMON         0x0000000000800209        0x1 ./src/pwm.o
                 0x0000000000800209                enabled
                 0x000000000080020a                PROVIDE (__bss_end, .)
-                0x0000000000000904                __data_load_start = LOADADDR (.data)
-                0x0000000000000a00                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000000000000096e                __data_load_start = LOADADDR (.data)
+                0x0000000000000a6a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x000000000080020a        0x0
                 0x000000000080020a                PROVIDE (__noinit_start, .)
@@ -811,7 +813,6 @@ eeprom_update_block                               /usr/lib/gcc/avr/4.9.2/../../.
 eeprom_update_byte                                /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_byte.o)
                                                   /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_word.o)
                                                   /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
-                                                  ./src/main.o
                                                   ./src/eeprom.o
 eeprom_update_dword                               /usr/lib/gcc/avr/4.9.2/../../../avr/lib/avr4/libatmega88p.a(eeupd_dword.o)
                                                   ./src/eeprom.o
@@ -869,11 +870,13 @@ irq_ctrl                                          ./src/eeprom.o
                                                   ./src/main.o
 irqd_eeprom_read_block                            ./src/eeprom.o
 irqd_eeprom_read_byte                             ./src/eeprom.o
+                                                  ./src/main.o
 irqd_eeprom_read_dword                            ./src/eeprom.o
 irqd_eeprom_read_float                            ./src/eeprom.o
 irqd_eeprom_read_word                             ./src/eeprom.o
 irqd_eeprom_update_block                          ./src/eeprom.o
 irqd_eeprom_update_byte                           ./src/eeprom.o
+                                                  ./src/main.o
 irqd_eeprom_update_dword                          ./src/eeprom.o
 irqd_eeprom_update_float                          ./src/eeprom.o
 irqd_eeprom_update_word                           ./src/eeprom.o

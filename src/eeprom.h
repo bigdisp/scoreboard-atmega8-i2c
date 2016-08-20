@@ -13,6 +13,11 @@
 // Alternatively, use EEMEM attribute?
 
 /**
+ * Disable or enable currently enabled/disabled interrupts
+ */
+void irq_ctrl(uint8_t enable);
+
+/**
  * Read a single byte from the given address in eeprom.
  */
 uint8_t irqd_eeprom_read_byte(const uint8_t * ptr);

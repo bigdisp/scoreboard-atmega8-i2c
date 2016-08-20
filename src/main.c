@@ -226,17 +226,21 @@ int main()
 				// I2C Address change Part 3 (Permanent change)
 				else if(i2c_msg[0] == 0x0F)
 				{
-					uint8_t eepr_data = eeprom_read_byte(0);
+					uint8_t eepr_data = irqd_eeprom_read_byte(0);
 					if (eepr_data >= 0xF0 || eepr_data <= 0x0F)
 					{
 						eepr_data = 0x10;
 					}
-					if(i2c_msg[1] == slave_addr && i2c_msg[2] == eepr_data)
+					//anzeige_write_convert(slave_addr, eepr_data);
+					anzeige_write_convert(i2c_msg[1], i2c_msg[2]); // bH -> b in 2, h in 1
+					if(i2c_msg[1] == slave_addr && (i2c_msg[2] == eepr_data))
 					{
+						anzeige_write_convert('C', eepr_data);
 						// Check if Part 2 has been performed and we are actually using the new address
-						if (TWAR == (slave_addr << 1))
+						if ((TWAR & 0xFE) == (slave_addr << 1))
 						{
-							eeprom_update_byte(0, slave_addr);
+							irqd_eeprom_update_byte(0, slave_addr);
+							anzeige_write_convert('A', eepr_data);
 						}
 					}
 				}
