@@ -1,7 +1,9 @@
 Main Atmega8 I2C Scoreboard Interface
 =====================================
 
-This project provides a simple i2c interface for controlling one connected seven segment numbers with an optional additional dot output on the 8th pin of the interface. It optionally provides PWM and, for testing purposes, can enable and disable a second row of LED if the second row is connected correctly.   
+This project provides a simple i2c interface for controlling two connected seven segment numbers. It optionally provides RGB PWM for two independent output ports and understands simple ASCII letters, numbers to be displayed on both digits and individual control of segments. 
+
+The software is intended for the board layout provided in [the hardware repository](https://github.com/bigdisp/scoreboard-hardware).   
  
 Requirements:
 -------------
@@ -13,7 +15,7 @@ Requirements:
 
 Example Schematics:
 -------------------
-TODO
+See [the hardware repository](https://github.com/bigdisp/scoreboard-hardware).
         
 Build:
 ------
