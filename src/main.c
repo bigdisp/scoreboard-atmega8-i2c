@@ -20,6 +20,11 @@
 /// Address used if the eeprom does not contain a valid one
 #define I2C_ADDR_DEFAULT 0x10
 
+/// Command sequence that resets the controller into the I2C flash bootloader
+#define CMD_ENTER_FBL_0 0x10
+#define CMD_ENTER_FBL_1 0x4C
+#define CMD_ENTER_FBL_2 0xFB
+
 /// Time the main loop waits when there is nothing to do
 #define MAIN_LOOP_IDLE_US 20
 
@@ -98,7 +103,8 @@ int main()
 	//MAIN LOOP
 	while(1)
 	{
-		if (0 == i2c_get_message(i2c_msg, I2C_DATA_SIZE))
+		uint8_t rx_len = i2c_get_message(i2c_msg, I2C_DATA_SIZE);
+		if (0 == rx_len)
 		{
 			// Nothing received. Watch the bus for stalled transfers.
 			_delay_us(MAIN_LOOP_IDLE_US);
@@ -243,6 +249,22 @@ int main()
 					irqd_eeprom_update_byte(0, slave_addr);
 					anzeige_write_convert('A', eepr_data);
 				}
+			}
+		}
+		// Enter flash bootloader: exactly 0x10 0x4C 0xFB.
+		// A plain 0x10 (or any other length) is still displayed as a symbol.
+		else if(rx_len == 3 && i2c_msg[0] == CMD_ENTER_FBL_0
+				&& i2c_msg[1] == CMD_ENTER_FBL_1 && i2c_msg[2] == CMD_ENTER_FBL_2)
+		{
+			// Let the watchdog reset the controller. With the BOOTRST fuse
+			// programmed the reset starts the bootloader (atmega_i2c_fbl),
+			// which disables the watchdog and waits for the flasher.
+			// Without a bootloader the application simply restarts
+			// (the watchdog is disabled again in wdt_off()).
+			cli();
+			wdt_enable(WDTO_15MS);
+			for(;;)
+			{
 			}
 		}
 		else

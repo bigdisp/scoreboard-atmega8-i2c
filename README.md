@@ -41,6 +41,7 @@ Anything that cannot be interpreted as a command is interpreted as an ascii symb
     1. Write the new address two times simultaneously to `0x0D`. For example, if the new address should be `0x12`, write `0x1212` to `0x0D`.
     2. Confirm the new address by writing it again two times to `0x0E`. This will cause an immediate change of the i2c address. The device will now respond to the new address, but fall back to the old address if it is reset.
     3. Write the address to the eeprom by writing the old address and the new address to `0x0F`. The old address must be the one currently stored in the eeprom. This defaults to `0x10` if no address was programmed before. For the example above, if the default address is still present, write `0x1012` to `0x0F`.
+ * Writing exactly the three bytes `0x10 0x4C 0xFB` resets the controller into the I2C flash bootloader ([atmega_i2c_fbl](https://github.com/bigdisp/atmega_i2c_fbl)), using a watchdog reset. This needs the BOOTRST fuse to be programmed. Without a bootloader, the application just restarts (including the display test). A single `0x10` or any other length is still displayed as a symbol.
  * anything else written is interpreted as a symbol to be displayed.
 
 Reading from the device with a generic read command returns up to 4 bytes: the last command that was processed (for the PWM commands `0x00`-`0x03` the current red, blue and green values of that port instead).
