@@ -1,0 +1,9 @@
+# Build output
+*.o
+*.d
+*.elf
+*.lss
+*.eep
+Release/rgn_scoreboard_atmega8_i2c.hex
+Debug/rgn_scoreboard_atmega8_i2c.hex
+tests/build/

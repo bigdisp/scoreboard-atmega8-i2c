@@ -21,6 +21,15 @@ Build:
 ------
 Navigate to the debug or release folders and run `make`.
 
+Tests:
+------
+All tests run on a PC, no hardware required:
+
+    make -C tests        # host unit tests (needs gcc): 7-segment conversion, pin mapping, I2C command protocol of main.c
+    make -C tests avr    # avr-gcc build + check that the firmware leaves room for the I2C bootloader (needs gcc-avr, avr-libc)
+
+The host build compiles `src/anzeigeboard.c` and `src/main.c` unchanged with `-DTEST` (selecting `src/x86/anzeigeboard.h`) against mocked AVR registers and I2C/PWM/EEPROM drivers in `tests/mock`.
+
 Usage:
 ------
 The default i2c address of the atmega88p is `0x10`. The device takes either no parameters with the command, 8 bits of data or 16 bits of data. The software can control two digits individually or use them combined to display numbers between 0 and 99.
