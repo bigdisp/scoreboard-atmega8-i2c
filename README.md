@@ -37,13 +37,19 @@ Anything that cannot be interpreted as a command is interpreted as an ascii symb
  * A byte written to the virtual register `0x08` is written as ascii to the second output (left).
  * The registers `0x09` and `0x0B` can be used to set individual bits on the first and second port respectively. Default bitorder for the parameter is GFEDCBA for both ports.
  * The registers `0x0A` and `0x0C` can be used to clear individual bits on the first and second port, respectively. Default bitorder for the parameter is GFEDCBA.
- * The Software supports a change of the i2c Address via i2c. Since this is dangerous to do in a live system, it requires a series of 2 commands for a temporary address change and a third command to write the new address to the eeprom. Please make sure that your address is valid (0x0F < address < 0xF0), otherwise your commands will be ignored. 
+ * The Software supports a change of the i2c Address via i2c. Since this is dangerous to do in a live system, it requires a series of 2 commands for a temporary address change and a third command to write the new address to the eeprom. Please make sure that your address is a valid 7 bit address (0x10 <= address <= 0x77), otherwise your commands will be ignored. 
     1. Write the new address two times simultaneously to `0x0D`. For example, if the new address should be `0x12`, write `0x1212` to `0x0D`.
     2. Confirm the new address by writing it again two times to `0x0E`. This will cause an immediate change of the i2c address. The device will now respond to the new address, but fall back to the old address if it is reset.
     3. Write the address to the eeprom by writing the old address and the new address to `0x0F`. The old address must be the one currently stored in the eeprom. This defaults to `0x10` if no address was programmed before. For the example above, if the default address is still present, write `0x1012` to `0x0F`.
  * anything else written is interpreted as a symbol to be displayed.
 
-Reading from the device with a generic read command will return the currently displayed digit.
+Reading from the device with a generic read command returns up to 4 bytes: the last command that was processed (for the PWM commands `0x00`-`0x03` the current red, blue and green values of that port instead).
+
+Timing:
+-------
+ * Received commands are queued (up to 4) and executed in order, so commands can be sent back to back. If the queue is full, the device answers with a NACK on the first data byte; the master should retry.
+ * After power-up, the device runs a display test for about 6 seconds. It already accepts (and queues) commands during that time and executes them once the test is done.
+ * If a master stops in the middle of a transfer, the device releases the bus after about 50 ms.
 
 License
 -------
