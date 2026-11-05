@@ -5,128 +5,173 @@
  *  Author: Martin Beckmann
  */
 
-#include<util/twi.h>
-#include<avr/io.h>
+#include <avr/io.h>
+#include <util/atomic.h>
+#include <util/twi.h>
 #include "i2c.h"
+#include "i2c_private.h"
 
-uint8_t i2c_rx_buf[I2C_BUFFER_SIZE];
-uint8_t i2c_tx_buf[I2C_BUFFER_SIZE];
-uint8_t i2c_msg_size = 0;
-uint8_t i2c_status = I2C_NO_STATE;
-u_i2c_status i2c_status_register = {0};
+/// A transfer without any bus activity for this long is considered dead.
+#define I2C_STALL_TIMEOUT_US 50000U
+
+volatile i2c_message_t i2c_rx_queue[I2C_RX_QUEUE_SIZE];
+volatile uint8_t i2c_rx_head = 0;
+volatile uint8_t i2c_rx_tail = 0;
+
+volatile uint8_t i2c_tx_next[I2C_BUFFER_SIZE];
+volatile uint8_t i2c_tx_next_len = 0;
+
+volatile uint8_t i2c_transfer_active = 0;
+volatile uint8_t i2c_activity = 0;
+
+/// 1 once i2c_slave_enable() was called
+static uint8_t i2c_enabled = 0;
+
+/**
+ * Reset the TWI state machine and (re)arm it.
+ *
+ * Disabling the TWI aborts any ongoing transfer and releases SDA/SCL.
+ * Must be called with interrupts disabled.
+ */
+static void i2c_hw_restart(void)
+{
+	TWCR = 0;
+	i2c_transfer_active = 0;
+
+	if (i2c_enabled)
+	{
+		TWCR = I2C_TWCR_ACK;
+	}
+	else
+	{
+		// Enabled, but do not acknowledge the own address yet
+		TWCR = (1 << TWEN) | (1 << TWINT);
+	}
+}
 
 void i2c_init(uint8_t address)
 {
-	TWAR = (address << 1);
-	TWDR = 0xFF;
-	TWCR =  (1 << TWEN);  // Enable TWI, don't answer to any calls yet
-
-	//Empty buffer:
-	for(uint8_t i = 0; i < I2C_BUFFER_SIZE; i++)
+	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
 	{
-		i2c_tx_buf[i] = 0;
-		i2c_rx_buf[i] = 0;
+		i2c_enabled = 0;
+
+		// Fully reset the TWI first. The hardware may still be in an
+		// addressed state (e.g. when started from a bootloader), and
+		// writing TWCR without TWINT would not release the bus.
+		TWCR = 0;
+
+		TWSR = 0; // Prescaler 1 (irrelevant for slave, keeps status bits clean)
+		TWAR = (address << 1); // No general call
+		TWDR = 0xFF;
+
+		i2c_rx_head = 0;
+		i2c_rx_tail = 0;
+		i2c_tx_next_len = 0;
+		for (uint8_t i = 0; i < I2C_BUFFER_SIZE; i++)
+		{
+			i2c_tx_next[i] = 0;
+		}
+
+		i2c_hw_restart();
 	}
-	i2c_status = 0;
 }
 
-uint8_t i2c_get_status()
+void i2c_slave_enable(void)
 {
-	return i2c_status;
+	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+	{
+		i2c_enabled = 1;
+		i2c_hw_restart();
+	}
 }
 
-u_i2c_status i2c_get_status_register()
+void i2c_set_address(uint8_t address)
 {
-	return i2c_status_register;
+	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+	{
+		TWCR = 0;
+		TWAR = (address << 1);
+		i2c_hw_restart();
+	}
 }
 
-/**
- * Check whether the Interface is currently busy
- */
-uint8_t i2c_busy()
+uint8_t i2c_get_address(void)
 {
-	return TWCR & (1<<TWIE); //When Interrupt is enabled, the i2c Bus is busy
+	return TWAR >> 1;
 }
 
-/**
- * Returns current status after waiting for the current operation to finish
- */
-uint8_t i2c_wait_busy()
+void i2c_slave_set_tx_data(const uint8_t * msg, uint8_t size)
 {
-	while(i2c_busy());
-	return i2c_status;
-}
-
-/**
- * Send provided data the next time this slave is addressed with a SLA+W
- *
- * Also enables RX Acknowledge
- */
-void i2c_slave_start_tx_data(uint8_t * msg, uint8_t size)
-{
-	uint8_t tmp;
-
 	if (size > I2C_BUFFER_SIZE)
 	{
 		size = I2C_BUFFER_SIZE;
 	}
 
-	//Wait until whatever was done before is finished
-	while(i2c_busy());
-
-	i2c_msg_size = size;
-
-	for(tmp = 0; tmp < size; tmp++)
+	// The ISR latches the data on the next SLA+R, so a read in progress is
+	// not affected and always returns consistent data.
+	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
 	{
-		i2c_tx_buf[tmp] = msg[tmp];
+		for (uint8_t i = 0; i < size; i++)
+		{
+			i2c_tx_next[i] = msg[i];
+		}
+		i2c_tx_next_len = size;
 	}
-	i2c_status_register.all = 0;
-	i2c_status = I2C_NO_STATE;
-
-	// Enable i2c, enable interrupt, clear interrupt flag
-	// Respond with ACK, the next time we are called
-	TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT) | (1 << TWEA);
 }
 
-/**
- * Enables RX Mode for this slave. Also enables TX of whatever is in the buffer
- */
-void i2c_slave_start_rx()
+uint8_t i2c_get_message(uint8_t * msg, uint8_t size)
 {
-	while(i2c_busy());
-
-	i2c_status_register.all = 0;
-	i2c_status = I2C_NO_STATE;
-
-	// Enable i2c, enable interrupt, clear interrupt flag
-	// Respond with ACK, the next time we are called
-	TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT) | (1 << TWEA);
-}
-
-uint8_t i2c_get_data(uint8_t * msg, uint8_t size)
-{
+	uint8_t tail = i2c_rx_tail;
+	uint8_t len;
 	uint8_t i;
 
-	if (size > I2C_BUFFER_SIZE)
+	if (tail == i2c_rx_head)
 	{
-		for(i = I2C_BUFFER_SIZE; i < size; ++i)
-		{
-			msg[i] = 0x00;
-		}
-
-		size = I2C_BUFFER_SIZE;
+		return 0;
 	}
 
-	while(i2c_busy());
+	// The ISR never touches this slot until tail is advanced
+	volatile i2c_message_t * slot = &i2c_rx_queue[tail & (I2C_RX_QUEUE_SIZE - 1)];
+	len = slot->len;
 
-	if(i2c_status_register.last_txrx_ok)
+	for (i = 0; i < size; i++)
 	{
-		for(i = 0; i < size; ++i)
-		{
-			msg[i] = i2c_rx_buf[i];
-		}
-		i2c_status_register.rx_data_in_buf = 0;
+		msg[i] = (i < len && i < I2C_BUFFER_SIZE) ? slot->data[i] : 0x00;
 	}
-	return i2c_status_register.last_txrx_ok;
+
+	i2c_rx_tail = tail + 1;
+
+	return len;
 }
 
+void i2c_supervise(uint16_t elapsed_us)
+{
+	static uint8_t last_activity = 0;
+	static uint16_t stalled_us = 0;
+
+	uint8_t activity = i2c_activity;
+
+	if (!i2c_transfer_active || activity != last_activity)
+	{
+		last_activity = activity;
+		stalled_us = 0;
+		return;
+	}
+
+	if (stalled_us < I2C_STALL_TIMEOUT_US)
+	{
+		stalled_us += elapsed_us;
+		return;
+	}
+
+	// Master vanished in the middle of a transfer. Release the bus.
+	ATOMIC_BLOCK(ATOMIC_RESTORESTATE)
+	{
+		// Re-check, the transfer might have finished in the meantime
+		if (i2c_transfer_active && activity == i2c_activity)
+		{
+			i2c_hw_restart();
+		}
+	}
+	stalled_us = 0;
+}

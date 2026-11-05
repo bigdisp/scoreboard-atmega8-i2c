@@ -5,9 +5,6 @@
  *
  *  Created on: 26.10.2013
  *  Author: Martin Beckmann
- *
- *  TODO:
- *  - Read after Write fails for TWI
  */
 
 #include <avr/io.h>
@@ -15,109 +12,125 @@
 #include <inttypes.h>
 #include <util/twi.h>
 #include "i2c.h"
-#include "pwm.h"
+#include "i2c_private.h"
 
-// I2C Interrupt
-extern uint8_t i2c_tx_buf[];
-extern uint8_t i2c_rx_buf[];
-extern uint8_t i2c_msg_size;
-extern uint8_t i2c_status;
-extern u_i2c_status i2c_status_register;
-
+/**
+ * TWI slave state machine.
+ *
+ * The slave always re-arms itself (TWEA set) at the end of a transaction,
+ * so it never depends on the main loop to answer the next one. Received
+ * writes are committed to the receive queue on STOP / repeated START.
+ */
 ISR(TWI_vect)
 {
-	static uint8_t i2c_tx_buf_ptr;
-	static uint8_t i2c_rx_buf_ptr;
+	// Transfer state, only used inside the ISR
+	static uint8_t tx_buf[I2C_BUFFER_SIZE];
+	static uint8_t tx_len;
+	static uint8_t tx_ptr;
+	static uint8_t rx_ptr;
+	static uint8_t rx_discard;
 
-	switch(TWSR)
+	uint8_t twcr = I2C_TWCR_ACK;
+	volatile i2c_message_t * slot = &i2c_rx_queue[i2c_rx_head & (I2C_RX_QUEUE_SIZE - 1)];
+
+	++i2c_activity;
+
+	// Mask out the prescaler bits
+	switch (TW_STATUS)
 	{
-	// Slave Transmit Mode
-	case TW_ST_SLA_ACK: 	//Transmit initialized + First byte
-		i2c_tx_buf_ptr = 0;
-		//no break;
-	case TW_ST_DATA_ACK:	//Master demands more data (ACK'ed)
-		//TODO: Muss hier die Reihenfolge gedreht werden?
-		TWDR = i2c_tx_buf[i2c_tx_buf_ptr++];
-		if (i2c_tx_buf_ptr >= i2c_msg_size - 1)
+	// --- Slave receive mode -------------------------------------------
+	case TW_SR_SLA_ACK:            // Own SLA+W received, ACK returned
+	case TW_SR_GCALL_ACK:          // General call received, ACK returned
+	case TW_SR_ARB_LOST_SLA_ACK:   // (master mode is not used, handle anyway)
+	case TW_SR_ARB_LOST_GCALL_ACK:
+		i2c_transfer_active = 1;
+		rx_ptr = 0;
+		// If the queue is full, refuse the data so the master sees an error
+		// instead of silently losing the command.
+		rx_discard = ((uint8_t)(i2c_rx_head - i2c_rx_tail) >= I2C_RX_QUEUE_SIZE);
+		if (rx_discard)
 		{
-			// Do not set TWEA because we cannot send any more data than one more byte
-			TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT);
-		}
-		else
-		{
-			//Active mode:
-			TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT) | (1 << TWEA);
+			twcr = I2C_TWCR_NACK;
 		}
 		break;
 
-	case TW_ST_DATA_NACK:	//Master answered with NACK on last transmit
-		if(i2c_tx_buf_ptr == i2c_msg_size)
+	case TW_SR_DATA_ACK:           // Data received, ACK returned
+	case TW_SR_GCALL_DATA_ACK:
+		if (rx_ptr < I2C_BUFFER_SIZE)
 		{
-			i2c_status_register.last_txrx_ok = 1;
-			i2c_msg_size = 0;
+			slot->data[rx_ptr++] = TWDR;
 		}
-		else
+		if (rx_ptr >= I2C_BUFFER_SIZE)
 		{
-			i2c_status = TWSR;
-		}
-
-		TWCR = (1 << TWEN) | (1 << TWINT); //Switch to passive mode
-		break;
-
-	// Slave Receive Mode
-	case TW_SR_GCALL_ACK: //General Call
-		i2c_status_register.gen_call_rx = 1;
-		//no break;
-	case TW_SR_SLA_ACK: //Start Condition
-		i2c_status_register.rx_data_in_buf = 1;
-		i2c_rx_buf_ptr = 0;
-		//Active Mode, Acknowledge the next received byte
-		TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT) | (1 << TWEA);
-		break;
-
-	case TW_SR_DATA_ACK: 		//Data Received, ACK'ed
-	case TW_SR_GCALL_DATA_ACK: 	//Same for general call
-		i2c_rx_buf[i2c_rx_buf_ptr++] = TWDR;
-		i2c_status_register.last_txrx_ok = 1;
-		if(i2c_rx_buf_ptr >= I2C_BUFFER_SIZE - 1)
-		{
-			//Do not set TWEA because we cannot receive any more data than one more byte
-			TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT);
-		}
-		else
-		{
-			//Active Mode, Acknowledge the next received byte
-			TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT) | (1 << TWEA);
+			// Buffer is full, NACK the next byte
+			twcr = I2C_TWCR_NACK;
 		}
 		break;
 
-	// Stop / Repeated Start:
-	case TW_SR_STOP:
-		if (i2c_status_register.rx_data_in_buf == 1 && i2c_rx_buf[0] == 0x10 && i2c_msg_size > 0)
-		{
-			// We have received something and are ready to transmit something
-			// Maybe this doesn't make sense because we didn't react
-			// on the address received, but keep active
-			TWCR = (1 << TWEN) | (1 << TWIE) | (1 << TWINT) | (1 << TWEA);
-		}
-		else
-		{
-			TWCR = (1 << TWEN) | (1 << TWINT); // Switch to passive mode
-		}
-		break;
-
-	// All conditions that disable rx/tx:
-	case TW_SR_DATA_NACK:
+	case TW_SR_DATA_NACK:          // Data received, NACK returned (buffer full or discarding)
 	case TW_SR_GCALL_DATA_NACK:
-		i2c_rx_buf[i2c_rx_buf_ptr++] = TWDR;
+		// The slave is no longer addressed now, there won't be a STOP
+		// interrupt. Commit what has been received so far.
+		// no break
+	case TW_SR_STOP:               // STOP or repeated START received
+		if (i2c_transfer_active && !rx_discard && rx_ptr > 0)
+		{
+			slot->len = rx_ptr;
+			++i2c_rx_head;
+		}
+		rx_ptr = 0;
+		rx_discard = 0;
+		i2c_transfer_active = 0;
+		break;
 
-		//no break
-	case TW_ST_LAST_DATA:
-	case TW_BUS_ERROR:
+	// --- Slave transmit mode ------------------------------------------
+	case TW_ST_SLA_ACK:            // Own SLA+R received, ACK returned
+	case TW_ST_ARB_LOST_SLA_ACK:
+		i2c_transfer_active = 1;
+		// Latch the data so that it cannot change during the transfer
+		tx_len = i2c_tx_next_len;
+		for (uint8_t i = 0; i < tx_len; i++)
+		{
+			tx_buf[i] = i2c_tx_next[i];
+		}
+		tx_ptr = 0;
+		// no break
+	case TW_ST_DATA_ACK:           // Data transmitted, ACK received
+		if (tx_ptr < tx_len)
+		{
+			TWDR = tx_buf[tx_ptr++];
+		}
+		else
+		{
+			TWDR = 0xFF;
+		}
+		if (tx_ptr >= tx_len)
+		{
+			// This is the last byte we have
+			twcr = I2C_TWCR_NACK;
+		}
+		break;
+
+	case TW_ST_DATA_NACK:          // Data transmitted, NACK received (master is done)
+	case TW_ST_LAST_DATA:          // Last byte transmitted, ACK received (master wanted more)
+		i2c_transfer_active = 0;
+		break;
+
+	// --- Errors -------------------------------------------------------
+	case TW_BUS_ERROR:             // Illegal START/STOP
+		// Recover according to the datasheet: set TWSTO and clear TWINT.
+		// No STOP is actually sent, the hardware just releases the bus.
+		rx_ptr = 0;
+		rx_discard = 0;
+		i2c_transfer_active = 0;
+		twcr = I2C_TWCR_ACK | (1 << TWSTO);
+		break;
+
 	default:
-		i2c_status = TWSR;
-		TWCR = (1 << TWEN) | (1 << TWINT); // Switch to passive mode
+		// Unexpected state, return to the not addressed slave mode
+		i2c_transfer_active = 0;
 		break;
 	}
-}
 
+	TWCR = twcr;
+}
