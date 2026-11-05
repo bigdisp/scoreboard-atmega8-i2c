@@ -261,7 +261,11 @@ int main()
 			// which disables the watchdog and waits for the flasher.
 			// Without a bootloader the application simply restarts
 			// (the watchdog is disabled again in wdt_off()).
+			// Switch off the TWI first: with interrupts disabled an armed
+			// TWI would clock-stretch any master addressing us until the
+			// reset. Disabled, it simply NACKs until the bootloader is up.
 			cli();
+			TWCR = 0;
 			wdt_enable(WDTO_15MS);
 			for(;;)
 			{
